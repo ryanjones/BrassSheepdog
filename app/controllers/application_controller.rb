@@ -4,6 +4,9 @@
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
+  
+  # Be sure to include AuthenticationSystem in Application Controller instead
+  include AuthenticatedSystem
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
