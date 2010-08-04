@@ -1,0 +1,21 @@
+<div id="header" class="round span-24 last">
+  <div class="span-18">
+  	<%= link_to logo, root_path %>
+  </div>
+  <div class="span-6 last">
+	  <ul class="navigation round">
+	    <li><%= link_to "Home", root_path %></li>
+	    <% if false #signed_in?%>
+		<li><%= link_to "Users", users_path%></li>
+	    <li><%= link_to "Profile", current_user %></li>
+		<li><%= link_to "Settings", edit_user_path(current_user)%></li>
+	    <% end %>
+	    <li><%= link_to "Help", help_path %></li>
+	    <% if false #signed_in? %>
+	    <li><%= link_to "Sign out", signout_path, :method => :delete %></li>
+	    <% else %>
+	    <li><%= link_to "Sign in", "#" %></li>
+	    <% end %>
+	  </ul>
+  </div>
+</div>

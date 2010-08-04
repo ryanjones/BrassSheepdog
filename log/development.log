@@ -1,0 +1,507 @@
+
+
+Processing PagesController#Home (for 127.0.0.1 at 2010-08-03 17:34:56) [GET]
+
+ActionController::UnknownAction (No action responded to Home. Actions: about, contact, help, and home):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-03 17:35:06) [GET]
+Rendering template within layouts/application
+Rendering pages/home
+Completed in 17ms (View: 15, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing PagesController#contact (for 127.0.0.1 at 2010-08-03 17:35:37) [GET]
+Rendering template within layouts/application
+Rendering pages/contact
+Completed in 9ms (View: 7, DB: 0) | 200 OK [http://localhost/contact]
+
+
+Processing PagesController#contact (for 127.0.0.1 at 2010-08-03 17:44:19) [GET]
+Rendering template within layouts/application
+Rendering pages/contact
+Rendered layouts/_stylesheets (1.4ms)
+
+ActionView::TemplateError (undefined method `signed_in?' for #<ActionView::Base:0x2481eec>) on line #5 of app/views/layouts/_header.html.erb:
+2:   <%= link_to logo, root_path %>
+3:   <ul class="navigation round">
+4:     <li><%= link_to "Home", root_path %></li>
+5:     <% if signed_in? %>
+6: 	<li><%= link_to "Users", users_path%></li>
+7:     <li><%= link_to "Profile", current_user %></li>
+8: 	<li><%= link_to "Settings", edit_user_path(current_user)%></li>
+
+    app/views/layouts/_header.html.erb:5
+    app/views/layouts/application.html.erb:11
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (59.0ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-03 17:44:25) [GET]
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.6ms)
+
+ActionView::TemplateError (undefined method `signed_in?' for #<ActionView::Base:0x25420d4>) on line #5 of app/views/layouts/_header.html.erb:
+2:   <%= link_to logo, root_path %>
+3:   <ul class="navigation round">
+4:     <li><%= link_to "Home", root_path %></li>
+5:     <% if signed_in? %>
+6: 	<li><%= link_to "Users", users_path%></li>
+7:     <li><%= link_to "Profile", current_user %></li>
+8: 	<li><%= link_to "Settings", edit_user_path(current_user)%></li>
+
+    app/views/layouts/_header.html.erb:5
+    app/views/layouts/application.html.erb:11
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (58.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-03 17:45:04) [GET]
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.7ms)
+
+ActionView::TemplateError (undefined local variable or method `signin_path' for #<ActionView::Base:0x23d02dc>) on line #14 of app/views/layouts/_header.html.erb:
+11:     <% if false #signed_in? %>
+12:     <li><%= link_to "Sign out", signout_path, :method => :delete %></li>
+13:     <% else %>
+14:     <li><%= link_to "Sign in", signin_path %></li>
+15:     <% end %>
+16:   </ul>
+17: </div>
+
+    app/views/layouts/_header.html.erb:14
+    app/views/layouts/application.html.erb:11
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (51.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-03 17:45:24) [GET]
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.6ms)
+Rendered layouts/_header (1.9ms)
+Rendered layouts/_footer (0.9ms)
+Completed in 19ms (View: 16, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 17:45:25) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/custom.css" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-03 17:45:25) [GET]
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.7ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 9ms (View: 7, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 17:45:25) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/custom.css" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 17:45:25) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#about (for 127.0.0.1 at 2010-08-03 17:45:58) [GET]
+Rendering template within layouts/application
+Rendering pages/about
+Rendered layouts/_stylesheets (0.6ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 12ms (View: 10, DB: 0) | 200 OK [http://localhost/about]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 17:45:58) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/custom.css" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 17:45:58) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#contact (for 127.0.0.1 at 2010-08-03 17:45:59) [GET]
+Rendering template within layouts/application
+Rendering pages/contact
+Rendered layouts/_stylesheets (0.6ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://localhost/contact]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 17:45:59) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/custom.css" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 17:46:00) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#about (for 127.0.0.1 at 2010-08-03 17:46:01) [GET]
+Rendering template within layouts/application
+Rendering pages/about
+Rendered layouts/_stylesheets (0.7ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 10ms (View: 8, DB: 0) | 200 OK [http://localhost/about]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 17:46:01) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/custom.css" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 17:46:01) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-03 17:46:02) [GET]
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.6ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 17:46:02) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/custom.css" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 17:46:02) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#help (for 127.0.0.1 at 2010-08-03 17:46:03) [GET]
+Rendering template within layouts/application
+Rendering pages/help
+Rendered layouts/_stylesheets (0.6ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 12ms (View: 10, DB: 0) | 200 OK [http://localhost/help]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 17:46:03) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/custom.css" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 17:46:04) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-03 17:46:04) [GET]
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.6ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 17:46:04) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/custom.css" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 17:46:05) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-03 17:49:24) [GET]
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.6ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 17:49:24) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/custom.css" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 17:49:24) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-03 17:56:01) [GET]
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.7ms)
+Rendered layouts/_header (1.9ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 12ms (View: 11, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 17:56:01) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/custom.css" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 17:56:01) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-03 17:56:03) [GET]
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.6ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 17:56:03) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/custom.css" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 17:56:03) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-03 17:58:28) [GET]
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.6ms)
+Rendered layouts/_header (1.9ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 13ms (View: 11, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 17:58:28) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/custom.css" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 17:58:28) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-03 17:58:39) [GET]
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.6ms)
+Rendered layouts/_header (1.8ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 13ms (View: 12, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 17:58:39) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/custom.css" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 17:58:39) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-03 17:58:48) [GET]
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.6ms)
+Rendered layouts/_header (2.0ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 13ms (View: 12, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 17:58:48) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/custom.css" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 17:58:48) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-03 18:00:34) [GET]
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.6ms)
+Rendered layouts/_header (1.9ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 14ms (View: 12, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 18:00:34) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/custom.css" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 18:00:34) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-03 18:02:23) [GET]
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.6ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 18:02:23) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
