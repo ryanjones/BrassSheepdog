@@ -4,7 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
 
   map.resources :users
-
+  map.resource :sms_message, :only => [:new, :create]
   map.resource :session
 
   map.contact '/contact', :controller => 'pages', :action => 'contact'

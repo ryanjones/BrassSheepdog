@@ -18,12 +18,14 @@ class User < ActiveRecord::Base
   validates_uniqueness_of   :email
   validates_format_of       :email,    :with => Authentication.email_regex, :message => Authentication.bad_email_message
 
-  
+  validates_presence_of     :phone_number
+  validates_numericality_of :phone_number, :integer_only => true
+  validates_length_of       :phone_number, :is => 10
 
   # HACK HACK HACK -- how to do attr_accessible from here?
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
-  attr_accessible :login, :email, :name, :password, :password_confirmation
+  attr_accessible :login, :email, :name, :password, :password_confirmation, :phone_number
 
 
 
@@ -45,6 +47,10 @@ class User < ActiveRecord::Base
 
   def email=(value)
     write_attribute :email, (value ? value.downcase : nil)
+  end
+  
+  def prepare_params
+    self.phone_number = self.phone_number.gsub(/[^\d]/, '')
   end
 
   

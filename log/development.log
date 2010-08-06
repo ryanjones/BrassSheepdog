@@ -709,3 +709,1006 @@ ActionController::RoutingError (No route matches "/images/logo.png" with {:metho
   -e:2
 
 Rendering rescues/layout (not_found)
+
+
+Processing SmsMessagesController#new (for 127.0.0.1 at 2010-08-05 16:53:03) [GET]
+
+NameError (undefined local variable or method `validatable' for SMSMessage:Class):
+  app/models/sms_message.rb:2
+  app/controllers/sms_messages_controller.rb:3:in `new'
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (48.0ms)
+Rendered rescues/_request_and_response (1.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SmsMessagesController#new (for 127.0.0.1 at 2010-08-05 16:53:19) [GET]
+
+NameError (uninitialized constant SMSMessage::Validatable):
+  app/models/sms_message.rb:2
+  app/controllers/sms_messages_controller.rb:3:in `new'
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (48.8ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SmsMessagesController#new (for 127.0.0.1 at 2010-08-05 16:54:12) [GET]
+
+NameError (uninitialized constant SMSMessage::Validatable):
+  app/models/sms_message.rb:2
+  app/controllers/sms_messages_controller.rb:3:in `new'
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (48.5ms)
+Rendered rescues/_request_and_response (1.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SmsMessagesController#new (for 127.0.0.1 at 2010-08-05 16:58:46) [GET]
+
+NameError (uninitialized constant SMSMessage::Validatable):
+  app/models/sms_message.rb:2
+  app/controllers/sms_messages_controller.rb:3:in `new'
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (42.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SmsMessagesController#new (for 127.0.0.1 at 2010-08-05 16:58:51) [GET]
+
+NameError (uninitialized constant SMSMessage::Validatable):
+  app/models/sms_message.rb:2
+  app/controllers/sms_messages_controller.rb:3:in `new'
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (42.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SmsMessagesController#new (for 127.0.0.1 at 2010-08-05 16:59:01) [GET]
+
+ArgumentError (invalid options: integer_only):
+  validatable (1.6.7) lib/understandable.rb:27:in `must_understand'
+  validatable (1.6.7) lib/validations/validation_base.rb:49:in `initialize'
+  validatable (1.6.7) lib/validatable_class_methods.rb:64:in `new'
+  validatable (1.6.7) lib/validatable_class_methods.rb:64:in `add_validations'
+  validatable (1.6.7) lib/validatable_class_methods.rb:63:in `each'
+  validatable (1.6.7) lib/validatable_class_methods.rb:63:in `add_validations'
+  validatable (1.6.7) lib/macros.rb:97:in `validates_numericality_of'
+  app/models/sms_message.rb:6
+  app/controllers/sms_messages_controller.rb:3:in `new'
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (55.8ms)
+Rendered rescues/_request_and_response (68.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-05 16:59:02) [GET]
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (1.9ms)
+Rendered layouts/_header (2.9ms)
+Rendered layouts/_footer (16.0ms)
+Completed in 178ms (View: 176, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 16:59:07) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing SmsMessagesController#new (for 127.0.0.1 at 2010-08-05 17:00:59) [GET]
+
+LoadError (Expected /Users/Ben/Documents/Code/RadRails/BrassSheepdog/app/models/sms_message.rb to define SmsMessage):
+  app/controllers/sms_messages_controller.rb:3:in `new'
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (52.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SmsMessagesController#new (for 127.0.0.1 at 2010-08-05 17:01:24) [GET]
+Rendering template within layouts/application
+Rendering sms_messages/new
+
+ActionView::TemplateError (undefined method `textarea' for #<ActionView::Helpers::FormBuilder:0x22b42b8>) on line #11 of app/views/sms_messages/new.html.erb:
+8:   </div>
+9:   <div class="field">
+10:     <%= f.label :content %><br />
+11:     <%= f.textarea :content %>
+12:   </div>
+13:   <div class="actions">
+14:     <%= f.submit "Send" %>
+
+    app/views/sms_messages/new.html.erb:11
+    app/views/sms_messages/new.html.erb:3
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (53.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SmsMessagesController#new (for 127.0.0.1 at 2010-08-05 17:01:56) [GET]
+Rendering template within layouts/application
+Rendering sms_messages/new
+Rendered layouts/_stylesheets (0.7ms)
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_header (61.1ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 139ms (View: 134, DB: 1) | 200 OK [http://localhost/sms_message/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 17:01:56) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 17:02:03) [PUT]
+  Parameters: {"sms_message"=>{"phone_number"=>"", "content"=>""}, "commit"=>"Send", "authenticity_token"=>"EiDQnG/8h3osTIBk7AhBWAtRA0HLrs+Gf9Yq7VifO3U="}
+
+ActionController::MethodNotAllowed (Only post requests are allowed.):
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (103.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (method_not_allowed)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 17:02:52) [GET]
+
+ActionController::MethodNotAllowed (Only post requests are allowed.):
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (27.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (method_not_allowed)
+
+
+Processing SmsMessagesController#new (for 127.0.0.1 at 2010-08-05 17:02:55) [GET]
+Rendering template within layouts/application
+Rendering sms_messages/new
+Rendered layouts/_stylesheets (0.7ms)
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_header (12.3ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 30ms (View: 24, DB: 0) | 200 OK [http://localhost/sms_message/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 17:02:56) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 17:02:58) [PUT]
+  Parameters: {"sms_message"=>{"phone_number"=>"", "content"=>""}, "commit"=>"Send", "authenticity_token"=>"EiDQnG/8h3osTIBk7AhBWAtRA0HLrs+Gf9Yq7VifO3U="}
+
+ActionController::MethodNotAllowed (Only post requests are allowed.):
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (27.1ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (method_not_allowed)
+
+
+Processing SmsMessagesController#new (for 127.0.0.1 at 2010-08-05 17:11:36) [GET]
+Rendering template within layouts/application
+Rendering sms_messages/new
+
+ActionView::TemplateError (undefined method `sms_messages_path' for #<ActionView::Base:0x2544320>) on line #3 of app/views/sms_messages/new.html.erb:
+1: <h1>Send a text message!</h1>
+2: 
+3: <% form_for @sms_message do |f|-%>
+4: 	<%= f.error_messages %>
+5:   <div class="field">
+6:     <%= f.label :phone_number %><br />
+
+    app/views/sms_messages/new.html.erb:3
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (46.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SmsMessagesController#new (for 127.0.0.1 at 2010-08-05 17:12:02) [GET]
+Rendering template within layouts/application
+Rendering sms_messages/new
+Rendered layouts/_stylesheets (1.4ms)
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_header (19.7ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 49ms (View: 39, DB: 0) | 200 OK [http://localhost/sms_message/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 17:12:02) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing SmsMessagesController#new (for 127.0.0.1 at 2010-08-05 17:12:07) [GET]
+Rendering template within layouts/application
+Rendering sms_messages/new
+
+ActionView::TemplateError (undefined method `sms_messages_path' for #<ActionView::Base:0x22742a8>) on line #3 of app/views/sms_messages/new.html.erb:
+1: <h1>Send a text message!</h1>
+2: 
+3: <% form_for @sms_message do |f|-%>
+4: 	<%= f.error_messages %>
+5:   <div class="field">
+6:     <%= f.label :phone_number %><br />
+
+    app/views/sms_messages/new.html.erb:3
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (53.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SmsMessagesController#new (for 127.0.0.1 at 2010-08-05 17:15:13) [GET]
+Rendering template within layouts/application
+Rendering sms_messages/new
+Rendered layouts/_stylesheets (0.7ms)
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_header (12.5ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 32ms (View: 27, DB: 0) | 200 OK [http://localhost/sms_message/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 17:15:13) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing SmsMessagesController#create (for 127.0.0.1 at 2010-08-05 17:15:15) [POST]
+  Parameters: {"sms_message"=>{"phone_number"=>"", "content"=>""}, "commit"=>"Send", "authenticity_token"=>"EiDQnG/8h3osTIBk7AhBWAtRA0HLrs+Gf9Yq7VifO3U="}
+Rendering template within layouts/application
+Rendering sms_messages/create
+Rendered layouts/_stylesheets (0.7ms)
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_header (12.5ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 24ms (View: 22, DB: 0) | 200 OK [http://localhost/sms_message]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 17:15:16) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing SmsMessagesController#new (for 127.0.0.1 at 2010-08-05 17:40:25) [GET]
+
+ArgumentError (wrong number of arguments (0 for 1)):
+  app/controllers/sms_messages_controller.rb:3:in `initialize'
+  app/controllers/sms_messages_controller.rb:3:in `new'
+  app/controllers/sms_messages_controller.rb:3:in `new'
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (40.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SmsMessagesController#new (for 127.0.0.1 at 2010-08-05 17:41:51) [GET]
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]):
+  app/models/sms_message.rb:14:in `initialize'
+  app/controllers/sms_messages_controller.rb:3:in `new'
+  app/controllers/sms_messages_controller.rb:3:in `new'
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (149.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SmsMessagesController#new (for 127.0.0.1 at 2010-08-05 17:43:25) [GET]
+Rendering template within layouts/application
+Rendering sms_messages/new
+
+ActionView::TemplateError (wrong number of arguments (1 for 0)) on line #7 of app/views/sms_messages/new.html.erb:
+4: 	<%= f.error_messages %>
+5:   <div class="field">
+6:     <%= f.label :phone_number %><br />
+7:     <%= f.text_field :phone_number %>
+8:   </div>
+9:   <div class="field">
+10:     <%= f.label :content %><br />
+
+    app/views/sms_messages/new.html.erb:7
+    app/views/sms_messages/new.html.erb:3
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (62.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SmsMessagesController#new (for 127.0.0.1 at 2010-08-05 17:44:14) [GET]
+Rendering template within layouts/application
+Rendering sms_messages/new
+
+ActionView::TemplateError (wrong number of arguments (1 for 0)) on line #7 of app/views/sms_messages/new.html.erb:
+4: 	<%= f.error_messages %>
+5:   <div class="field">
+6:     <%= f.label :phone_number %><br />
+7:     <%= f.text_field :phone_number %>
+8:   </div>
+9:   <div class="field">
+10:     <%= f.label :content %><br />
+
+    app/views/sms_messages/new.html.erb:7
+    app/views/sms_messages/new.html.erb:3
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (142.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SmsMessagesController#new (for 127.0.0.1 at 2010-08-05 17:44:16) [GET]
+Rendering template within layouts/application
+Rendering sms_messages/new
+
+ActionView::TemplateError (wrong number of arguments (1 for 0)) on line #7 of app/views/sms_messages/new.html.erb:
+4: 	<%= f.error_messages %>
+5:   <div class="field">
+6:     <%= f.label :phone_number %><br />
+7:     <%= f.text_field :phone_number %>
+8:   </div>
+9:   <div class="field">
+10:     <%= f.label :content %><br />
+
+    app/views/sms_messages/new.html.erb:7
+    app/views/sms_messages/new.html.erb:3
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (49.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SmsMessagesController#new (for 127.0.0.1 at 2010-08-05 17:44:25) [GET]
+Rendering template within layouts/application
+Rendering sms_messages/new
+
+ActionView::TemplateError (wrong number of arguments (1 for 0)) on line #7 of app/views/sms_messages/new.html.erb:
+4: 	<%= f.error_messages %>
+5:   <div class="field">
+6:     <%= f.label :phone_number %><br />
+7:     <%= f.text_field :phone_number %>
+8:   </div>
+9:   <div class="field">
+10:     <%= f.label :content %><br />
+
+    app/views/sms_messages/new.html.erb:7
+    app/views/sms_messages/new.html.erb:3
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (130.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SmsMessagesController#new (for 127.0.0.1 at 2010-08-05 17:44:54) [GET]
+Rendering template within layouts/application
+Rendering sms_messages/new
+Rendered layouts/_stylesheets (0.9ms)
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_header (16.9ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 36ms (View: 28, DB: 0) | 200 OK [http://localhost/sms_message/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 17:44:54) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing SmsMessagesController#new (for 127.0.0.1 at 2010-08-05 17:45:21) [GET]
+Rendering template within layouts/application
+Rendering sms_messages/new
+Rendered layouts/_stylesheets (0.7ms)
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_header (16.4ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 38ms (View: 31, DB: 0) | 200 OK [http://localhost/sms_message/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 17:45:21) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing SmsMessagesController#new (for 127.0.0.1 at 2010-08-05 17:45:31) [GET]
+Rendering template within layouts/application
+Rendering sms_messages/new
+Rendered layouts/_stylesheets (0.7ms)
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_header (15.6ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 37ms (View: 30, DB: 1) | 200 OK [http://localhost/sms_message/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 17:45:31) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing SmsMessagesController#new (for 127.0.0.1 at 2010-08-05 17:45:38) [GET]
+Rendering template within layouts/application
+Rendering sms_messages/new
+Rendered layouts/_stylesheets (0.8ms)
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_header (16.9ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 40ms (View: 31, DB: 0) | 200 OK [http://localhost/sms_message/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 17:45:39) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing SmsMessagesController#create (for 127.0.0.1 at 2010-08-05 17:45:40) [POST]
+  Parameters: {"sms_message"=>{"phone_number"=>"", "content"=>""}, "commit"=>"Send", "authenticity_token"=>"EiDQnG/8h3osTIBk7AhBWAtRA0HLrs+Gf9Yq7VifO3U="}
+Rendering template within layouts/application
+Rendering sms_messages/new
+Rendered layouts/_stylesheets (0.7ms)
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_header (14.5ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 36ms (View: 29, DB: 1) | 200 OK [http://localhost/sms_message]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 17:45:41) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing SmsMessagesController#create (for 127.0.0.1 at 2010-08-05 17:45:56) [POST]
+  Parameters: {"sms_message"=>{"phone_number"=>"12345678", "content"=>"Test!"}, "commit"=>"Send", "authenticity_token"=>"EiDQnG/8h3osTIBk7AhBWAtRA0HLrs+Gf9Yq7VifO3U="}
+Rendering template within layouts/application
+Rendering sms_messages/new
+Rendered layouts/_stylesheets (0.7ms)
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_header (12.9ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 30ms (View: 24, DB: 0) | 200 OK [http://localhost/sms_message]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 17:45:56) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing SmsMessagesController#create (for 127.0.0.1 at 2010-08-05 17:47:14) [POST]
+  Parameters: {"sms_message"=>{"phone_number"=>"12345678", "content"=>"Test!"}, "commit"=>"Send", "authenticity_token"=>"EiDQnG/8h3osTIBk7AhBWAtRA0HLrs+Gf9Yq7VifO3U="}
+Rendering template within layouts/application
+Rendering sms_messages/new
+Rendered layouts/_stylesheets (0.7ms)
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_header (15.9ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 36ms (View: 29, DB: 0) | 200 OK [http://localhost/sms_message]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 17:47:14) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing SmsMessagesController#create (for 127.0.0.1 at 2010-08-05 17:47:22) [POST]
+  Parameters: {"sms_message"=>{"phone_number"=>"12345678", "content"=>"Test!"}, "commit"=>"Send", "authenticity_token"=>"EiDQnG/8h3osTIBk7AhBWAtRA0HLrs+Gf9Yq7VifO3U="}
+Rendering template within layouts/application
+Rendering sms_messages/new
+Rendered layouts/_stylesheets (0.7ms)
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_header (14.2ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 34ms (View: 28, DB: 1) | 200 OK [http://localhost/sms_message]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 17:47:23) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing SmsMessagesController#create (for 127.0.0.1 at 2010-08-05 17:47:29) [POST]
+  Parameters: {"sms_message"=>{"phone_number"=>"1234567890", "content"=>"Test!"}, "commit"=>"Send", "authenticity_token"=>"EiDQnG/8h3osTIBk7AhBWAtRA0HLrs+Gf9Yq7VifO3U="}
+Rendering template within layouts/application
+Rendering sms_messages/new
+Rendered layouts/_stylesheets (0.7ms)
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_header (12.5ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 29ms (View: 23, DB: 0) | 200 OK [http://localhost/sms_message]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 17:47:29) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing SmsMessagesController#create (for 127.0.0.1 at 2010-08-05 17:47:33) [POST]
+  Parameters: {"sms_message"=>{"phone_number"=>"1234567890", "content"=>"Test!"}, "commit"=>"Send", "authenticity_token"=>"EiDQnG/8h3osTIBk7AhBWAtRA0HLrs+Gf9Yq7VifO3U="}
+Rendering template within layouts/application
+Rendering sms_messages/new
+Rendered layouts/_stylesheets (0.7ms)
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_header (12.3ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 28ms (View: 23, DB: 0) | 200 OK [http://localhost/sms_message]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 17:47:33) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing SmsMessagesController#create (for 127.0.0.1 at 2010-08-05 17:48:17) [POST]
+  Parameters: {"sms_message"=>{"phone_number"=>"1234567890", "content"=>"Test!"}, "commit"=>"Send", "authenticity_token"=>"EiDQnG/8h3osTIBk7AhBWAtRA0HLrs+Gf9Yq7VifO3U="}
+Rendering template within layouts/application
+Rendering sms_messages/new
+Rendered layouts/_stylesheets (1.0ms)
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_header (14.6ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 35ms (View: 28, DB: 0) | 200 OK [http://localhost/sms_message]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 17:48:18) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing SmsMessagesController#create (for 127.0.0.1 at 2010-08-05 17:48:22) [POST]
+  Parameters: {"sms_message"=>{"phone_number"=>"123456789", "content"=>"Test!"}, "commit"=>"Send", "authenticity_token"=>"EiDQnG/8h3osTIBk7AhBWAtRA0HLrs+Gf9Yq7VifO3U="}
+Rendering template within layouts/application
+Rendering sms_messages/new
+Rendered layouts/_stylesheets (0.7ms)
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_header (15.9ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 39ms (View: 30, DB: 1) | 200 OK [http://localhost/sms_message]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 17:48:22) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing SmsMessagesController#create (for 127.0.0.1 at 2010-08-05 17:48:27) [POST]
+  Parameters: {"sms_message"=>{"phone_number"=>"1234567890", "content"=>"Test!"}, "commit"=>"Send", "authenticity_token"=>"EiDQnG/8h3osTIBk7AhBWAtRA0HLrs+Gf9Yq7VifO3U="}
+Rendering template within layouts/application
+Rendering sms_messages/new
+Rendered layouts/_stylesheets (0.7ms)
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_header (12.6ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 29ms (View: 23, DB: 0) | 200 OK [http://localhost/sms_message]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 17:48:27) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing SmsMessagesController#create (for 127.0.0.1 at 2010-08-05 17:50:15) [POST]
+  Parameters: {"sms_message"=>{"phone_number"=>"123456789(0)", "content"=>"Test!"}, "commit"=>"Send", "authenticity_token"=>"EiDQnG/8h3osTIBk7AhBWAtRA0HLrs+Gf9Yq7VifO3U="}
+Rendering template within layouts/application
+Rendering sms_messages/new
+Rendered layouts/_stylesheets (0.6ms)
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_header (81.1ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 99ms (View: 93, DB: 0) | 200 OK [http://localhost/sms_message]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 17:50:15) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing SmsMessagesController#create (for 127.0.0.1 at 2010-08-05 18:03:13) [POST]
+  Parameters: {"sms_message"=>{"phone_number"=>"1234567890", "content"=>"Test!"}, "commit"=>"Send", "authenticity_token"=>"EiDQnG/8h3osTIBk7AhBWAtRA0HLrs+Gf9Yq7VifO3U="}
+
+NameError (undefined local variable or method `logger' for #<SmsMessage:0x24c5278>):
+  app/models/sms_message.rb:24:in `send_message'
+  app/controllers/sms_messages_controller.rb:8:in `create'
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (35.6ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SmsMessagesController#create (for 127.0.0.1 at 2010-08-05 18:05:42) [POST]
+  Parameters: {"sms_message"=>{"phone_number"=>"1234567890", "content"=>"Test!"}, "commit"=>"Send", "authenticity_token"=>"EiDQnG/8h3osTIBk7AhBWAtRA0HLrs+Gf9Yq7VifO3U="}
+
+NameError (undefined local variable or method `logger' for #<SmsMessage:0x2360d74>):
+  app/models/sms_message.rb:24:in `send_message'
+  app/controllers/sms_messages_controller.rb:8:in `create'
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (41.4ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SmsMessagesController#new (for 127.0.0.1 at 2010-08-05 18:06:38) [GET]
+hello
+Rendering template within layouts/application
+Rendering sms_messages/new
+Rendered layouts/_stylesheets (0.7ms)
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_header (15.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 35ms (View: 29, DB: 0) | 200 OK [http://localhost/sms_message/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 18:06:39) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing SmsMessagesController#new (for 127.0.0.1 at 2010-08-05 18:07:15) [GET]
+hello
+Rendering template within layouts/application
+Rendering sms_messages/new
+Rendered layouts/_stylesheets (1.8ms)
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_header (15.0ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 35ms (View: 27, DB: 0) | 200 OK [http://localhost/sms_message/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 18:07:15) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing SmsMessagesController#new (for 127.0.0.1 at 2010-08-05 18:07:32) [GET]
+hello
+Rendering template within layouts/application
+Rendering sms_messages/new
+Rendered layouts/_stylesheets (0.7ms)
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_header (12.6ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 29ms (View: 23, DB: 0) | 200 OK [http://localhost/sms_message/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 18:07:32) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing SmsMessagesController#create (for 127.0.0.1 at 2010-08-05 18:07:36) [POST]
+  Parameters: {"sms_message"=>{"phone_number"=>"", "content"=>""}, "commit"=>"Send", "authenticity_token"=>"EiDQnG/8h3osTIBk7AhBWAtRA0HLrs+Gf9Yq7VifO3U="}
+Rendering template within layouts/application
+Rendering sms_messages/new
+Rendered layouts/_stylesheets (0.7ms)
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_header (13.1ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 31ms (View: 25, DB: 0) | 200 OK [http://localhost/sms_message]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 18:07:36) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing SmsMessagesController#create (for 127.0.0.1 at 2010-08-05 18:07:55) [POST]
+  Parameters: {"sms_message"=>{"phone_number"=>"", "content"=>""}, "commit"=>"Send", "authenticity_token"=>"EiDQnG/8h3osTIBk7AhBWAtRA0HLrs+Gf9Yq7VifO3U="}
+Rendering template within layouts/application
+Rendering sms_messages/new
+Rendered layouts/_stylesheets (0.9ms)
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_header (12.8ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 38ms (View: 30, DB: 0) | 200 OK [http://localhost/sms_message]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 18:07:56) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing SmsMessagesController#new (for 127.0.0.1 at 2010-08-05 18:08:32) [GET]
+hello
+Rendering template within layouts/application
+Rendering sms_messages/new
+Rendered layouts/_stylesheets (0.7ms)
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_header (12.9ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 29ms (View: 23, DB: 0) | 200 OK [http://localhost/sms_message/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 18:08:32) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing SmsMessagesController#new (for 127.0.0.1 at 2010-08-05 18:09:37) [GET]
+
+SyntaxError (/Users/Ben/Documents/Code/RadRails/BrassSheepdog/app/models/sms_message.rb:1: syntax error, unexpected tLSHFT, expecting '<' or '\n' or ';'
+class SmsMessage << Object
+                   ^):
+  app/controllers/sms_messages_controller.rb:3:in `new'
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (47.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SmsMessagesController#new (for 127.0.0.1 at 2010-08-05 18:09:47) [GET]
+Rendering template within layouts/application
+Rendering sms_messages/new
+Rendered layouts/_stylesheets (0.7ms)
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_header (13.1ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 30ms (View: 24, DB: 0) | 200 OK [http://localhost/sms_message/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 18:09:47) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing SmsMessagesController#create (for 127.0.0.1 at 2010-08-05 18:09:57) [POST]
+  Parameters: {"sms_message"=>{"phone_number"=>"1234567890", "content"=>"Test!"}, "commit"=>"Send", "authenticity_token"=>"EiDQnG/8h3osTIBk7AhBWAtRA0HLrs+Gf9Yq7VifO3U="}
+
+NameError (undefined local variable or method `logger' for #<SmsMessage:0x2299f08>):
+  app/models/sms_message.rb:24:in `send_message'
+  app/controllers/sms_messages_controller.rb:8:in `create'
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (109.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SmsMessagesController#create (for 127.0.0.1 at 2010-08-05 18:10:50) [POST]
+  Parameters: {"sms_message"=>{"phone_number"=>"1234567890", "content"=>"Test!"}, "commit"=>"Send", "authenticity_token"=>"EiDQnG/8h3osTIBk7AhBWAtRA0HLrs+Gf9Yq7VifO3U="}
+hello
+Rendering template within layouts/application
+Rendering sms_messages/new
+Rendered layouts/_stylesheets (0.7ms)
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_header (48.9ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 99ms (View: 86, DB: 1) | 200 OK [http://localhost/sms_message]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 18:10:51) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing SmsMessagesController#create (for 127.0.0.1 at 2010-08-05 18:11:53) [POST]
+  Parameters: {"sms_message"=>{"phone_number"=>"1234567890", "content"=>"Test!"}, "commit"=>"Send", "authenticity_token"=>"EiDQnG/8h3osTIBk7AhBWAtRA0HLrs+Gf9Yq7VifO3U="}
+message_bodyTest!cellphone1234567890
+Rendering template within layouts/application
+Rendering sms_messages/new
+Rendered layouts/_stylesheets (0.7ms)
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_header (22.2ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 50ms (View: 39, DB: 1) | 200 OK [http://localhost/sms_message]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 18:11:54) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing SmsMessagesController#create (for 127.0.0.1 at 2010-08-05 18:14:10) [POST]
+  Parameters: {"sms_message"=>{"phone_number"=>"7807102820", "content"=>"This is a test message!"}, "commit"=>"Send", "authenticity_token"=>"EiDQnG/8h3osTIBk7AhBWAtRA0HLrs+Gf9Yq7VifO3U="}
+#<Net::HTTPNotFound:0x227525c>
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /garb/pybin.py/in was not found on this server.</p>
+</body></html>
+Rendering template within layouts/application
+Rendering sms_messages/new
+Rendered layouts/_stylesheets (0.6ms)
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_header (82.0ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 237ms (View: 93, DB: 0) | 200 OK [http://localhost/sms_message]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 18:14:10) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+
+
+Processing SmsMessagesController#create (for 127.0.0.1 at 2010-08-05 18:20:06) [POST]
+  Parameters: {"sms_message"=>{"phone_number"=>"7807102820", "content"=>"This is a test message!"}, "commit"=>"Send", "authenticity_token"=>"EiDQnG/8h3osTIBk7AhBWAtRA0HLrs+Gf9Yq7VifO3U="}
+http://207.176.140.81:8088/garb/pybin.py/in
+#<Net::HTTPNotFound:0x24b2bdc>
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /garb/pybin.py/in was not found on this server.</p>
+</body></html>
+Rendering template within layouts/application
+Rendering sms_messages/new
+Rendered layouts/_stylesheets (4.0ms)
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_header (15.3ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 177ms (View: 42, DB: 1) | 200 OK [http://localhost/sms_message]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 18:20:07) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
