@@ -26,7 +26,7 @@ class SmsMessage < Object
     resp, data = Net::HTTP.post_form(url, post_args1)
     Rails.logger.debug(resp) if Rails.env.development?
     Rails.logger.debug(data) if Rails.env.development?
-    if resp == Net::HTTPSuccess 
+    if resp.kind_of?(Net::HTTPSuccess) 
       true
     else
       false
