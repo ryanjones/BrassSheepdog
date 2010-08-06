@@ -26,7 +26,11 @@ class SmsMessage < Object
     resp, data = Net::HTTP.post_form(url, post_args1)
     Rails.logger.debug(resp) if Rails.env.development?
     Rails.logger.debug(data) if Rails.env.development?
-    true
+    if resp == Net::HTTPSuccess 
+      true
+    else
+      false
+    end
   end
   
   #This model will always report being a new record
