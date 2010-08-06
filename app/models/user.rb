@@ -56,7 +56,7 @@ class User < ActiveRecord::Base
     write_attribute :email, (value ? value.downcase : nil)
   end
   #########################################################
-  #Subscription funtions
+  #Subscription functions
   def subscribe!(service)
     self.send(service.name.underscore + "_subscriptions").create(:service_id => service.id) 
   end
