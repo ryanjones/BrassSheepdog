@@ -55,6 +55,23 @@ class User < ActiveRecord::Base
   def email=(value)
     write_attribute :email, (value ? value.downcase : nil)
   end
+  #########################################################
+  #Subscription funtions
+  def subscribe!(service)
+    self.send(service.name.underscore + "_subscriptions").create(:service_id => service.id) 
+  end
+  
+  def unsubscribe!(service)
+    self.service_subscriptions.find_by_service_id(service).destroy
+  end
+  
+  def subscribed?(service)
+    !!service_subscriptions.find_by_service_id(service)
+  end
+
+
+  
+  
   
   private
   
