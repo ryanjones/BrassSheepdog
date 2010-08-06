@@ -1,0 +1,3 @@
+class GarbageSubscription < ServiceSubscription
+
+end

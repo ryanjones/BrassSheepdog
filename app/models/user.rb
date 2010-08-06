@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   include Authentication::ByPassword
   include Authentication::ByCookieToken
   
+  has_many  :service_subscriptions
+  
   before_validation :prepare_params
 
   validates_presence_of     :login
