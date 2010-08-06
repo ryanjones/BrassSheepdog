@@ -1,12 +1,14 @@
 <div id="header" class="round span-24 last">
-  <div class="span-18">
+  <div class="span-16">
   	<%= link_to logo, root_path %>
   </div>
-  <div class="span-6 last">
+  <div class="span-8 last">
 	  <ul class="navigation round">
 	    <li><%= link_to "Home", root_path %></li>
 	    <li><%= link_to "Help", help_path %></li>
 	    <% if logged_in? %>
+		<li><%= link_to "Send Message", new_sms_message_path %></li>
+		<li><%= link_to "Settings", edit_user_path(current_user)%></li>
 	    <li><%= link_to "Sign out", logout_path, :method => :delete %></li>
 	    <% else %>
 	    <li><%= link_to "Sign in", login_path %></li>

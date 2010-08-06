@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   include Authentication
   include Authentication::ByPassword
   include Authentication::ByCookieToken
+  
+  before_validation :prepare_params
 
   validates_presence_of     :login
   validates_length_of       :login,    :within => 3..40
@@ -49,9 +51,11 @@ class User < ActiveRecord::Base
     write_attribute :email, (value ? value.downcase : nil)
   end
   
-  def prepare_params
-    self.phone_number = self.phone_number.gsub(/[^\d]/, '')
-  end
+  private
+  
+    def prepare_params
+      self.phone_number = self.phone_number.gsub(/[^\d]/, '')
+    end
 
   
 end

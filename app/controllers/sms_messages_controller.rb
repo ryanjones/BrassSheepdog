@@ -1,4 +1,6 @@
 class SmsMessagesController < ApplicationController
+  before_filter :login_required
+  
   def new
     @sms_message = SmsMessage.new
   end

@@ -11,6 +11,10 @@ module AuthenticatedSystem
     def current_user
       @current_user ||= (login_from_session || login_from_basic_auth || login_from_cookie) unless @current_user == false
     end
+    
+    def current_user?(user)
+      current_user == user
+    end
 
     # Store the given user id in the session.
     def current_user=(new_user)
@@ -65,6 +69,7 @@ module AuthenticatedSystem
       respond_to do |format|
         format.html do
           store_location
+          flash[:notice] = "Please sign in to access this page."
           redirect_to new_session_path
         end
         # format.any doesn't work in rails version < http://dev.rubyonrails.org/changeset/8987

@@ -1,7 +1,23 @@
 class UsersController < ApplicationController
+  before_filter :correct_user, :only => [:edit, :update]
   # render new.rhtml
   def new
+    @title = "Create a new user"
     @user = User.new
+  end
+  
+  def update
+    if @user.update_attributes(params[:user])
+      flash[:success] = "Profile updated."
+      redirect_to root_path
+    else
+      @title = "Edit user"
+      render 'edit'
+    end
+  end
+  
+  def edit
+    @title = "Edit Settings"
   end
  
   def create
@@ -21,4 +37,11 @@ class UsersController < ApplicationController
       render :action => 'new'
     end
   end
+  
+  private
+    
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_path) unless current_user?(@user)
+    end
 end
