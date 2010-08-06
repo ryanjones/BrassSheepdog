@@ -5,7 +5,10 @@ class User < ActiveRecord::Base
   include Authentication::ByPassword
   include Authentication::ByCookieToken
   
-  has_many  :service_subscriptions
+  has_many  :service_subscriptions, :dependent => :destroy
+  has_many  :garbage_subscriptions, :dependent => :destroy
+  
+  has_many  :services, :through => :service_subscriptions
   
   before_validation :prepare_params
 
