@@ -10,11 +10,13 @@ class SmsMessage < Object
   validates_presence_of     :content
   
 
+  #Moodified initialize to provide behavior closer to ActiveRecord::Base
   def initialize(attributes = nil)
     @phone_number = attributes[:phone_number] unless attributes.nil?
     @content = attributes[:content] unless attributes.nil?
   end
   
+  #Sends the text message to our message provider
   def send_message
     require 'net/http'
     url = URI.parse('http://207.176.140.81:8088/garb/pybin.py/in')
@@ -27,6 +29,7 @@ class SmsMessage < Object
     true
   end
   
+  #This model will always report being a new record
   def new_record?
     true
   end
