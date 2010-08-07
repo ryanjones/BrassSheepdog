@@ -1,11 +1,11 @@
 <h1>Log In</h1>
 
 <% form_tag session_path do -%>
-<p><%= label_tag 'login' %><br />
-<%= text_field_tag 'login', @login %></p>
+<p>
+<%= text_field_tag 'login', @login , default_text("Login")%></p>
 
-<p><%= label_tag 'password' %><br/>
-<%= password_field_tag 'password', nil %></p>
+<p>
+<%= password_field_tag 'password', nil, default_text("Password") %></p>
 
 <!-- Uncomment this if you want this functionality
 <p><%= label_tag 'remember_me', 'Remember me' %>

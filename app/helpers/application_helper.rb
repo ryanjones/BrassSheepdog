@@ -14,4 +14,10 @@ module ApplicationHelper
   def logo
     image_tag "logo.png", :alt => "Alertzy", :class => "round"
   end
+  
+  def default_text(text)
+    onClickFunction = "field = event.target; if (field.value=='#{text}') {field.value = '';}else {return false}"
+    onBlurFunction = "field = event.target; if (field.value=='') {field.value = '#{text}';}else {return false}"
+    {:value => text, :onclick => onClickFunction, :onblur => onBlurFunction}
+  end
 end
