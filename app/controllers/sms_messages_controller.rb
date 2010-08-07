@@ -10,6 +10,7 @@ class SmsMessagesController < ApplicationController
     success = @sms_message.valid? && @sms_message.send_message
     if success && @sms_message.errors.empty?
       flash.now[:notice] = "Your message has been sent!"
+      @sms_message = SmsMessage.new
       render :action => 'new'
     else
       flash.now[:error]  = "We couldn't send your message.  Please try again!"

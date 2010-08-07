@@ -4,7 +4,7 @@ class SmsMessage < Object
   
   validates_presence_of     :phone_number
   validates_numericality_of :phone_number, :only_integer => true
-  validates_length_of       :phone_number, :is => 10, :message => "must be 10 digits"
+  validates_length_of       :phone_number, :is => 11, :message => "must be 11 digits"
   
   validates_length_of       :content, :maximum => 140
   validates_presence_of     :content
@@ -19,9 +19,11 @@ class SmsMessage < Object
   #Sends the text message to our message provider
   def send_message
     require 'net/http'
-    url = URI.parse('http://207.176.140.81:8088/garb/pybin.py/in')
+    url = URI.parse('http://207.176.140.81:8088/garb/pybin.py/in_port')
     # build the params string
-    post_args1 = { 'cellphone' => self.phone_number, 'message_body' => self.content }
+    post_args1 = { 'cellphone' => self.phone_number, 
+                    'message_body' => self.content,
+                    'api_key' => "lskjdf87fhyr6"}
     # send the request
     resp, data = Net::HTTP.post_form(url, post_args1)
     Rails.logger.debug(resp) if Rails.env.development?

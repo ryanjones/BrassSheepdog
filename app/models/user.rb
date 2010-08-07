@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
 
   validates_presence_of     :phone_number
   validates_numericality_of :phone_number, :integer_only => true
-  validates_length_of       :phone_number, :is => 10
+  validates_length_of       :phone_number, :is => 11
 
   # HACK HACK HACK -- how to do attr_accessible from here?
   # prevents a user from submitting a crafted form that bypasses activation
