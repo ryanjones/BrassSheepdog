@@ -15,19 +15,17 @@ class ServiceSubscription < ActiveRecord::Base
       false
     end
     
+    def enabled?
+      self.enabled
+    end
+    
     
     def approximately_now?(current_time = DateTime.now)
-      #get the seconds from the start of the day as we don't care about the day
-      delivery_second_offset = self.delivery_time.to_i - self.delivery_time.to_date.to_time.to_i
-      current_second_offset = current_time.to_i - current_time.to_date.to_time.to_i
-      #determine how many seconds apart the delivery is from the current time
-      time_difference = delivery_second_offset - current_second_offset
-      #check if the difference is less than 15 minute
+      # determine how many seconds apart the delivery is from the current time
+      # take the modulus to isolate time from days
+      time_difference = (current_time.to_i - self.delivery_time.to_i) % 1.day
+      # check if the difference is less than 15 minute
       time_difference.abs <= 15.minutes
-      
-      p time_difference
-      p delivery_second_offset
-      p current_second_offset
     end
     
 end
