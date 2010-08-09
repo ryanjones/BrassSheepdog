@@ -9,7 +9,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100806044032) do
+ActiveRecord::Schema.define(:version => 20100809010814) do
+
+  create_table "garbage_pickups", :force => true do |t|
+    t.string   "entity_id"
+    t.time     "pickup_date"
+    t.string   "zone"
+    t.integer  "day"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "garbage_pickups", ["entity_id"], :name => "index_garbage_pickups_on_entity_id", :unique => true
+  add_index "garbage_pickups", ["zone", "day"], :name => "index_garbage_pickups_on_zone_and_day"
 
   create_table "service_subscriptions", :force => true do |t|
     t.string   "name"
