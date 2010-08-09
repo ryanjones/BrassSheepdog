@@ -13,14 +13,17 @@ class GarbageSubscription < ServiceSubscription
         # this will need to get more intelligent to make sure we are on the right
         # side of the garbage pickup
         now = DateTime.now
+        #define the date range to check
         today = now.to_date
-      
         tomorrow = 1.day.since(now).to_date
       
-        send_an_alert = true if !GarbagePickup.find(:all, 
-                                      :conditions => {:pickup_date => today..tomorrow, 
-                                                      :zone =>        self.zone,
-                                                      :day =>       self.day}).empty?
+        #unless there are no pickups today, send the user an alert 
+        unless GarbagePickup.find(:all, 
+                            :conditions => {:pickup_date => today..tomorrow, 
+                                            :zone =>        self.zone,
+                                            :day =>       self.day}).empty?
+          send_an_alert = true
+        end
       end
     return send_an_alert
   end
