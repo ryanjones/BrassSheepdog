@@ -18,4 +18,10 @@ class SmsMessagesController < ApplicationController
     end
   end
 
+  private
+    # only allow admins to send messages directly
+    def authorized?
+      current_user.admin?
+    end
+
 end
