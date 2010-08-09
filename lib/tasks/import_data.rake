@@ -23,7 +23,7 @@ def load_pickup_data_from_city
     params = Hash.new
     params[:entity_id] = pickup_event.entityid
     params[:zone] = pickup_event.zone.gsub(/Zone (\w)/i, '\\1')
-    params[:day] = remap_zone pickup_event.day.gsub(/Day (\d)/i, '\\1')
+    params[:day] = pickup_event.day.gsub(/Day (\d)/i, '\\1')
     params[:pickup_date] = pickup_event.pickup_date
     
     #create the entry
@@ -31,11 +31,12 @@ def load_pickup_data_from_city
   end
 end
 
-def remap_zone(mismapped_zone)
-  # array to remap this mis-mapped city data
-  map_array = {"13" => "8", "12" => "7", "11" => "7", "10" => "6", "9" => "5", "8" => "5", "7" => "4", "6" => "4",
-              "5" => "3", "4" => "2", "3" => "2", "2" => "1"}
-  # return the correct zone
-  map_array[mismapped_zone]
-end
+#this is no longer needed as the zone's have been fixed in the source data
+# def remap_zone(mismapped_zone)
+#   # array to remap this mis-mapped city data
+#   map_array = {"13" => "8", "12" => "7", "11" => "7", "10" => "6", "9" => "5", "8" => "5", "7" => "4", "6" => "4",
+#               "5" => "3", "4" => "2", "3" => "2", "2" => "1"}
+#   # return the correct zone
+#   map_array[mismapped_zone]
+# end
         
