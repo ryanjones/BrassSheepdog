@@ -18,6 +18,9 @@ class SmsMessage < Object
   
   #Sends the text message to our message provider
   def send_message
+    #fail to send if the message doesn't pass validation
+    return false if !self.valid?
+    #otherwise continue to send the message
     require 'net/http'
     url = URI.parse('http://207.176.140.81:8088/garb/pybin.py/in_port')
     # build the params string
