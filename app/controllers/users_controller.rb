@@ -30,6 +30,7 @@ class UsersController < ApplicationController
       # button. Uncomment if you understand the tradeoffs.
       # reset session
       self.current_user = @user # !! now logged in
+      @user.send_verification_no
       redirect_back_or_default('/')
       flash[:notice] = "Thanks for signing up!"
     else
@@ -44,4 +45,6 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       redirect_to(root_path) unless current_user?(@user)
     end
+    
 end
+

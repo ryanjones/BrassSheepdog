@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100806044032) do
+ActiveRecord::Schema.define(:version => 20100809020950) do
 
   create_table "service_subscriptions", :force => true do |t|
     t.string   "name"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20100806044032) do
     t.string   "remember_token",            :limit => 40
     t.datetime "remember_token_expires_at"
     t.string   "phone_number"
+    t.string   "verification_no"
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
