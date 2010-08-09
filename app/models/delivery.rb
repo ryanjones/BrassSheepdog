@@ -10,11 +10,11 @@ class Delivery < ActiveRecord::Base
       # For each subscription, check if the delivery time ~now, if so send message
       user_subscription_array = user.service_subscriptions
       user_subscription_array.each do |subscription|
-        # if subscription.valid?
-          # need to check how to create a new SmsMessage
-          # s = SmsMessage.new
-          # s.send_message(:phone_number => user.phone_number,
-          #                :content      => subscription.sms_content)
+        # if subscription.alert_user?
+        #   need to check how to create a new SmsMessage
+        #   s = SmsMessage.new(:phone_number => user.phone_number,
+        #                  :content      => subscription.sms_content)
+        #   s.send_message!
         # end 
         
         # testing lewp
