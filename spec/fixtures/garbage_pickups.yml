@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  entity_id: MyString
+  pickup_date: 2010-08-08 19:08:14
+  zone: MyString
+  day: 1
+
+two:
+  entity_id: MyString
+  pickup_date: 2010-08-08 19:08:14
+  zone: MyString
+  day: 1

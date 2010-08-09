@@ -9,11 +9,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100809010814) do
+ActiveRecord::Schema.define(:version => 20100809041022) do
 
   create_table "garbage_pickups", :force => true do |t|
     t.string   "entity_id"
-    t.time     "pickup_date"
+    t.datetime "pickup_date"
     t.string   "zone"
     t.integer  "day"
     t.datetime "created_at"
@@ -30,6 +30,10 @@ ActiveRecord::Schema.define(:version => 20100809010814) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "service_id"
+    t.datetime "delivery_time"
+    t.boolean  "enabled"
+    t.string   "zone"
+    t.integer  "day"
   end
 
   create_table "services", :force => true do |t|

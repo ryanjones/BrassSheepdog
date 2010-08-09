@@ -57,9 +57,13 @@ class User < ActiveRecord::Base
   end
   #########################################################
   #Subscription functions
-  def subscribe!(service)
-    self.send(service.name.underscore + "_subscriptions").create(:service_id => service.id) 
+  def subscribe!(service, params = Hash.new)
+    params[:delivery_time] = DateTime.now unless params[:delivery_time]
+    params[:enabled] = true unless params[:enabled]
+    params[:service_id] = service.id
+    self.subscribed?(service) || self.send(service.name.underscore + "_subscriptions").create!(params)
   end
+  
   
   def unsubscribe!(service)
     self.service_subscriptions.find_by_service_id(service).destroy
