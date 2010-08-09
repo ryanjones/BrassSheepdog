@@ -73,15 +73,19 @@ class User < ActiveRecord::Base
     !!service_subscriptions.find_by_service_id(service)
   end
 
+  # Send verification no to logged in user
+  def send_verification_no
+    random_number = (89999 * rand + 100000).to_int
+    self.verification_no = random_number
+    self.save    # Random verification no saved to db
+    sms = SmsMessage.new(:phone_number => self.phone_number,
+                         :content      => 'Alertzy verification number: ' + self.verification_no.to_s)
+    sms.send_message # Send out verification text to users phone
+  end
+  
 
-  
-  
-  
   private
-  
     def prepare_params
       self.phone_number = self.phone_number.gsub(/[^\d]/, '')
     end
-
-  
 end
