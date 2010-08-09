@@ -24,6 +24,10 @@ class ServiceSubscription < ActiveRecord::Base
       # determine how many seconds apart the delivery is from the current time
       # take the modulus to isolate time from days
       time_difference = (current_time.to_i - self.delivery_time.to_i) % 1.day
+      #make sure that we are looking at the smallest difference ( think looping at midnight )
+      if time_difference > 1.day / 2
+        time_difference = time_difference - 1.day
+      end
       # check if the difference is less than 15 minute
       time_difference.abs <= 15.minutes
     end
