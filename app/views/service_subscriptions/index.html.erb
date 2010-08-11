@@ -10,17 +10,14 @@
 
 <% @service_subscriptions.each do |service_subscription| %>
   <tr>
-    <td><%=h service_subscription.name %></td>
+    <td><%=h service_subscription.service.name %></td>
     <td><%=h service_subscription.user_id %></td>
     <td><%=h service_subscription.service_id %></td>
     <td><%=h service_subscription.enabled %></td>
-    <td><%= link_to 'Show', service_subscription %></td>
-    <td><%= link_to 'Edit', edit_service_subscription_path(service_subscription) %></td>
-    <td><%= link_to 'Destroy', service_subscription, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New service_subscription', new_service_subscription_path %>
+<%= link_to 'New service_subscription', services_path %>

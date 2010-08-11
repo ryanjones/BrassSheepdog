@@ -1,8 +1,10 @@
 class ServiceSubscriptionsController < ApplicationController
+  before_filter :login_required
+  
   # GET /service_subscriptions
   # GET /service_subscriptions.xml
   def index
-    @service_subscriptions = ServiceSubscription.all
+    @service_subscriptions = current_user.service_subscriptions
 
     respond_to do |format|
       format.html # index.html.erb
@@ -40,17 +42,20 @@ class ServiceSubscriptionsController < ApplicationController
   # POST /service_subscriptions
   # POST /service_subscriptions.xml
   def create
-    @service_subscription = ServiceSubscription.new(params[:service_subscription])
+    @service = Service.find(params[:service_id])
+    result = current_user.subscribe!(@service, :zone => "C", :day => 5)
+    
+    redirect_to service_subscriptions_path
 
-    respond_to do |format|
-      if @service_subscription.save
-        format.html { redirect_to(@service_subscription, :notice => 'ServiceSubscription was successfully created.') }
-        format.xml  { render :xml => @service_subscription, :status => :created, :location => @service_subscription }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @service_subscription.errors, :status => :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+    #      if result
+    #        format.html { redirect_to(@service_subscription, :notice => 'ServiceSubscription was successfully created.') }
+    #        format.xml  { render :xml => @service_subscription, :status => :created, :location => @service_subscription }
+    #      else
+    #        format.html { render :action => "new" }
+    #        format.xml  { render :xml => @service_subscription.errors, :status => :unprocessable_entity }
+    #      end
+    #    end
   end
 
   # PUT /service_subscriptions/1

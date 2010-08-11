@@ -9,6 +9,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :sms_message, :only => [:new, :create]
   map.resource :session
   map.resources :service_subscriptions
+  map.resources :services, :only => [:index, :show]
 
   map.contact '/contact', :controller => 'pages', :action => 'contact'
   map.about   '/about',   :controller => 'pages', :action => 'about'
