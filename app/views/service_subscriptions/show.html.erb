@@ -1,3 +1,23 @@
+<p>
+  <b>Name:</b>
+  <%=h @service_subscription.name %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @service_subscription.user_id %>
+</p>
+
+<p>
+  <b>Service:</b>
+  <%=h @service_subscription.service_id %>
+</p>
+
+<p>
+  <b>Enabled:</b>
+  <%=h @service_subscription.enabled %>
+</p>
+
 
 <%= link_to 'Edit', edit_service_subscription_path(@service_subscription) %> |
 <%= link_to 'Back', service_subscriptions_path %>

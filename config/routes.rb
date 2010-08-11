@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :service_subscriptions
+
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.login  '/login',  :controller => 'sessions', :action => 'new'
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
@@ -6,6 +8,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
   map.resource :sms_message, :only => [:new, :create]
   map.resource :session
+  map.resources :service_subscriptions
 
   map.contact '/contact', :controller => 'pages', :action => 'contact'
   map.about   '/about',   :controller => 'pages', :action => 'about'

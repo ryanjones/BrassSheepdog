@@ -10,7 +10,8 @@
 			<% if admin? %>
 			<li><%= link_to "Send Message", new_sms_message_path %></li>
 			<% end %>
-		<li><%= link_to "Settings", edit_user_path(current_user)%></li>
+			<li><%= link_to "Subscriptions",  new_service_subscription_path%></li>
+	  	<li><%= link_to "Settings", edit_user_path(current_user)%></li>
 	    <li><%= link_to "Sign out", logout_path, :method => :delete %></li>
 	    <% else %>
 	    <li><%= link_to "Sign in", login_path %></li>
