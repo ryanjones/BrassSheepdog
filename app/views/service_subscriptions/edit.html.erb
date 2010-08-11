@@ -1,0 +1,12 @@
+<h1>Editing service_subscription</h1>
+
+<% form_for(@service_subscription) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @service_subscription %> |
+<%= link_to 'Back', service_subscriptions_path %>
