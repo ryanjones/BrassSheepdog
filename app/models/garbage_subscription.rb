@@ -1,4 +1,5 @@
 class GarbageSubscription < ServiceSubscription
+  
   attr_accessible :zone, :day
   
   validates_presence_of :zone

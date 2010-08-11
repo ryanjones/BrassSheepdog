@@ -1,0 +1,4 @@
+<% form_for current_user.service_subscriptions.find_by_service_id(service.id), :html => { :method => :delete } do |f| %>
+  <div><%= f.hidden_field :service_id %></div>
+  <span class="actions"><%= f.submit "Unsubscribe" %></span>
+<% end %>

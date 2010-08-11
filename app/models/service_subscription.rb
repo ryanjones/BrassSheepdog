@@ -1,4 +1,5 @@
 class ServiceSubscription < ActiveRecord::Base
+    
     attr_accessible :service_id, :delivery_time, :enabled
   
 	 	belongs_to  :user 
@@ -8,6 +9,16 @@ class ServiceSubscription < ActiveRecord::Base
     validates_presence_of :service_id
     validates_presence_of :delivery_time
     validates_presence_of :enabled
+    
+    def self.model_name
+      # make children models use service subscriptions paths by default
+      name = "service_subscription"
+      name.instance_eval do
+        def plural;   pluralize;   end
+        def singular; singularize; end
+      end
+      return name
+    end
     
     def alert_user?
       #Determines whether an alert should be sent to the user

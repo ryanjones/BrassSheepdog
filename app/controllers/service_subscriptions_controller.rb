@@ -79,10 +79,12 @@ class ServiceSubscriptionsController < ApplicationController
   def destroy
     @service_subscription = ServiceSubscription.find(params[:id])
     @service_subscription.destroy
+    
+    redirect_to service_subscriptions_path
 
-    respond_to do |format|
-      format.html { redirect_to(service_subscriptions_url) }
-      format.xml  { head :ok }
-    end
+    # respond_to do |format|
+    #       format.html { redirect_to(service_subscriptions_url) }
+    #       format.xml  { head :ok }
+    #     end
   end
 end

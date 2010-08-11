@@ -2,5 +2,8 @@
   <%= link_to h(service.name), service %>
   <% if !current_user.subscribed?(service) %>
   | <%= render :partial => 'subscribe_form', :locals => {:service => service} %>
+  <% else %>
+  | <%= render :partial => 'un_subscribe_form', :locals => {:service => service} %>
   <% end %>
+
 </li>
