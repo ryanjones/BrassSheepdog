@@ -1,4 +1,6 @@
 class SmsMessage < Object
+  require 'rexml/document'
+  
   include Validatable
   attr_accessor :phone_number, :content
   
@@ -8,6 +10,8 @@ class SmsMessage < Object
   
   validates_length_of       :content, :maximum => 140
   validates_presence_of     :content
+  
+
   
 
   #Moodified initialize to provide behavior closer to ActiveRecord::Base
@@ -32,8 +36,14 @@ class SmsMessage < Object
     Rails.logger.debug(resp) if Rails.env.development?
     Rails.logger.debug(data) if Rails.env.development?
     if resp.kind_of?(Net::HTTPSuccess) 
+      #report the returned message
+      xml_object = REXML::Document.new(data)
+      response_message = xml_object.elements['response'].text
+      Log4r::Logger['sms_logger'].info "Message attempt succeeded with api response #{response_message}\n#{post_args1.to_yaml}"
       true
     else
+      #report the failure
+      Log4r::Logger['sms_logger'].info "Message attempt failed with http response #{resp}\n#{post_args1.to_yaml}"
       false
     end
   end
