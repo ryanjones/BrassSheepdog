@@ -2,8 +2,8 @@ class GarbageSubscription < ServiceSubscription
   
   attr_accessible :zone, :day
   
-  validates_presence_of :zone
-  validates_presence_of :day
+  validates_presence_of :zone, :on => :update
+  validates_presence_of :day, :on => :update
   
   #method to determine whether an alert should be sent to the subscribed user
   def alert_user?

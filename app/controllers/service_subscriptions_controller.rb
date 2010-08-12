@@ -43,7 +43,7 @@ class ServiceSubscriptionsController < ApplicationController
   # POST /service_subscriptions.xml
   def create
     @service = Service.find(params[:service_id])
-    result = current_user.subscribe!(@service, :zone => "C", :day => 5)
+    result = current_user.subscribe!(@service)
     
     redirect_to service_subscriptions_path
 
