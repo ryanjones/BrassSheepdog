@@ -128,6 +128,19 @@
 	padding: 10px;
 }
 
+/* the title area of the right sidebar */
+#page-sidebar-content .title {
+	text-align:center;
+	color:white;
+	background-color: black;
+}
+
+/* the content area of the right sidebar*/
+#page-sidebar-content .body {
+	background-color: #444;
+	height: 300px;
+}
+
 
 /******************************************/
 /* subscriptions index css */
