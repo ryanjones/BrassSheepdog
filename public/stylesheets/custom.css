@@ -26,10 +26,6 @@
 /*Navigation link formatting */
 /******************************************/
 
-.navigation {
-	float:right;
-}
-
 .navigation li {
 	list-style-type:none;
 	display:-moz-inline-stack;
@@ -40,10 +36,30 @@
 
 
 #footer .navigation {
-	float: none;
 	background-color: #66E;
 	margin: 5px;
 }
+
+/******************************************/
+/* Page Header Navigation Links */
+/******************************************/
+/*formatting for each link in the nav bar */
+#header .link-bar {
+	float:right;
+}
+
+#header .link-bar a {
+	list-style-type:none;
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+	background-color:#AAE;
+	padding: 2px;
+	text-decoration: none;
+	color: #222;
+}
+
 
 /******************************************/
 /* Tab navigation bar for static content */
@@ -59,6 +75,7 @@
 	background-color:#AAE;
 	padding: 10px;
 	text-decoration: none;
+	margin-right: 20px;
 }
 
 /* configure the hover appearance of each tab */

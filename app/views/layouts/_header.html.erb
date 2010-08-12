@@ -3,20 +3,23 @@
   	<%= link_to logo, root_path %>
   </div>
   <div class="span-10 last">
-	  <ul class="navigation round">
-	    <li><%= link_to "Home", root_path %></li>
-	    <li><%= link_to "Help", help_path %></li>
-	    <% if logged_in? %>
-			<% if admin? %>
-			<li><%= link_to "Send Message", new_sms_message_path %></li>
-			<% end %>
-		<li><%= link_to "Subscriptions",  service_subscriptions_path%></li>
-	  	<li><%= link_to "Settings", edit_user_path(current_user)%></li>
-	    <li><%= link_to "Sign out", logout_path, :method => :delete %></li>
-	    <% else %>
-	    <li><%= link_to "Sign in", login_path %></li>
-		<li><%= link_to "Register", signup_path %></li>
-	    <% end %>
-	  </ul>
+	<% if logged_in? %>
+	<div class="link-bar">
+		<%= link_to "Home", root_path %>
+		<% if admin? %>
+		<%= link_to "Send Message", new_sms_message_path %>
+		<% end %>
+		<%= link_to "Subscriptions",  service_subscriptions_path%>
+		<%= link_to "Settings", edit_user_path(current_user)%>
+		<%= link_to "Sign out", logout_path, :method => :delete %>
+	</div>
+    <% else %>
+		<% form_tag session_path do -%>
+		<%= text_field_tag 'login', @login , default_text("Login")%>
+		<%= password_field_tag 'password', nil, default_text("Password") %>
+		<%= submit_tag 'Log in' %>
+		<% end -%>
+    <% end %>
+  
   </div>
 </div>
