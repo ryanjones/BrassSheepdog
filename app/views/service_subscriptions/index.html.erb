@@ -3,16 +3,12 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>User</th>
-    <th>Service</th>
     <th>Enabled</th>
   </tr>
 
 <% @service_subscriptions.each do |service_subscription| %>
   <tr>
     <td><%=h service_subscription.service.name %></td>
-    <td><%=h service_subscription.user_id %></td>
-    <td><%=h service_subscription.service_id %></td>
     <td><%=h service_subscription.enabled %></td>
   </tr>
 <% end %>
