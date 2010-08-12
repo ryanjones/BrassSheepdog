@@ -1,4 +1,4 @@
 <% form_tag service_subscriptions_path do %>
-  <div><%= hidden_field_tag :service_id, service.id %></div>
-  <span class="actions"><%= submit_tag "Subscribe" %></span>
+  <%= hidden_field_tag :service_id, service.id %>
+  <span class="actions"><%= link_to_function "Subscribe", "$(this).up('form').submit()" %></span>
 <% end %>

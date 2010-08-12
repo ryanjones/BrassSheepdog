@@ -70,7 +70,7 @@ class User < ActiveRecord::Base
   end
   
   def subscribed?(service)
-    !!service_subscriptions.find_by_service_id(service)
+    service_subscriptions.find_by_service_id(service)
   end
 
   # Send verification no to logged in user

@@ -1,12 +1,9 @@
-<h1>Editing service_subscription</h1>
+<h1>Edit Your Subscription Settings</h1>
 
 <% form_for(@service_subscription) do |f| %>
-  <%= f.error_messages %>
+  	<%= f.error_messages %>
+	<%= render :partial => @service_subscription.edit_partial, :locals => {:f => f}%>
 
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
   <p>
     <%= f.label :enabled %><br />
     <%= f.check_box :enabled %>
@@ -16,5 +13,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @service_subscription %> |
 <%= link_to 'Back', service_subscriptions_path %>

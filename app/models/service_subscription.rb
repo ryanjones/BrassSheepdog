@@ -22,6 +22,11 @@ class ServiceSubscription < ActiveRecord::Base
       return name
     end
     
+    # Defines a method for pointing to the edit view partial
+    def edit_partial 
+      return 'edit_' + self.class.to_s.underscore
+    end
+    
     def alert_user?
       #Determines whether an alert should be sent to the user
       #Should be over-ridden in the subclasses, will return false by default

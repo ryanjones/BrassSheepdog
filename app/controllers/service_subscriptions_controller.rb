@@ -45,7 +45,7 @@ class ServiceSubscriptionsController < ApplicationController
     @service = Service.find(params[:service_id])
     result = current_user.subscribe!(@service)
     
-    redirect_to service_subscriptions_path
+    redirect_to edit_service_subscription_path(result.id)
 
     # respond_to do |format|
     #      if result
@@ -62,10 +62,10 @@ class ServiceSubscriptionsController < ApplicationController
   # PUT /service_subscriptions/1.xml
   def update
     @service_subscription = ServiceSubscription.find(params[:id])
-
+    
     respond_to do |format|
       if @service_subscription.update_attributes(params[:service_subscription])
-        format.html { redirect_to(@service_subscription, :notice => 'ServiceSubscription was successfully updated.') }
+        format.html { redirect_to(service_subscriptions_path, :notice => 'Your settings were successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

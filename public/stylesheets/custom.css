@@ -144,3 +144,15 @@
 	*display:inline;
 	width: 60px;
 }
+
+.subscription-index li span.actions{
+	width: 200px;
+}
+
+/******************************************/
+/* services index css */
+/******************************************/
+
+.services form {
+	display:inline;
+}

@@ -1,5 +1,6 @@
 <li>
-	<span class="Name"><%= h service_subscription.service.name %></span>
-	<span class="Enabled"><%= service_subscription.enabled %></span>
-	<span class="Actions"><%= link_to "Edit", edit_service_subscription_path(service_subscription) %></span>
+	<span class="name"><%= h service_subscription.service.name %></span>
+	<span class="enabled"><%= service_subscription.enabled %></span>
+	<span class="actions"><%= link_to "Edit Settings", edit_service_subscription_path(service_subscription) %> | <%= link_to "Unsubscribe", service_subscription_path(service_subscription), :method => :delete %></span>
+	
 </li>
