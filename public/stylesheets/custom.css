@@ -127,3 +127,20 @@
 	background-color: white;
 	padding: 10px;
 }
+
+
+/******************************************/
+/* subscriptions index css */
+/******************************************/
+
+.subscription-index li {
+	list-style-type:none;
+}
+
+.subscription-index li span{
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+	width: 60px;
+}

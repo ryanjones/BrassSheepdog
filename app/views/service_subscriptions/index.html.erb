@@ -1,19 +1,11 @@
-<h1>Listing service_subscriptions</h1>
+<h1>Your Alertzy Subscriptions!</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Enabled</th>
-  </tr>
-
-<% @service_subscriptions.each do |service_subscription| %>
-  <tr>
-    <td><%=h service_subscription.service.name %></td>
-    <td><%=h service_subscription.enabled %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
+<ul class="subscription-index">
+	<li class="title">
+		<span class="Name">Name</span>
+		<span class="Enabled">Enabled</span>
+	</li>
+<%= render @service_subscriptions %>
+</ul>
 
 <%= link_to 'Add/Remove Service Subscriptions', services_path %>

@@ -9,13 +9,15 @@ class ServiceSubscription < ActiveRecord::Base
     validates_presence_of :service_id
     validates_presence_of :delivery_time
     validates_presence_of :enabled
-    
+
+    # This is breaking partial paths
     def self.model_name
       # make children models use service subscriptions paths by default
       name = "service_subscription"
       name.instance_eval do
         def plural;   pluralize;   end
         def singular; singularize; end
+        def partial_path; singularize; end
       end
       return name
     end
