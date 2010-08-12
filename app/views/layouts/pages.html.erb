@@ -1,0 +1,25 @@
+<% content_for :content do %>
+<div id="page-wrapper" class="span-24 last">
+	<div class="span-16">
+		<div id="page-content-area">
+			<div class="page-link-bar round <%= params[:action] %>">
+				<%= link_to "Home", root_path, :class => "home" %>
+				<%= link_to "Services", services_list_path, :class => "services" %>
+			    <%= link_to "About", about_path, :class => "about" %>
+			    <%= link_to "Contact", contact_path, :class => "contact" %>
+			</div>
+			<div id="page-content-wrapper">
+				<div id="page-content">
+					<%= yield(:pages_content) or yield %>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="span-8 page-sidebar-area last">
+		<div id="page-sidebar-area">
+			Our Sponsors
+		</div>
+	</div>
+</div>
+<% end %>
+<%= render :file => 'layouts/application' %>

@@ -1,4 +1,112 @@
+/*Debug formatting */
+.debug_dump {
+	clear:both;
+}
+
+
+/*Header formatting */
+#header {
+	height: 60px;
+}
+
+/*content formatting */
+#content {
+	background-color: #CCC;
+}
+
+/*Footer formatting */
+#footer {
+	text-align: center;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/******************************************/
+/*Navigation link formatting */
+/******************************************/
+
+.navigation {
+	float:right;
+}
+
 .navigation li {
 	list-style-type:none;
-	display: inline-block;
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+}
+
+
+#footer .navigation {
+	float: none;
+	background-color: #66E;
+	margin: 5px;
+}
+
+/******************************************/
+/* Tab navigation bar for static content */
+/******************************************/
+
+/*formatting for each tab in the nav bar */
+.page-link-bar a {
+	list-style-type:none;
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+	background-color:#AAE;
+	padding: 10px;
+	text-decoration: none;
+}
+
+/* configure the hover appearance of each tab */
+.page-link-bar a:hover, .page-link-bar a:active {
+	background-color:#66E;
+}
+
+	/*Define the formatting for the link to the current page */
+	.page-link-bar.home a.home {
+		background-color: #66E;
+	}
+	.page-link-bar.services a.services {
+		background-color: #66E;
+	}
+	.page-link-bar.about a.about {
+		background-color: #66E;
+	}
+	.page-link-bar.contact a.contact {
+		background-color: #66E;
+	}
+	
+/******************************************/
+/*general pages layout properties */
+/******************************************/
+
+/*a element specific to the pages controller to apply formatting to the #content area */
+#page-wrapper {
+	background-color: #666;
+}
+
+/*the area around the page content and the nav bar */
+#page-content-area {
+	padding: 10px;
+}
+
+/* the area around the right sidebar */
+#page-sidebar-area {
+	padding: 10px;
+}
+
+/* the box which adds continuity to the nav tabs and the border of the content*/
+#page-content-wrapper {
+	background-color: #66E;
+	padding: 10px;
+}
+
+/* the box containing the yielded content */
+#page-content {
+	background-color: white;
+	padding: 10px;
 }

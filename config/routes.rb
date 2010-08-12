@@ -14,6 +14,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :services, :only => [:index, :show]
 
   map.contact '/contact', :controller => 'pages', :action => 'contact'
+  map.services_list   '/services_list',   :controller => 'pages', :action => 'services'
   map.about   '/about',   :controller => 'pages', :action => 'about'
   map.help    '/help',    :controller => 'pages', :action => 'help'
   # The priority is based upon order of creation: first created -> highest priority.
