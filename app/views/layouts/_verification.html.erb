@@ -1,0 +1,9 @@
+<div id="verification" class="span-24 last">
+  <% if !@user.nil? %>
+    <% if @user.verified? %>
+      "You are verified"
+    <% else %>
+       "You are not verified"
+    <% end %>
+  <% end %>
+</div>
