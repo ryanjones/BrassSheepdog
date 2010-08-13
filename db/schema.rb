@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100809225230) do
+ActiveRecord::Schema.define(:version => 20100813013344) do
 
   create_table "garbage_pickups", :force => true do |t|
     t.string   "entity_id"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20100809225230) do
     t.string   "phone_number"
     t.string   "verification_no"
     t.boolean  "admin",                                    :default => false
+    t.boolean  "verified"
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true

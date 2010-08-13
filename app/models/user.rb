@@ -72,6 +72,10 @@ class User < ActiveRecord::Base
   def subscribed?(service)
     service_subscriptions.find_by_service_id(service)
   end
+  
+  def verified?
+      self.verified = true
+  end
 
   # Send verification no to logged in user
   def send_verification_no
