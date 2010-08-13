@@ -1,11 +1,8 @@
 <p>
-  <%= f.label :zone %>
-  <%= f.text_field :zone %>
+  <%= f.label :formatted_zone %>
+  <%= f.select :formatted_zone, GarbageSubscription.valid_zones %>
 </p>
-<p>
-  <%= f.label :day %>
-  <%= f.text_field :day %>
-</p>
+
 <p>
 	<%= f.label :delivery_time %>
 	<%= f.time_select :delivery_time, :minute_step => 30, :twelve_hour => true, :default => Time.parse("9:00 p.m.").to_datetime%>
