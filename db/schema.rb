@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100813013344) do
+ActiveRecord::Schema.define(:version => 20100813032905) do
 
   create_table "garbage_pickups", :force => true do |t|
     t.string   "entity_id"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20100813013344) do
     t.boolean  "enabled"
     t.string   "zone"
     t.integer  "day"
+    t.boolean  "day_before",    :default => true
   end
 
   create_table "services", :force => true do |t|

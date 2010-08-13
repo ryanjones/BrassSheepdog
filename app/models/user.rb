@@ -58,7 +58,6 @@ class User < ActiveRecord::Base
   #########################################################
   #Subscription functions
   def subscribe!(service, params = Hash.new)
-    params[:delivery_time] = DateTime.now unless params[:delivery_time]
     params[:enabled] = true unless params[:enabled]
     params[:service_id] = service.id
     self.subscribed?(service) || self.send(service.name.underscore + "_subscriptions").create!(params)

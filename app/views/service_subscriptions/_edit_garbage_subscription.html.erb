@@ -1,9 +1,16 @@
 <p>
-  <%= f.label :zone %><br />
+  <%= f.label :zone %>
   <%= f.text_field :zone %>
 </p>
-
 <p>
-  <%= f.label :day %><br />
+  <%= f.label :day %>
   <%= f.text_field :day %>
+</p>
+<p>
+	<%= f.label :delivery_time %>
+	<%= f.time_select :delivery_time, :minute_step => 30, :twelve_hour => true, :default => Time.parse("9:00 p.m.").to_datetime%>
+</p>
+<p>
+	<%= f.label :day_before %>
+	<%= f.check_box :day_before %>
 </p>

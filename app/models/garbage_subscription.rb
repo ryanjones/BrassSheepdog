@@ -4,6 +4,8 @@ class GarbageSubscription < ServiceSubscription
   
   validates_presence_of :zone, :on => :update
   validates_presence_of :day, :on => :update
+  validates_presence_of :delivery_time, :on => :update
+  validates_presence_of :day_before, :on => :update
   
   #method to determine whether an alert should be sent to the subscribed user
   def alert_user?
@@ -19,14 +21,15 @@ class GarbageSubscription < ServiceSubscription
       # in particular look at the case of a notification at midnight
       now = DateTime.now
       #define the date range to check
-      today = now.to_date
-      tomorrow = 1.day.since(now).to_date
-  
-      #return true if there is a pickup today, false if it's empty
-      GarbagePickup.find(:all, 
-                          :conditions => {:pickup_date => today..tomorrow, 
-                                          :zone =>        self.zone,
-                                          :day =>       self.day}).present?
+      if self.day_before
+        # if they want the update the day before, we're interested in whether there's a pickup tomorrow
+        day_of_intereset = 1.day.since(now).to_date
+      else 
+        # if they want the update the the day of, we're interested in whether there's a pickup today
+        day_of_intereset = now.to_date
+      end
+      
+      GarbagePickup.pickup_on_day?(day_of_interest)
     end
   
 end

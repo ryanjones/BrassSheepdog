@@ -7,7 +7,6 @@ class ServiceSubscription < ActiveRecord::Base
     
     validates_presence_of :user_id
     validates_presence_of :service_id
-    validates_presence_of :delivery_time
     validates_presence_of :enabled
 
     # This is breaking partial paths

@@ -1,0 +1,6 @@
+Mon Sep 14 10:31:47 PDT 2009
+  - Added MIT-LICENSE file and note about license in README
+    (thanks to Ryan F)
+
+Fri Dec 28 16:40:43 PST 2007
+  - Fixed handling of 00:00 and added test
