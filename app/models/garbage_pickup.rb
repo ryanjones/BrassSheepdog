@@ -11,15 +11,25 @@ class GarbagePickup < ActiveRecord::Base
   validates_numericality_of :day, :only_integer => true
   
   # class function checks if there is a pickup today
-  def self.pickup_today?(date = DateTime.now.to_date) {
+  def self.pickup_on_day?(zone, day, date = DateTime.now.to_date)
     
+    from_date = date
+    to_date = 1.day.since(date)
     
     #return true if there is a pickup today, false if it's empty
     GarbagePickup.find(:all, 
                         :conditions => {:pickup_date => from_date..to_date, 
-                                        :zone =>        self.zone,
-                                        :day =>       self.day}).present?
-  }
+                                        :zone =>        zone,
+                                        :day =>         day}).present?
+  end
+  
+  def self.all_pickups_on_day(date = DateTime.now.to_date)
+    from_date = date
+    to_date = 1.day.since(from_date)
+    GarbagePickup.find(:all, 
+                        :conditions => {:pickup_date => from_date..to_date})
+    
+  end
 
   
 end

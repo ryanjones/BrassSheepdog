@@ -16,20 +16,18 @@ class GarbageSubscription < ServiceSubscription
   
   private 
     def pickup_today?
-      # this will need to get more intelligent in order to better handle
-      # timezones so that the notice always comes before the pickup date
-      # in particular look at the case of a notification at midnight
+      # this has been refactoed to handle the "day_before" setting
       now = DateTime.now
-      #define the date range to check
+      #define the day to check
       if self.day_before
         # if they want the update the day before, we're interested in whether there's a pickup tomorrow
-        day_of_intereset = 1.day.since(now).to_date
+        day_of_interest = 1.day.since(now).to_date
       else 
         # if they want the update the the day of, we're interested in whether there's a pickup today
-        day_of_intereset = now.to_date
+        day_of_interest = now.to_date
       end
       
-      GarbagePickup.pickup_on_day?(day_of_interest)
+      GarbagePickup.pickup_on_day? self.zone, self.day, day_of_interest
     end
   
 end
