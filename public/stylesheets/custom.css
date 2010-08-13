@@ -158,6 +158,14 @@
 	width: 60px;
 }
 
+.subscription-index li span.name{
+	width: 200px;
+}
+
+.subscription-index li span.enabled{
+	width: 60px;
+}
+
 .subscription-index li span.actions{
 	width: 200px;
 }

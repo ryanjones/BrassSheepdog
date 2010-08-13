@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100813032905) do
+ActiveRecord::Schema.define(:version => 20100813041409) do
 
   create_table "garbage_pickups", :force => true do |t|
     t.string   "entity_id"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(:version => 20100813032905) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "display_name"
+    t.string   "description"
   end
 
   create_table "users", :force => true do |t|
