@@ -18,7 +18,7 @@ class SmsMessage < Object
   end
   
   #Sends the text message to our message provider
-  def send_message
+  def send_message!
     #fail to send if the message doesn't pass validation
     return false if !self.valid?
     #otherwise continue to send the message

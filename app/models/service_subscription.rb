@@ -7,7 +7,7 @@ class ServiceSubscription < ActiveRecord::Base
     
     validates_presence_of :user_id
     validates_presence_of :service_id
-    validates_presence_of :enabled
+    validates_inclusion_of :enabled, :in => [true, false]
 
     # This is breaking partial paths
     def self.model_name

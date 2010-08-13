@@ -4,7 +4,7 @@ class GarbageSubscription < ServiceSubscription
   validates_presence_of :zone, :on => :update
   validates_presence_of :day, :on => :update
   validates_presence_of :delivery_time, :on => :update
-  validates_presence_of :day_before, :on => :update
+  validates_inclusion_of :day_before, :in => [true, false]
   
   #hard-coding the valid zones for now, this might need to change
   #if we want to support more cities, but auto-importing from 
@@ -20,6 +20,11 @@ class GarbageSubscription < ServiceSubscription
   def self.valid_zones
     GarbageSubscription::VALID_ZONES
   end  
+  
+  #define the message which will get sent to the uer
+  def sms_content
+    "Remember to take out your garbage!\nSent by Alertzy"
+  end
   
   #set up a pseudo property for the formatted zone
   def formatted_zone 

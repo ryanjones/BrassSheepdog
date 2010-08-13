@@ -7,7 +7,7 @@ class SmsMessagesController < ApplicationController
 
   def create
     @sms_message = SmsMessage.new(params[:sms_message])
-    success = @sms_message.valid? && @sms_message.send_message
+    success = @sms_message.valid? && @sms_message.send_message!
     if success && @sms_message.errors.empty?
       flash.now[:notice] = "Your message has been sent!"
       @sms_message = SmsMessage.new
