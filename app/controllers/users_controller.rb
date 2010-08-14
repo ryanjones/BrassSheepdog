@@ -52,6 +52,11 @@ class UsersController < ApplicationController
     end
   end
   
+  def resend_verification
+    current_user.send_verification_no 
+    redirect_to(root_path)
+  end
+  
   private
     
     def correct_user
