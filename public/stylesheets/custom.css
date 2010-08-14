@@ -3,6 +3,13 @@
 	clear:both;
 }
 
+/*rounded corners */
+.round {
+  -webkit-border-radius: 5px;
+  -moz-border-radius 5px;
+  border-radius 5px;
+}
+
 
 /*Header formatting */
 #header {
@@ -35,10 +42,6 @@
 }
 
 
-#footer .navigation {
-	background-color: #66E;
-	margin: 5px;
-}
 
 /******************************************/
 /* Page Header Navigation Links */
@@ -64,6 +67,31 @@
 	display:inline;
 }
 
+/******************************************/
+/* Page Footer Navigation Links */
+/******************************************/
+/*formatting for each link in the nav bar */
+#footer .navigation {
+  background-color: #66E;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  padding: 0;
+}
+
+#footer .navigation li{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#footer .navigation li a{
+  text-decoration:none;
+  color:white;
+}
+
+#footer .navigation li a:hover{
+  text-decoration:underline;
+}
 
 /******************************************/
 /* Tab navigation bar for static content */
