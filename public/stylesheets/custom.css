@@ -10,6 +10,9 @@
   border-radius 5px;
 }
 
+body {
+   font-family: “Trebuchet MS”, Helvetica, sans-serif;
+}
 
 /*Header formatting */
 #header {
@@ -18,6 +21,11 @@
 
 /*content formatting */
 #content {
+  border: 1px solid #AAA;
+  background-color: #EEE;
+  -webkit-border-radius: 5px;
+  -moz-border-radius 5px;
+  border-radius 5px;
 }
 
 /*Footer formatting */
@@ -139,20 +147,10 @@
 
 /*a element specific to the pages controller to apply formatting to the #content area */
 #page-wrapper {
-	border: 1px solid #AAA;
-	background-color: #EEE;
-  -webkit-border-radius: 5px;
-  -moz-border-radius 5px;
-  border-radius 5px;
 }
 
 /*the area around the page content and the nav bar */
 #page-content-area {
-	padding: 10px;
-}
-
-/* the area around the right sidebar */
-#page-sidebar-area {
 	padding: 10px;
 }
 
@@ -170,16 +168,24 @@
 	border: 2px solid #DDD;
 }
 
+/* the area around the right sidebar */
+#page-sidebar-area {
+  margin: 52px 10px 10px 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius 5px;
+  border-radius 5px;
+  border: 2px solid #DDD;
+}
+
 /* the title area of the right sidebar */
 #page-sidebar-content .title {
 	text-align:center;
-	color:white;
-	background-color: black;
+	border-bottom: 2px solid #DDD;
+	font-size: 18px
 }
 
 /* the content area of the right sidebar*/
 #page-sidebar-content .body {
-	background-color: #444;
 	height: 300px;
 }
 

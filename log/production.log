@@ -1,0 +1,816 @@
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-13 21:49:29) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/home
+
+ActionView::TemplateError (Could not find table 'users') on line #6 of app/views/layouts/_header.html.erb:
+3:   	<%= link_to logo, root_path %>
+4:   </div>
+5:   <div class="span-12 last">
+6: 	<% if logged_in? %>
+7: 	<div class="link-bar">
+8: 		<%= link_to "Home", root_path %>
+9: 		<% if admin? %>
+
+    lib/authenticated_system.rb:117:in `login_from_session'
+    lib/authenticated_system.rb:16:in `current_user'
+    lib/authenticated_system.rb:6:in `logged_in?'
+    (eval):2:in `send'
+    (eval):2:in `logged_in?'
+    app/views/layouts/_header.html.erb:6
+    app/views/layouts/application.html.erb:11
+    app/views/layouts/pages.html.erb:32
+    c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-13 21:49:35) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/home
+
+ActionView::TemplateError (Could not find table 'users') on line #6 of app/views/layouts/_header.html.erb:
+3:   	<%= link_to logo, root_path %>
+4:   </div>
+5:   <div class="span-12 last">
+6: 	<% if logged_in? %>
+7: 	<div class="link-bar">
+8: 		<%= link_to "Home", root_path %>
+9: 		<% if admin? %>
+
+    lib/authenticated_system.rb:117:in `login_from_session'
+    lib/authenticated_system.rb:16:in `current_user'
+    lib/authenticated_system.rb:6:in `logged_in?'
+    (eval):2:in `send'
+    (eval):2:in `logged_in?'
+    app/views/layouts/_header.html.erb:6
+    app/views/layouts/application.html.erb:11
+    app/views/layouts/pages.html.erb:32
+    c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-13 21:53:20) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/home
+Completed in 31ms (View: 31, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-13 21:53:20) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#contact (for 127.0.0.1 at 2010-08-13 21:53:29) [GET]
+  Parameters: {"action"=>"contact", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/contact
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/contact]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-13 21:53:29) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#about (for 127.0.0.1 at 2010-08-13 21:53:30) [GET]
+  Parameters: {"action"=>"about", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/about
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/about]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-13 21:53:30) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#services (for 127.0.0.1 at 2010-08-13 21:53:30) [GET]
+  Parameters: {"action"=>"services", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/services
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/services_list]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-13 21:53:30) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-13 21:53:31) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/home
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-13 21:53:31) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-13 21:54:34) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/home
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-13 21:54:35) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-13 21:54:40) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/home
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-13 21:54:41) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-13 21:54:45) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/home
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-13 21:54:46) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-13 21:54:49) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/home
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-13 21:54:49) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-13 21:55:13) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/home
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-13 21:55:13) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-13 21:55:17) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/home
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-13 21:55:17) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-13 21:55:35) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/home
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-13 21:55:36) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-13 21:56:23) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/home
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-13 21:56:23) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-13 21:56:34) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/home
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-13 21:56:35) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-13 21:56:40) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/home
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-13 21:56:41) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-13 21:56:45) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/home
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-13 21:56:45) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-13 21:56:56) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/home
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-13 21:56:57) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-13 21:57:59) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/home
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-13 21:57:59) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-13 21:58:11) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/home
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-13 21:58:11) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-13 21:58:21) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/home
+Completed in 31ms (View: 31, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-13 21:58:21) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-13 21:58:29) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/home
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-13 21:58:30) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-13 21:58:39) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/home
+Completed in 16ms (View: 0, DB: 16) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-13 21:58:40) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-13 21:58:45) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/home
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-13 21:58:46) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-13 21:58:53) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/home
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-13 21:58:53) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-13 21:58:58) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/home
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-13 21:58:58) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-13 21:58:59) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/home
+Completed in 16ms (View: 0, DB: 16) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-13 21:58:59) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-13 21:58:59) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/home
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-13 21:59:00) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-13 21:59:27) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/home
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-13 21:59:27) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-13 21:59:30) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/home
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-13 21:59:30) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-13 21:59:37) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/home
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-13 21:59:37) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-08-13 21:59:41) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/pages
+Rendering pages/home
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-13 21:59:41) [GET]
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
