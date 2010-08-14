@@ -45,6 +45,7 @@ class UsersController < ApplicationController
   def verify
     if current_user.verification_no == params[:verification_number]
       current_user.verified = true
+      flash[:notice] = "Your phone number has been verified!  You can now recieve updates."
       current_user.save
       redirect_to(root_path)
     else

@@ -12,11 +12,12 @@
 
 body {
    font-family: “Trebuchet MS”, Helvetica, sans-serif;
+   color: #444;
 }
 
 /*Header formatting */
 #header {
-	height: 60px;
+  margin-bottom: 10px;
 }
 
 /*content formatting */
