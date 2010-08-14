@@ -121,6 +121,14 @@ body {
   text-decoration:underline;
 }
 
+/*******************************************/
+/*formatting for the default wrapper */
+/********************************************/
+
+#default-content-wrapper {
+    padding: 30px;
+}
+
 /******************************************/
 /* Tab navigation bar for static content */
 /******************************************/
@@ -161,6 +169,7 @@ body {
 		background-color: #555;
 		color:white;
 	}
+	
 	
 /******************************************/
 /*general pages layout properties */
@@ -214,6 +223,15 @@ body {
 /******************************************/
 /* subscriptions index css */
 /******************************************/
+.subscription-index {
+  background-color: white;
+  border: 1px solid #333;
+  -webkit-border-radius: 5px;
+  -moz-border-radius 5px;
+  border-radius 5px;
+  list-style-type:none;
+  padding: 15px 15px 15px 30px;
+}
 
 .subscription-index li {
 	list-style-type:none;
