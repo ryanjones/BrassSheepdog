@@ -27,8 +27,8 @@ class GarbageSubscription < ServiceSubscription
   end
   
   #set up a pseudo property for the formatted zone
-  def formatted_zone 
-    self.zone + self.day.to_s
+  def formatted_zone
+    self.zone + self.day.to_s unless !(self.zone && self.day)
   end
   
   def formatted_zone=(new_zone)
