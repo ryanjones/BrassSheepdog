@@ -1,9 +1,14 @@
 <div id="verification" class="span-24 last">
-  <% if !@user.nil? %>
-    <% if @user.verified? %>
-      "You are verified"
+  <% if current_user %>
+    <% if current_user.verified? %>
+      "You are verified" 
     <% else %>
-       "You are not verified"
+       "You are not verified! Please verify by entering your 6 digit code: " <%= current_user.verification_no -%>
+       <% form_tag :verify  do -%>
+        <%= text_field_tag :verification_number%>
+        <%= submit_tag %>
+      <% end -%>
+
     <% end %>
   <% end %>
 </div>

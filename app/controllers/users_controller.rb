@@ -8,6 +8,8 @@ class UsersController < ApplicationController
   
   def update
     if @user.update_attributes(params[:user])
+      @user.verified = false
+      @user.send_verification_no
       flash[:success] = "Profile updated."
       redirect_to root_path
     else
@@ -36,6 +38,17 @@ class UsersController < ApplicationController
     else
       flash.now[:error]  = "We couldn't set up that account, sorry.  Please try again, or contact an admin (link is above)."
       render :action => 'new'
+    end
+  end
+  
+    
+  def verify
+    if current_user.verification_no == params[:verification_number]
+      current_user.verified = true
+      current_user.save
+      redirect_to(root_path)
+    else
+      redirect_to(root_path)
     end
   end
   

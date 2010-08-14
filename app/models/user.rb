@@ -74,7 +74,7 @@ class User < ActiveRecord::Base
   end
   
   def verified?
-      self.verified = true
+      self.verified == true
   end
 
   # Send verification no to logged in user
