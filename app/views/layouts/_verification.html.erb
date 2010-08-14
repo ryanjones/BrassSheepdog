@@ -3,7 +3,7 @@
     <% if current_user.verified? %>
     <% else %>
 		<div class="notice">
-       You are not verified! Please verify your phone number by entering the 6 digit code sent to your phone:
+       You are not verified and can't receive updates! Please verify your phone number by entering the 6 digit code sent to your phone:
        <% form_tag :verify  do -%>
         <%= text_field_tag :verification_number%>
         <%= submit_tag "Verify"%>
