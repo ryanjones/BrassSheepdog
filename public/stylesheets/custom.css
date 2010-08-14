@@ -57,6 +57,8 @@ body {
 /*formatting for each link in the nav bar */
 #header .link-bar {
 	float:right;
+	border:1px solid #AAA;
+	border-top:none;
 }
 
 #header .link-bar a {
@@ -65,7 +67,6 @@ body {
 	display:inline-block;
 	zoom:1;
 	*display:inline;
-	background-color:#AAE;
 	padding: 2px;
 	text-decoration: none;
 	color: #222;
