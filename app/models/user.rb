@@ -83,7 +83,7 @@ class User < ActiveRecord::Base
     self.save    # Random verification no saved to db
     sms = SmsMessage.new(:phone_number => self.phone_number,
                          :content      => 'Alertzy verification number: ' + self.verification_no.to_s)
-    sms.send_message # Send out verification text to users phone
+    sms.send_message! # Send out verification text to users phone
   end
   
 

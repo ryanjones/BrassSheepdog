@@ -60,6 +60,10 @@
 	color: #222;
 }
 
+#header form {
+	display:inline;
+}
+
 
 /******************************************/
 /* Tab navigation bar for static content */
