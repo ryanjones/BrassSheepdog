@@ -96,6 +96,11 @@
 /* Tab navigation bar for static content */
 /******************************************/
 
+.page-link-bar {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
 /*formatting for each tab in the nav bar */
 .page-link-bar a {
 	list-style-type:none;
@@ -103,29 +108,29 @@
 	display:inline-block;
 	zoom:1;
 	*display:inline;
-	background-color:#AAE;
-	padding: 10px;
+	background-color:white;
+	padding: 6px;
 	text-decoration: none;
 	margin-right: 20px;
+	border: 2px solid #555;
+	color: black;
+	font-weight: bold;
 }
 
 /* configure the hover appearance of each tab */
 .page-link-bar a:hover, .page-link-bar a:active {
-	background-color:#66E;
+	background-color:#555;
+	text-decoration: underline;
+	color:white;
 }
 
 	/*Define the formatting for the link to the current page */
-	.page-link-bar.home a.home {
-		background-color: #66E;
-	}
-	.page-link-bar.services a.services {
-		background-color: #66E;
-	}
-	.page-link-bar.about a.about {
-		background-color: #66E;
-	}
+	.page-link-bar.home a.home,
+	.page-link-bar.services a.services,
+	.page-link-bar.about a.about,
 	.page-link-bar.contact a.contact {
-		background-color: #66E;
+		background-color: #555;
+		color:white;
 	}
 	
 /******************************************/
@@ -153,14 +158,16 @@
 
 /* the box which adds continuity to the nav tabs and the border of the content*/
 #page-content-wrapper {
-	background-color: #66E;
-	padding: 10px;
 }
 
 /* the box containing the yielded content */
 #page-content {
 	background-color: white;
-	padding: 10px;
+	-webkit-border-radius: 5px;
+  -moz-border-radius 5px;
+  border-radius 5px;
+	padding: 20px;
+	border: 2px solid #DDD;
 }
 
 /* the title area of the right sidebar */
