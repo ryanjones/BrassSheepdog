@@ -18,7 +18,6 @@
 
 /*content formatting */
 #content {
-	background-color: #CCC;
 }
 
 /*Footer formatting */
@@ -72,11 +71,11 @@
 /******************************************/
 /*formatting for each link in the nav bar */
 #footer .navigation {
-  background-color: #66E;
   margin-left: auto;
   margin-right: auto;
   width: 400px;
   padding: 0;
+  border:1px solid #AAA;
 }
 
 #footer .navigation li{
@@ -86,7 +85,7 @@
 
 #footer .navigation li a{
   text-decoration:none;
-  color:white;
+  color:#444;
 }
 
 #footer .navigation li a:hover{
@@ -135,7 +134,11 @@
 
 /*a element specific to the pages controller to apply formatting to the #content area */
 #page-wrapper {
-	background-color: #666;
+	border: 1px solid #AAA;
+	background-color: #EEE;
+  -webkit-border-radius: 5px;
+  -moz-border-radius 5px;
+  border-radius 5px;
 }
 
 /*the area around the page content and the nav bar */
