@@ -57,19 +57,38 @@ body {
 /*formatting for each link in the nav bar */
 #header .link-bar {
 	float:right;
+	padding-right: 10px;
+	padding-left: 10px;
 	border:1px solid #AAA;
 	border-top:none;
+	-moz-border-radius-bottomright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
 }
 
 #header .link-bar a {
+  margin-left: 3px;
+  margin-right: 3px;
 	list-style-type:none;
 	display:-moz-inline-stack;
 	display:inline-block;
 	zoom:1;
 	*display:inline;
-	padding: 2px;
+	padding: 2px 6px 2px 6px;
 	text-decoration: none;
 	color: #222;
+}
+
+#header .link-bar a:hover,
+#header .link-bar.home a.home,
+#header .link-bar.send-message a.send-message,
+#header .link-bar.subscriptions a.subscriptions,
+#header .link-bar.settings a.settings{
+  background-color: #AAA;
+  color: white;
 }
 
 #header form {

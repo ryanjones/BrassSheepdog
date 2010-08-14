@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_filter :correct_user, :only => [:edit, :update]
+  before_filter :set_header_link_class
   # render new.rhtml
   def new
     @title = "Create a new user"
@@ -33,7 +34,7 @@ class UsersController < ApplicationController
       # reset session
       self.current_user = @user # !! now logged in
       @user.send_verification_no
-      redirect_back_or_default('/')
+      redirect_back_or_default(service_subscriptions_path)
       flash[:notice] = "Thanks for signing up!"
     else
       flash.now[:error]  = "We couldn't set up that account, sorry.  Please try again, or contact an admin (link is above)."
@@ -63,6 +64,10 @@ class UsersController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_path) unless current_user?(@user)
+    end
+    
+    def set_header_link_class 
+      @header_link_class = "settings"
     end
     
 end

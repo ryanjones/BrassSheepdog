@@ -4,13 +4,13 @@
   </div>
   <div class="span-12 last">
 	<% if logged_in? %>
-	<div class="link-bar">
-		<%= link_to "Home", root_path %>
+	<div class="link-bar <%= header_link_class%>">
+		<%= link_to "Home", root_path, :class => "home" %>
 		<% if admin? %>
-		<%= link_to "Send Message", new_sms_message_path %>
+		<%= link_to "Send Message", new_sms_message_path, :class => "send-message"%>
 		<% end %>
-		<%= link_to "Subscriptions",  service_subscriptions_path%>
-		<%= link_to "Settings", edit_user_path(current_user)%>
+		<%= link_to "Subscriptions",  service_subscriptions_path, :class => "subscriptions"%>
+		<%= link_to "Settings", edit_user_path(current_user), :class => "settings"%>
 		<%= link_to "Sign out", logout_path, :method => :delete %>
 	</div>
     <% else %>

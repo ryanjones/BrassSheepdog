@@ -1,5 +1,6 @@
 class ServiceSubscriptionsController < ApplicationController
   before_filter :login_required
+  before_filter :set_header_link_class
   
   # GET /service_subscriptions
   # GET /service_subscriptions.xml
@@ -87,4 +88,9 @@ class ServiceSubscriptionsController < ApplicationController
     #       format.xml  { head :ok }
     #     end
   end
+  
+  private
+    def set_header_link_class 
+      @header_link_class = "subscriptions"
+    end
 end

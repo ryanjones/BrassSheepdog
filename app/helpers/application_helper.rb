@@ -15,6 +15,14 @@ module ApplicationHelper
     image_tag "logo.png", :alt => "Alertzy", :class => "round"
   end
   
+  def header_link_class
+    if @header_link_class.nil?
+      "home"
+    else
+      @header_link_class
+    end
+  end
+  
   def default_text(text)
     onClickFunction = "field = event.target; if (field.value=='#{text}') {field.value = '';}else {return false}"
     onBlurFunction = "field = event.target; if (field.value=='') {field.value = '#{text}';}else {return false}"
