@@ -9,7 +9,7 @@
     <% if current_user.verified? %>
       <%= f.check_box :enabled %>
     <% else %>
-      <%= f.check_box :enabled, :disabled => true %>
+      <%= f.check_box :enabled, :disabled => true %> You must be verified to enable a subscription!
     <% end %>
   </p>
   <p>
