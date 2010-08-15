@@ -6,7 +6,11 @@
 
   <p>
     <%= f.label :enabled %><br />
-    <%= f.check_box :enabled %>
+    <% if current_user.verified? %>
+      <%= f.check_box :enabled %>
+    <% else %>
+      <%= f.check_box :enabled, :disabled => true %>
+    <% end %>
   </p>
   <p>
     <%= f.submit 'Update' %>

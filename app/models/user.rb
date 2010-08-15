@@ -58,7 +58,10 @@ class User < ActiveRecord::Base
   #########################################################
   #Subscription functions
   def subscribe!(service, params = Hash.new)
-    params[:enabled] = true unless params[:enabled]
+    #enabled defaulted to false if not verified
+    if self.verified?
+      params[:enabled] = false
+    end 
     params[:service_id] = service.id
     self.subscribed?(service) || self.send(service.name.underscore + "_subscriptions").create!(params)
   end

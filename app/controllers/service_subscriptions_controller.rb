@@ -42,11 +42,10 @@ class ServiceSubscriptionsController < ApplicationController
   # POST /service_subscriptions
   # POST /service_subscriptions.xml
   def create
-    @service = Service.find(params[:service_id])
-    result = current_user.subscribe!(@service)
-    
-    redirect_to edit_service_subscription_path(result.id)
-
+      @service = Service.find(params[:service_id])
+      
+      result = current_user.subscribe!(@service)
+      redirect_to edit_service_subscription_path(result.id) 
     # respond_to do |format|
     #      if result
     #        format.html { redirect_to(@service_subscription, :notice => 'ServiceSubscription was successfully created.') }
@@ -60,18 +59,18 @@ class ServiceSubscriptionsController < ApplicationController
 
   # PUT /service_subscriptions/1
   # PUT /service_subscriptions/1.xml
-  def update
+  def update    
     @service_subscription = ServiceSubscription.find(params[:id])
     
-    respond_to do |format|
-      if @service_subscription.update_attributes(params[:service_subscription])
-        format.html { redirect_to(service_subscriptions_path, :notice => 'Your settings were successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @service_subscription.errors, :status => :unprocessable_entity }
+      respond_to do |format|
+        if @service_subscription.update_attributes(params[:service_subscription])
+          format.html { redirect_to(service_subscriptions_path, :notice => 'Your settings were successfully updated.') }
+          format.xml  { head :ok }
+        else
+          format.html { render :action => "edit" }
+          format.xml  { render :xml => @service_subscription.errors, :status => :unprocessable_entity }
+        end
       end
-    end
   end
 
   # DELETE /service_subscriptions/1
