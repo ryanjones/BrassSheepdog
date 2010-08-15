@@ -58,7 +58,8 @@ class User < ActiveRecord::Base
   #########################################################
   #Subscription functions
   def subscribe!(service, params = Hash.new)
-    params[:enabled] = true unless params[:enabled]
+    #service enabled has a default of false (incase the browser is closed when subscribing)
+    params[:enabled] = false
     params[:service_id] = service.id
     self.subscribed?(service) || self.send(service.name.underscore + "_subscriptions").create!(params)
   end

@@ -55,7 +55,13 @@ class UsersController < ApplicationController
   end
   
   def resend_verification
-    current_user.send_verification_no 
+    if current_user.verification_try = nil || (current_user.verification_try != Date.today)
+      current_user.send_verification_no
+      current_user.verification_try = Date.today
+      current_user.save
+    else
+      flash[:notice] = "You can only re-send 1 verification # per day!"
+    end
     redirect_to(root_path)
   end
   

@@ -33,7 +33,7 @@ class ServiceSubscription < ActiveRecord::Base
     end
     
     def enabled?
-      self.enabled
+        self.enabled
     end
     
     
