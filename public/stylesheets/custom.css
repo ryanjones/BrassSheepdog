@@ -6,8 +6,8 @@
 /*rounded corners */
 .round {
   -webkit-border-radius: 5px;
-  -moz-border-radius 5px;
-  border-radius 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
 
 body {
@@ -129,6 +129,17 @@ body {
     padding: 30px;
 }
 
+/*A wrapper that wraps the property form, but not the title or back button */
+#default-sub-content-wrapper {
+	background-color: white;
+	border: 1px solid #333;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	padding: 15px 15px 15px 30px;
+	margin-bottom: 10px;
+}
+
 /******************************************/
 /* Tab navigation bar for static content */
 /******************************************/
@@ -192,19 +203,19 @@ body {
 #page-content {
 	background-color: white;
 	-webkit-border-radius: 5px;
-  -moz-border-radius 5px;
-  border-radius 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 	padding: 20px;
 	border: 2px solid #DDD;
 }
 
 /* the area around the right sidebar */
 #page-sidebar-area {
-  margin: 52px 10px 10px 10px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius 5px;
-  border-radius 5px;
-  border: 2px solid #DDD;
+	margin: 52px 10px 10px 10px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 2px solid #DDD;
 }
 
 /* the title area of the right sidebar */
@@ -227,8 +238,8 @@ body {
   background-color: white;
   border: 1px solid #333;
   -webkit-border-radius: 5px;
-  -moz-border-radius 5px;
-  border-radius 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
   list-style-type:none;
   padding: 15px 15px 15px 30px;
 }
@@ -256,6 +267,24 @@ body {
 .subscription-index li span.actions{
 	width: 200px;
 }
+
+
+
+/******************************************/
+/* subscriptions edit css */
+/******************************************/
+
+
+/* a group of related settings in the edit form */
+.setting-set {
+	margin-bottom: 10px;
+}
+
+/* the title for a group of related settings */
+.setting-set-title {
+	font-weight: bold;
+}
+
 
 /******************************************/
 /* services index css */

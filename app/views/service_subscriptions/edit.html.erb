@@ -1,20 +1,26 @@
-<h1>Edit Your Subscription Settings</h1>
+<h1><%= @initial_setup ? 'Configure' : 'Edit' %> Your Subscription Settings</h1>
+<h2><%= @service_subscription.service.display_name %></h2>
+
+<div id="default-sub-content-wrapper">
 
 <% form_for(@service_subscription) do |f| %>
   	<%= f.error_messages %>
 	<%= render :partial => @service_subscription.edit_partial, :locals => {:f => f}%>
 
-  <p>
-    <%= f.label :enabled %><br />
+	<div class="setting-set">
+		<div class="setting-set-title">Enabled:</div>
     <% if current_user.verified? %>
-      <%= f.check_box :enabled %>
+       Receive messages from this service:<%= f.check_box :enabled %>
     <% else %>
-      <%= f.check_box :enabled, :disabled => true %> You must be verified to enable a subscription!
+       You must be verified to enable a subscription!<%= f.check_box :enabled, :disabled => true %>
     <% end %>
-  </p>
+	</div>
+
   <p>
-    <%= f.submit 'Update' %>
+    <%= f.submit @initial_setup ? 'Save' : 'Update' %>
   </p>
 <% end %>
 
-<%= link_to 'Back', service_subscriptions_path %>
+</div>
+
+<%= link_to 'Back', service_subscriptions_path unless @initial_setup%>
