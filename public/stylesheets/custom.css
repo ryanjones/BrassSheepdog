@@ -129,6 +129,17 @@ body {
     padding: 30px;
 }
 
+/*A wrapper that wraps the property form, but not the title or back button */
+#default-sub-content-wrapper {
+	background-color: white;
+	border: 1px solid #333;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	padding: 15px 15px 15px 30px;
+	margin-bottom: 10px;
+}
+
 /******************************************/
 /* Tab navigation bar for static content */
 /******************************************/
@@ -256,6 +267,24 @@ body {
 .subscription-index li span.actions{
 	width: 200px;
 }
+
+
+
+/******************************************/
+/* subscriptions edit css */
+/******************************************/
+
+
+/* a group of related settings in the edit form */
+.setting-set {
+	margin-bottom: 10px;
+}
+
+/* the title for a group of related settings */
+.setting-set-title {
+	font-weight: bold;
+}
+
 
 /******************************************/
 /* services index css */
