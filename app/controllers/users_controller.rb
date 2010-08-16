@@ -8,14 +8,24 @@ class UsersController < ApplicationController
   end
   
   def update
-    if @user.update_attributes(params[:user])
-      @user.verified = false
-      @user.send_verification_no
-      flash[:success] = "Profile updated."
-      redirect_to root_path
+    if current_user.phone_number == params[:phone_number]
+      if @user.update_attributes(params[:user])
+        flash[:success] = "Profile updated."
+        redirect_to root_path
+      else
+        @title = "Edit user"
+        render 'edit'
+      end
     else
-      @title = "Edit user"
-      render 'edit'
+      if @user.update_attributes(params[:user])
+        flash[:success] = "Profile updated, bu tyou're not unverified."
+        @user.verified = false
+        @user.send_verification_no
+        redirect_to root_path
+      else
+        @title = "Edit user"
+        render 'edit'
+      end
     end
   end
   
