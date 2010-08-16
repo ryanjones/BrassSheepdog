@@ -17,7 +17,8 @@
 		<% form_tag session_path do -%>
 		<%= text_field_tag 'login', @login , default_text("Login")%>
 		<%= password_field_tag 'password', nil, default_text("Password") %>
-		<%= submit_tag 'Log in' %>
+		<%= image_submit_tag("join.gif") %>
+
 		<% end -%>
 		<%= link_to "Register", new_user_path%>
     <% end %>
