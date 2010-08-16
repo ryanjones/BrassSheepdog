@@ -290,6 +290,16 @@ body {
 /* services index css */
 /******************************************/
 
+.services-index {
+  background-color: white;
+  border: 1px solid #333;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  list-style-type:none;
+  padding: 15px 15px 15px 30px;
+}
+
 .services form {
 	display:inline;
 }
