@@ -21,6 +21,16 @@ class ServiceSubscription < ActiveRecord::Base
       return name
     end
     
+    # over-riding the default enabled getter so that all services are disabled
+    # if the user is not verified
+    def enabled
+      if self.user.verified?
+        self[:enabled]
+      else
+        false
+      end
+    end
+    
     # Defines a method for pointing to the edit view partial
     def edit_partial 
       return 'edit_' + self.class.to_s.underscore

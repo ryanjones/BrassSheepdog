@@ -11,7 +11,9 @@ class User < ActiveRecord::Base
   has_many  :services, :through => :service_subscriptions
   
   before_validation :prepare_params
-
+  
+  before_update :reset_verification_if_required
+  
   validates_presence_of     :login
   validates_length_of       :login,    :within => 3..40
   validates_uniqueness_of   :login
@@ -91,5 +93,12 @@ class User < ActiveRecord::Base
   private
     def prepare_params
       self.phone_number = self.phone_number.gsub(/[^\d]/, '')
+    end
+    
+    def reset_verification_if_required
+      if self.phone_number_change
+        self.update_attribute :verified, false
+        self.send_verification_no
+      end
     end
 end

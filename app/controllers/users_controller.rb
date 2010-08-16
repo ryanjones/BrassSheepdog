@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_filter :correct_user, :only => [:edit, :update]
   before_filter :set_header_link_class
+  
   # render new.rhtml
   def new
     @title = "Create a new user"
@@ -8,24 +9,12 @@ class UsersController < ApplicationController
   end
   
   def update
-    if current_user.phone_number == params[:phone_number]
-      if @user.update_attributes(params[:user])
-        flash[:success] = "Profile updated."
-        redirect_to root_path
-      else
-        @title = "Edit user"
-        render 'edit'
-      end
+    if @user.update_attributes(params[:user])
+      flash[:success] = "Profile updated."
+      redirect_to service_subscriptions_path
     else
-      if @user.update_attributes(params[:user])
-        flash[:success] = "Profile updated, bu tyou're not unverified."
-        @user.verified = false
-        @user.send_verification_no
-        redirect_to root_path
-      else
-        @title = "Edit user"
-        render 'edit'
-      end
+      @title = "Edit user"
+      render 'edit'
     end
   end
   
@@ -56,11 +45,11 @@ class UsersController < ApplicationController
   def verify
     if current_user.verification_no == params[:verification_number]
       current_user.verified = true
-      flash[:notice] = "Your phone number has been verified!  You can now recieve updates."
+      flash[:notice] = "Your phone number has been verified!  You can now recieve notifications."
       current_user.save
-      redirect_to(root_path)
+      redirect_to :back
     else
-      redirect_to(root_path)
+      redirect_to :back
     end
   end
   

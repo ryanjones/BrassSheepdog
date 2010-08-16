@@ -12,7 +12,7 @@
     <% if current_user.verified? %>
        Receive messages from this service:<%= f.check_box :enabled %>
     <% else %>
-       You must be verified to enable a subscription!<%= f.check_box :enabled, :disabled => true %>
+       You must be verified to enable a subscription!
     <% end %>
 	</div>
 
