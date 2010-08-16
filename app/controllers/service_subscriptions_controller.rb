@@ -38,6 +38,7 @@ class ServiceSubscriptionsController < ApplicationController
   # GET /service_subscriptions/1/edit
   def edit
     @service_subscription = ServiceSubscription.find(params[:id])
+    @initial_setup = params[:initial_setup] || false
   end
 
   # POST /service_subscriptions
@@ -46,7 +47,8 @@ class ServiceSubscriptionsController < ApplicationController
       @service = Service.find(params[:service_id])
       
       result = current_user.subscribe!(@service)
-      redirect_to edit_service_subscription_path(result.id) 
+      #can't find a way to add a parameter using a named path, so explicitly defining the controller/action instead
+      redirect_to :controller => "service_subscriptions", :action => "edit", :id => result.id, :initial_setup => true
     # respond_to do |format|
     #      if result
     #        format.html { redirect_to(@service_subscription, :notice => 'ServiceSubscription was successfully created.') }

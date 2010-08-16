@@ -6,8 +6,8 @@
 /*rounded corners */
 .round {
   -webkit-border-radius: 5px;
-  -moz-border-radius 5px;
-  border-radius 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
 
 body {
@@ -192,19 +192,19 @@ body {
 #page-content {
 	background-color: white;
 	-webkit-border-radius: 5px;
-  -moz-border-radius 5px;
-  border-radius 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 	padding: 20px;
 	border: 2px solid #DDD;
 }
 
 /* the area around the right sidebar */
 #page-sidebar-area {
-  margin: 52px 10px 10px 10px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius 5px;
-  border-radius 5px;
-  border: 2px solid #DDD;
+	margin: 52px 10px 10px 10px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 2px solid #DDD;
 }
 
 /* the title area of the right sidebar */
@@ -227,8 +227,8 @@ body {
   background-color: white;
   border: 1px solid #333;
   -webkit-border-radius: 5px;
-  -moz-border-radius 5px;
-  border-radius 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
   list-style-type:none;
   padding: 15px 15px 15px 30px;
 }

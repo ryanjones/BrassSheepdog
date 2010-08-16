@@ -1,4 +1,4 @@
-<h1>Edit Your Subscription Settings</h1>
+<h1><%= @initial_setup ? 'Configure' : 'Edit' %> Your Subscription Settings</h1>
 
 <% form_for(@service_subscription) do |f| %>
   	<%= f.error_messages %>
@@ -13,7 +13,7 @@
     <% end %>
   </p>
   <p>
-    <%= f.submit 'Update' %>
+    <%= f.submit @initial_setup ? 'Submit' : 'Update' %>
   </p>
 <% end %>
 
