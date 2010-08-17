@@ -300,6 +300,42 @@ body {
   padding: 15px 15px 15px 30px;
 }
 
-.services form {
+.services-index .icon {
+	vertical-align: middle;
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+	margin-right: 10px;
+}
+
+.services-index .service-body {
+	vertical-align: middle;
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+	width: 750px;
+}
+
+.services-index .title {
+	font-size: 20px;
+}
+
+.services-index .description {
+	font-size: 14px;
+}
+
+.services-index li a{
+	color: black;
+	text-decoration:none;
+}
+
+.services-index li a:hover{
+	color: black;
+	text-decoration: underline;
+}
+
+.services-index form {
 	display:inline;
 }

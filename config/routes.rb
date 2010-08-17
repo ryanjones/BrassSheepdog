@@ -4,6 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.login  '/login',  :controller => 'sessions', :action => 'new'
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
+  map.explicit_edit '/edit', :controller => 'users', :action => 'explicit_edit'
   
   map.unsubscribe '/unsubscribe', :controller => 'service_subscriptions', :action => 'destroy'
 

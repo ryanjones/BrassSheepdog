@@ -1,9 +1,15 @@
 <li>
-  <%= link_to h(service.display_name), service %>
-  <% if !current_user.subscribed?(service) %>
-  | <%= render :partial => 'subscribe_form', :locals => {:service => service} %>
-  <% else %>
-  | <%= render :partial => 'un_subscribe_form', :locals => {:service => service} %>
-  <% end %>
+	<div class="icon"><%= FileTest.exists?('public/images/' + service.name.underscore + '.png') ? image_tag( service.name.underscore + '.png') : ""   %>
+	</div>
+	<div class="service-body">
+		<span class="title"><%= h(service.display_name)%>
+		<% if !current_user.subscribed?(service) %>
+		| <%= render :partial => 'subscribe_form', :locals => {:service => service} %>
+		<% else %>
+		| Subscribed
+		<% end %></span>
+
+		<br/><span class="description"><%= h service.description %></span>
+	</div>
 
 </li>

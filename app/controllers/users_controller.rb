@@ -21,6 +21,12 @@ class UsersController < ApplicationController
   def edit
     @title = "Edit Settings"
   end
+  
+  def explicit_edit
+    @title = "Edit Settings"
+    @user = current_user
+    render 'edit'
+  end
  
   def create
     logout_keeping_session!
