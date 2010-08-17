@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   before_validation :prepare_params
   
   before_update :reset_verification_if_required
+  before_update :require_old_password
   
   validates_presence_of     :login
   validates_length_of       :login,    :within => 3..40
@@ -30,11 +31,12 @@ class User < ActiveRecord::Base
   validates_presence_of     :phone_number
   validates_numericality_of :phone_number, :integer_only => true
   validates_length_of       :phone_number, :is => 11
+  
 
   # HACK HACK HACK -- how to do attr_accessible from here?
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
-  attr_accessible :login, :email, :name, :password, :password_confirmation, :phone_number
+  attr_accessible :login, :email, :name, :password, :password_confirmation, :phone_number, :old_password
 
 
 
@@ -88,8 +90,27 @@ class User < ActiveRecord::Base
     sms.send_message! # Send out verification text to users phone
   end
   
+  ##################################################
+  #### Methods for old password virtual attribute ##
+  ##################################################
+  def old_password
+    @old_password
+  end
+  
+  def old_password=(password)
+    @old_password = password
+  end
 
   private
+    def require_old_password
+      if self.crypted_password_change
+        unless self.crypted_password_was == encrypt(@old_password)
+          errors.add_to_base("You must provide your old password to change your password.")
+          false
+        end
+      end
+    end
+  
     def prepare_params
       self.phone_number = self.phone_number.gsub(/[^\d]/, '')
     end

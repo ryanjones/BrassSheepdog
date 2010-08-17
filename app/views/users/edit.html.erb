@@ -13,6 +13,13 @@
 <p><%= label_tag 'phone_number', 'Phone Number' %><br/>
 <%= f.text_field :phone_number %></p>
 
+<% if !@user.new_record? %>
+
+<p><%= label_tag 'Old password' %><br/>
+<%= f.password_field :old_password %></p>
+
+<% end %>
+
 <p><%= label_tag 'password' %><br/>
 <%= f.password_field :password %></p>
 
