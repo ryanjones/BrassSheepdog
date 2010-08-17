@@ -1,6 +1,6 @@
 <div class="setting-set">
 	<div class="setting-set-title">Zone Settings:</div>
-	Your Pickup Zone: <%= f.select :formatted_zone, GarbageSubscription.valid_zones %>
+	Your Pickup Zone: <%= f.select :formatted_zone, ["--"] | GarbageSubscription.valid_zones %>
 </div>
 <div class="setting-set">
 	<div class="setting-set-title">Notification Timing Settings:</div>

@@ -1,0 +1,24 @@
+<h2><%= service_subscription.service.display_name %></h2>
+
+<div id="default-sub-content-wrapper">
+
+<% form_for(service_subscription) do |f| %>
+  	<%= f.error_messages %>
+	<%= hidden_field_tag  :service_id, service_subscription.service_id  %>
+	<%= render :partial => service_subscription.edit_partial, :locals => {:f => f}%>
+
+	<div class="setting-set">
+		<div class="setting-set-title">Enabled:</div>
+    <% if current_user.verified? %>
+       Receive messages from this service:<%= f.check_box :enabled, :default => true %>
+    <% else %>
+       You must be verified to enable a subscription!
+    <% end %>
+	</div>
+
+  <p>
+    <%= f.submit 'Save' %>
+  </p>
+<% end %>
+
+</div>

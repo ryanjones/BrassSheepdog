@@ -5,6 +5,7 @@ class GarbageSubscription < ServiceSubscription
   validates_presence_of :day, :on => :update
   validates_presence_of :delivery_time, :on => :update
   validates_inclusion_of :day_before, :in => [true, false]
+  validate :must_have_valid_zone
   
   #hard-coding the valid zones for now, this might need to change
   #if we want to support more cities, but auto-importing from 
@@ -20,6 +21,16 @@ class GarbageSubscription < ServiceSubscription
   def self.valid_zones
     GarbageSubscription::VALID_ZONES
   end  
+  
+  #hardcode the service
+  def service_id
+    self[:service_id] or self.service.id
+  end
+  
+  #hardcode the service
+  def service
+    self[:service] or Service.find_by_name("Garbage")
+  end
   
   #define the message which will get sent to the uer
   def sms_content
@@ -44,6 +55,11 @@ class GarbageSubscription < ServiceSubscription
   end
   
   private 
+  
+    def must_have_valid_zone
+      errors.add_to_base("You must select a valid zone") unless GarbageSubscription.valid_zones.include?(self.formatted_zone)
+    end
+  
     def pickup_today?
       # this has been refactoed to handle the "day_before" setting
       now = DateTime.now

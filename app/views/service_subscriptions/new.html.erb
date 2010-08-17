@@ -1,31 +1,5 @@
-<h1>New service_subscription</h1>
+<h1> Configure Your Subscription Settings</h1>
 
-<% form_for(@service_subscription) do |f| %>
-  <%= f.error_messages %>
+<%= render :partial => 'service_subscription_form', :locals => {:service_subscription => @service_subscription, :user => current_user} %>
 
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :user_id %><br />
-    <%= f.text_field params[:user_id] %>
-  </p>
-  <p>
-    <%= f.label :service_id %><br />
-    <%= f.text_field :service_id %>
-  </p>
-  <p>
-    <%= f.label :enabled %><br />
-    <%= f.check_box :enabled %>
-  </p>
-  <p>
-    <%= f.label :delivery_time %><br />
-    <%= f.text_field :delivery_time %>
-  </p>
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
-<% end %>
-
-<%= link_to 'Back', service_subscriptions_path %>
+<%= link_to 'Cancel', services_path %>

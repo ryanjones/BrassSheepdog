@@ -4,7 +4,7 @@
 	<div class="service-body">
 		<span class="title"><%= h(service.display_name)%>
 		<% if !current_user.subscribed?(service) %>
-		| <%= render :partial => 'subscribe_form', :locals => {:service => service} %>
+		| <%= link_to "Subscribe", :controller => 'service_subscriptions', :action => 'new', :service_id => service.id %>
 		<% else %>
 		| Subscribed
 		<% end %></span>

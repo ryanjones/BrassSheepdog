@@ -27,7 +27,10 @@ class ServiceSubscriptionsController < ApplicationController
   # GET /service_subscriptions/new
   # GET /service_subscriptions/new.xml
   def new
-    @service_subscription = ServiceSubscription.new
+    @service = Service.find_by_id(params[:service_id]) or redirect_to services_path
+    
+    @service_subscription = @service.subscriptions.build()
+    @service_subscription.user_id = current_user.id
 
     respond_to do |format|
       format.html # new.html.erb
@@ -38,7 +41,6 @@ class ServiceSubscriptionsController < ApplicationController
   # GET /service_subscriptions/1/edit
   def edit
     @service_subscription = ServiceSubscription.find(params[:id])
-    @initial_setup = params[:initial_setup] || false
   end
 
   # POST /service_subscriptions
@@ -46,18 +48,14 @@ class ServiceSubscriptionsController < ApplicationController
   def create
       @service = Service.find(params[:service_id])
       
-      result = current_user.subscribe!(@service)
-      #can't find a way to add a parameter using a named path, so explicitly defining the controller/action instead
-      redirect_to :controller => "service_subscriptions", :action => "edit", :id => result.id, :initial_setup => true
-    # respond_to do |format|
-    #      if result
-    #        format.html { redirect_to(@service_subscription, :notice => 'ServiceSubscription was successfully created.') }
-    #        format.xml  { render :xml => @service_subscription, :status => :created, :location => @service_subscription }
-    #      else
-    #        format.html { render :action => "new" }
-    #        format.xml  { render :xml => @service_subscription.errors, :status => :unprocessable_entity }
-    #      end
-    #    end
+      @service_subscription = current_user.subscribe(@service, params[:service_subscription])
+      
+      if @service_subscription && @service_subscription.errors.empty?
+        redirect_to service_subscriptions_path, :success => "You have subscribed to the service!"
+      else
+        render :action => :new
+      end
+ 
   end
 
   # PUT /service_subscriptions/1
