@@ -101,6 +101,14 @@ class User < ActiveRecord::Base
     @old_password = password
   end
 
+  ##################################################
+  #### A currently fake method for the users timezone ##
+  ##################################################
+  def time_zone
+    "Mountain Time (US & Canada)"
+  end
+  
+  
   private
     def require_old_password
       if self.crypted_password_change

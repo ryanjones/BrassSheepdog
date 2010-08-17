@@ -47,6 +47,15 @@ class GarbageSubscription < ServiceSubscription
     self.day = new_zone[1].chr
   end
   
+  #method to determine when the next update for this subscription will be
+  def next_alert_time
+    pickup_time = GarbagePickup.next_pickup self.zone, self.day
+    pickup_day = pickup_time.to_date
+    
+    alert_day = (self.day_before ? 1.day.until(pickup_day) : pickup_day)
+    alert_time = (self.delivery_time.to_i - self.delivery_time.to_date.to_time.to_i).seconds.since(alert_day)
+  end
+  
   #method to determine whether an alert should be sent to the subscribed user
   def alert_user?
     # check the three necessary conditions

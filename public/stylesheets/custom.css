@@ -268,6 +268,10 @@ body {
 	width: 200px;
 }
 
+.subscription-index li span.next-alert{
+	width: 300px;
+}
+
 
 
 /******************************************/

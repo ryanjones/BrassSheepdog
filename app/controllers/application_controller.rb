@@ -14,4 +14,14 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   filter_parameter_logging :password
   
+  # set the timezone to a users setting
+  before_filter :set_user_time_zone
+  
+  private
+  
+    #note that the users timezone is currently a fake attribute
+    def set_user_time_zone
+      Time.zone = current_user.time_zone if logged_in?
+    end
+  
 end

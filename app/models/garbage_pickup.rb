@@ -30,6 +30,17 @@ class GarbagePickup < ActiveRecord::Base
                         :conditions => {:pickup_date => from_date..to_date})
     
   end
+  
+  #method which finds the time of the next pickup for the given parameters
+  def self.next_pickup(zone, day) 
+    from_datetime = DateTime.now
+    to_datetime = 1.year.since(from_datetime)
+    GarbagePickup.find(:all, 
+                        :conditions => {:pickup_date => from_datetime..to_datetime, 
+                                        :zone =>        zone,
+                                        :day =>         day}).first.pickup_date
+  end
+  
 
   
 end
