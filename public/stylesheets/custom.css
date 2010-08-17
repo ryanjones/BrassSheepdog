@@ -258,6 +258,7 @@ body {
 
 .subscription-index li span.name{
 	width: 200px;
+	font-weight:bold;
 }
 
 .subscription-index li span.enabled{
