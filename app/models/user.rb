@@ -105,7 +105,7 @@ class User < ActiveRecord::Base
     def require_old_password
       if self.crypted_password_change
         unless self.crypted_password_was == encrypt(@old_password)
-          errors.add_to_base("You must provide your old password to change your password.")
+          errors.add_to_base("Your old password must be correct to change your password.")
           false
         end
       end
