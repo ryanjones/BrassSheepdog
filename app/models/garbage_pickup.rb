@@ -35,10 +35,11 @@ class GarbagePickup < ActiveRecord::Base
   def self.next_pickup(zone, day) 
     from_datetime = DateTime.now
     to_datetime = 1.year.since(from_datetime)
-    GarbagePickup.find(:all, 
+    pickup = GarbagePickup.find(:all, 
                         :conditions => {:pickup_date => from_datetime..to_datetime, 
                                         :zone =>        zone,
-                                        :day =>         day}).first.pickup_date
+                                        :day =>         day}).first
+    pickup.pickup_date unless pickup.nil?
   end
   
 
