@@ -7,6 +7,9 @@ class GarbageSubscription < ServiceSubscription
   validates_inclusion_of :day_before, :in => [true, false]
   validate :must_have_valid_zone
   
+  #being used for method to over-ride the service
+  alias_method :original_service, :service
+  
   #hard-coding the valid zones for now, this might need to change
   #if we want to support more cities, but auto-importing from 
   #the data set
@@ -27,9 +30,9 @@ class GarbageSubscription < ServiceSubscription
     self[:service_id] or self.service.id
   end
   
-  #hardcode the service
+  #hardcode the service if not set
   def service
-    self[:service] or Service.find_by_name("Garbage")
+      self.original_service or Service.find_by_name("Garbage")
   end
   
   #define the message which will get sent to the uer
