@@ -21,7 +21,7 @@
 
 		<% end -%>
 		<%# sexy simple links are smaller than buttons! %>
-		<%= link_to " Not signed up? Register Now!", { :controller => 'users_controller', :action => 'new' }, :class => "sexybutton sexysimple sexygreen sexyxxxl" -%>
+		<%= link_to " Not signed up? Register Now!", new_user_path, :class => "sexybutton sexysimple sexygreen sexyxxxl" -%>
     <%#= link_to "Register",  new_user_path%>
     <% end %>
   
