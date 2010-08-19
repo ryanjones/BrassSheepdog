@@ -1,4 +1,9 @@
+# Example syntax of how to send a text message
+# @sms_message = SmsMessage.new(:phone_number => "17807102820", :content => "hi")
+# success = @sms_message.valid? && @sms_message.send_message!
+
 class SmsMessage < Object
+  
   require 'rexml/document'
   
   include Validatable
@@ -16,6 +21,26 @@ class SmsMessage < Object
     @phone_number = attributes[:phone_number] unless attributes.nil?
     @content = attributes[:content] unless attributes.nil?
   end
+  
+  # The obligatory messages for SMS requirements
+  def self.send_info_message_to_phone_number(phone_number)
+    @sms_message = SmsMessage.new(:phone_number => phone_number, :content => SmsMessage.info_message_content)
+    success = @sms_message.valid? && @sms_message.send_message!
+  end
+  
+  def self.info_message_content
+    "Visit www.alertzy.com for info and to change your settings."
+  end
+  
+  def self.send_disabled_message_to_phone_number(phone_number)
+    @sms_message = SmsMessage.new(:phone_number => phone_number, :content => SmsMessage.disabled_message_content)
+    success = @sms_message.valid? && @sms_message.send_message!
+  end
+  
+  def self.disabled_message_content
+    "All your alertzy subscriptions have been disabled.\n  Visit www.alertzy.com to change your settings or re-enable."
+  end
+  
   
   #Sends the text message to our message provider
   def send_message!

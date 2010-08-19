@@ -79,7 +79,21 @@ class User < ActiveRecord::Base
   def verified?
       self.verified == true
   end
+  
+  #disable all the users alerts
+  def disable_all_alerts
+    self.service_subscriptions.each do |subscription|
+      subscription.update_attribute :enabled, false
+    end
+  end
 
+  #enable all the users alerts
+  def enable_all_alerts
+    self.service_subscriptions.each do |subscription|
+      subscription.update_attribute :enabled, false
+    end
+  end
+  
   # Send verification no to logged in user
   def send_verification_no
     random_number = (89999 * rand + 100000).to_int

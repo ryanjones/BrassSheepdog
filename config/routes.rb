@@ -9,7 +9,7 @@ ActionController::Routing::Routes.draw do |map|
   map.unsubscribe '/unsubscribe', :controller => 'service_subscriptions', :action => 'destroy'
 
   map.resources :users
-  map.resource :sms_message, :only => [:new, :create]
+  map.resource :sms_message, :only => [:new, :create], :member => {:incoming => :post}
   map.resource :session
   map.resources :service_subscriptions
   map.resources :services, :only => [:index, :show]
