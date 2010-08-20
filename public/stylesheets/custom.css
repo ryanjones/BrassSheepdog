@@ -267,7 +267,17 @@ body {
 	font-weight:bold;
 }
 
-.subscription-index li span.enabled{
+.subscription-index li span.enabled-state{
+	width: 60px;
+}
+
+.subscription-index li span.enabled-state.Enabled{
+	color: #3A3;
+	width: 60px;
+}
+
+.subscription-index li span.enabled-state.Disabled{
+	color: #A33;
 	width: 60px;
 }
 

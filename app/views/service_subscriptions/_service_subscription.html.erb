@@ -1,6 +1,6 @@
 <li>
 	<span class="name"><%= h service_subscription.service.display_name %></span>
-	<span class="enabled"><%= service_subscription.enabled ? "Enabled" : "Disabled" %></span>
+	<span class="enabled-state <%= service_subscription.enabled ? "Enabled" : "Disabled" %> "><%= service_subscription.enabled ? "Enabled" : "Disabled" %></span>
 	<span class="actions"><%= link_to "Edit Settings", edit_service_subscription_path(service_subscription), :class => "sexybutton sexysimple" %> | <%= link_to "Unsubscribe", service_subscription_path(service_subscription), :class => "sexybutton sexysimple", :method => :delete %></span>
 	<span class="next-alert">Next Alert: <%= service_subscription.enabled ? (service_subscription.next_alert_time ? service_subscription.next_alert_time.strftime("%I:%M %p %a, %b, #{service_subscription.next_alert_time.to_time.day.ordinalize} %Y") : "N/A") : "Alerts Disabled" %></span>
 		
