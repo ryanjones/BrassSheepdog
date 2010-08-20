@@ -4,14 +4,19 @@
     <% else %>
 		<div class="notice">
        You are not verified and can't receive updates! Please verify your phone number by entering the 6 digit code sent to your phone:
+       <div class="notice_a">
        <% form_tag :verify  do %>
         <%= text_field_tag :verification_number%>
-        <%= submit_tag "Verify"%>
+       </div>
+       <div class="notice_b">
+        <%= submit_tag "Verify!", :class => "sexybutton sexysimple sexygreen"%>
+       </div>
        <% end %>
-       
+       <div class="notice_c">
        <% form_tag :resend_verification do %>
-        <%= submit_tag "Re-send Verification"%>
+        <%= submit_tag "Re-send Verification Number!", :class => "sexybutton sexysimple sexyred"%>
        <% end %>
+       </div>
 		</div>
     <% end %>
   <% end %>

@@ -2,7 +2,6 @@
 .debug_dump {
 	clear:both;
 }
-
 /*rounded corners */
 .round {
   -webkit-border-radius: 5px;
@@ -127,6 +126,7 @@ body {
 
 #default-content-wrapper {
     padding: 30px;
+
 }
 
 /*A wrapper that wraps the property form, but not the title or back button */
@@ -135,9 +135,15 @@ body {
 	border: 1px solid #333;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
+	width:40%;
 	border-radius: 5px;
 	padding: 15px 15px 15px 30px;
 	margin-bottom: 10px;
+}
+
+#default-content-wrapper .h1 {
+  margin-left: auto ;
+  margin-right: auto ;
 }
 
 /******************************************/
@@ -211,7 +217,7 @@ body {
 
 /* the area around the right sidebar */
 #page-sidebar-area {
-	margin: 52px 10px 10px 10px;
+	margin: 56px 10px 10px 10px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
@@ -227,7 +233,7 @@ body {
 
 /* the content area of the right sidebar*/
 #page-sidebar-content .body {
-	height: 300px;
+	height: 353px;
 }
 
 
@@ -266,11 +272,11 @@ body {
 }
 
 .subscription-index li span.actions{
-	width: 200px;
+	width: 220px;
 }
 
 .subscription-index li span.next-alert{
-	width: 300px;
+	width: 250px;
 }
 
 
@@ -388,3 +394,27 @@ body {
   font-size: 12px;
   list-style: square;
 }
+
+.notice_a {
+  width:250px; 
+  color:white;
+  position:relative;
+  float:left;
+}
+
+.notice_b {
+  width:20;
+  color:white;
+  float:left;
+  position:relative; right:80px; top:1px;
+  background-color:#ffffff
+}
+
+.notice_c {
+  width:20;
+  color:white;
+  float:left;
+  position:relative; right:76px; top:1px;
+  background-color:#ffffff
+}
+
