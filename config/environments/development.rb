@@ -14,4 +14,16 @@ config.action_view.debug_rjs                         = true
 config.action_controller.perform_caching             = false
 
 # Don't care if the mailer can't send
-config.action_mailer.raise_delivery_errors = false
+config.action_mailer.raise_delivery_errors = true
+
+# set delivery method to :smtp, :sendmail or :test
+# config.action_mailer.smtp_settings = {
+#   :address        => 'www.alertzy.com',
+#   :port           => 26,
+#   :domain         => 'alertzy.com',
+#   :authentication => :login,
+#   :user_name      => 'updates@alertzy.com',
+#   :password       => 'applesauce55'
+# }
+
+SITE_URL = "localhost:3000"

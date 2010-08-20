@@ -13,15 +13,12 @@ class User < ActiveRecord::Base
   before_validation :prepare_params
   
   before_update :reset_verification_if_required
-  before_update :require_old_password
+  before_update :password_change_checks
   
   validates_presence_of     :login
   validates_length_of       :login,    :within => 3..40
   validates_uniqueness_of   :login
   validates_format_of       :login,    :with => Authentication.login_regex, :message => Authentication.bad_login_message
-
-  validates_format_of       :name,     :with => Authentication.name_regex,  :message => Authentication.bad_name_message, :allow_nil => true
-  validates_length_of       :name,     :maximum => 100
 
   validates_presence_of     :email
   validates_length_of       :email,    :within => 6..100 #r@a.wk
@@ -94,6 +91,30 @@ class User < ActiveRecord::Base
     end
   end
   
+  ##################################################
+  #### Forgotten password reset functions    ##
+  ##################################################
+  
+  def send_reminder_email 
+    UserMailer.deliver_reminder_email(self)
+  end
+  
+  def create_reset_token
+    self.reset_token = Digest::SHA1.hexdigest(Time.now.to_s)
+    self.save!
+    self.reset_token
+  end
+  
+  def check_reset_token(token)
+    self.reset_token == token
+  end
+  
+  def clear_reset_token
+    self.reset_token = nil
+    self.save!
+  end
+  
+  
   # Send verification no to logged in user
   def send_verification_no
     random_number = (89999 * rand + 100000).to_int
@@ -114,7 +135,15 @@ class User < ActiveRecord::Base
   def old_password=(password)
     @old_password = password
   end
-
+  
+  def token
+    @token
+  end
+  
+  def token=(token)
+    @token = token
+  end
+  
   ##################################################
   #### A currently fake method for the users timezone ##
   ##################################################
@@ -124,10 +153,20 @@ class User < ActiveRecord::Base
   
   
   private
-    def require_old_password
+    def password_change_checks
       if self.crypted_password_change
-        unless self.crypted_password_was == encrypt(@old_password)
-          errors.add_to_base("Your old password must be correct to change your password.")
+        if @old_password 
+          unless self.crypted_password_was == encrypt(@old_password)
+            errors.add_to_base("Your old password must be correct to change your password.")
+            false
+          end
+        elsif @token
+          unless self.check_reset_token (token)
+            errors.add_to_base("Your password reset link is no longer valid.")
+            false
+          end
+        else
+          #if neither of these conditions is met, the password can't be changed
           false
         end
       end

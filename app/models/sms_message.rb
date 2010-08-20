@@ -29,7 +29,7 @@ class SmsMessage < Object
   end
   
   def self.info_message_content
-    "Visit www.alertzy.com for info and to change your settings."
+    "Visit #{SITE_URL} for info and to change your settings."
   end
   
   def self.send_disabled_message_to_phone_number(phone_number)
@@ -38,7 +38,7 @@ class SmsMessage < Object
   end
   
   def self.disabled_message_content
-    "All your alertzy subscriptions have been disabled.\n  Visit www.alertzy.com to change your settings or re-enable."
+    "All your alertzy subscriptions have been disabled.\n  Visit #{SITE_URL} to change your settings or re-enable."
   end
   
   

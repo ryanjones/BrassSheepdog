@@ -11,6 +11,29 @@ Rails::Initializer.run do |config|
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.
 
+  # set delivery method to :smtp, :sendmail or :test
+  config.action_mailer.delivery_method = :smtp
+
+  # these options are only needed if you choose smtp delivery
+  config.action_mailer.smtp_settings = {
+    :address        => 'www.alertzy.com',
+    :port           => 26,
+    :domain         => 'alertzy.com',
+    :authentication => :login,
+    :user_name      => 'updates@alertzy.com',
+    :password       => 'applesauce55'
+  }
+  
+  # config.action_mailer.smtp_settings = {
+  #   :enable_starttls_auto => true,
+  #   :address => "smtp.gmail.com",
+  #   :port => 587,
+  #   :domain => "alertzy.com",
+  #   :authentication => :plain,
+  #   :user_name => "updates@alertzy.com",
+  #   :password => "applesauce55"
+  # }
+  
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
 

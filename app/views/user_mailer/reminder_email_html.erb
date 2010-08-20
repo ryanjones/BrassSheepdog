@@ -1,0 +1,10 @@
+We're sorry to hear you forgot your info!<br/>
+<br/>
+	Your login is: <%= @user.login %><br/>
+<br/>
+If you forgot your password, you can reset it at:<br/>
+<br/>
+	This link: <%= link_to "Reset Password", :controller => 'users', :action => :new_password, :id => @user, :token => @user.reset_token, :host => SITE_URL %><br/>
+<br/>
+Regards,<br/>
+The Alertzy Team.
