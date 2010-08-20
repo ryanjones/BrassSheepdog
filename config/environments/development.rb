@@ -18,14 +18,4 @@ config.action_mailer.raise_delivery_errors = true
 
 #  config.action_mailer.delivery_method = :sendmail
 
-# set delivery method to :smtp, :sendmail or :test
-# config.action_mailer.smtp_settings = {
-#   :address        => 'www.alertzy.com',
-#   :port           => 26,
-#   :domain         => 'alertzy.com',
-#   :authentication => :login,
-#   :user_name      => 'updates@alertzy.com',
-#   :password       => 'applesauce55'
-# }
-
 SITE_URL = "localhost:3000"

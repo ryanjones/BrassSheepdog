@@ -161,7 +161,7 @@ class User < ActiveRecord::Base
             false
           end
         elsif @token
-          unless self.check_reset_token (token)
+          unless self.check_reset_token token
             errors.add_to_base("Your password reset link is no longer valid.")
             false
           end
