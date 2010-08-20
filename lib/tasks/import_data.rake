@@ -6,6 +6,14 @@ namespace :db do
     GarbagePickup.delete_all
     load_pickup_data_from_city
   end
+
+  desc "Fetch garbage zones"
+  task :get_garbage_zones => :environment do
+    puts "Deleting existing zone data"
+    GarbageCoordinate.delete_all
+    GarbageRegion.delete_all
+    load_zone_data_from_city
+  end
 end
 
 #will fetch the garabe pickup data from the city data catalogue api
@@ -28,6 +36,46 @@ def load_pickup_data_from_city
     
     #create the entry
     GarbagePickup.create!(params)
+  end
+end
+
+#will fetch the garabe pickup data from the city data catalogue api
+def load_zone_data_from_city
+  #use ruby odata to feth the data from the api
+  puts "Fetch KML file"
+  url = "http://datafeed.edmonton.ca/v1/coe/GarbageCollectionZones/?$filter=&format=kml"
+  data = Net::HTTP.get URI.parse(url)
+  
+  puts "Creating xml_object from data"
+  xml_object = REXML::Document.new data
+  
+  regions = xml_object.elements.to_a('//Placemark')
+  
+  puts "Adding regions to database"
+  regions.each do |region|
+    params = Hash.new
+    params[:zone] = region.elements[".//SimpleData[@name='ZONE']"].text.gsub(/Zone (\w)/i, '\\1')
+    params[:id] = region.elements[".//SimpleData[@name='ID']"].text.gsub(/ID (\d+)/i, '\\1')
+    params[:day] = region.elements[".//SimpleData[@name='DAY']"].text.gsub(/Day (\d)/i, '\\1')
+    
+    garbage_region = GarbageRegion.create!(params)
+    
+    coordinates_element = region.elements[".//coordinates"]
+
+    
+    if coordinates_element
+      coordinates = coordinates_element.text.split(" ")
+      coordinates.each do |coordinate|
+        coordinate_array = coordinate.split(",")
+        x_coordinate = coordinate_array[0]
+        y_coordinate = coordinate_array[1]
+        coord = Hash.new
+        coord[:x] = x_coordinate
+        coord[:y] = y_coordinate
+        garbage_region.garbage_coordinates.create!(coord)
+      end
+    end
+    
   end
 end
 
