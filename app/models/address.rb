@@ -36,7 +36,7 @@ class Address < Object
   def formatted_zone
     zone = GarbageZone.find_address_zone(self)
     
-    zone.zone + zone.day.to_s
+    zone.zone + zone.day.to_s unless zone.nil?
   end
   
   #This model will always report being a new record
