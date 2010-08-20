@@ -28,6 +28,55 @@ class UsersController < ApplicationController
     @user = current_user
     render 'edit'
   end
+  
+  ###################################
+  # Forgotten password actions
+  ###################################
+  
+  def forgot
+    @title = "Forgotten Login/Password"
+    @user = User.new
+  end
+  
+  def remind
+    @user = User.find_by_email(params[:email])
+    if @user
+      @user.create_reset_token
+      @user.send_reminder_email
+      flash[:notice] = "A reminder e-mail has been sent to #{@user.email}"
+      redirect_to root_path
+    else
+      flash[:error] = "No account was found for that e-mail."
+      redirect_to forgot_users_path
+    end
+  end
+  
+  def new_password
+    @title = "Reset Password"
+    @user = User.find(params[:id])
+    @token = params[:token]
+    redirect_to root_path unless @user.check_reset_token @token
+  end
+  
+  def reset
+    @user = User.find(params[:id])
+    if @user.check_reset_token params[:token]
+      #this is for a check in the model
+      @user.token = params[:token]
+      if @user.update_attributes(params[:user])
+        flash[:success] = "Password Succesfully Changed."
+        @user.clear_reset_token
+        redirect_to root_path
+      else
+        @title = "Reset Password"
+        @user.password = nil
+        @user.password_confirmation = nil
+        render 'new_password'
+      end
+    else
+      redirect_to root_path
+    end
+  end
  
   def create
     logout_keeping_session!
