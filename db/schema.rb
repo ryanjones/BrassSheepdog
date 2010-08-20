@@ -9,7 +9,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100820073945) do
+ActiveRecord::Schema.define(:version => 20100820082612) do
+
+  create_table "addresses", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "garbage_coordinates", :force => true do |t|
     t.float    "x"
@@ -32,6 +37,12 @@ ActiveRecord::Schema.define(:version => 20100820073945) do
   add_index "garbage_pickups", ["zone", "day"], :name => "index_garbage_pickups_on_zone_and_day"
 
   create_table "garbage_regions", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "garbage_zone_id"
+  end
+
+  create_table "garbage_zones", :force => true do |t|
     t.string   "zone"
     t.integer  "day"
     t.datetime "created_at"

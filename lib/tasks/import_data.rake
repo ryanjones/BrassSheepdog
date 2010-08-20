@@ -10,8 +10,9 @@ namespace :db do
   desc "Fetch garbage zones"
   task :get_garbage_zones => :environment do
     puts "Deleting existing zone data"
-    GarbageCoordinate.delete_all
+    GarbageZone.delete_all
     GarbageRegion.delete_all
+    GarbageCoordinate.delete_all
     load_zone_data_from_city
   end
 end
@@ -51,18 +52,24 @@ def load_zone_data_from_city
   
   regions = xml_object.elements.to_a('//Placemark')
   
-  puts "Adding regions to database"
+  puts "Adding zones to database"
   regions.each do |region|
     params = Hash.new
     params[:zone] = region.elements[".//SimpleData[@name='ZONE']"].text.gsub(/Zone (\w)/i, '\\1')
     params[:id] = region.elements[".//SimpleData[@name='ID']"].text.gsub(/ID (\d+)/i, '\\1')
     params[:day] = region.elements[".//SimpleData[@name='DAY']"].text.gsub(/Day (\d)/i, '\\1')
     
-    garbage_region = GarbageRegion.create!(params)
+    garbage_zone = GarbageZone.find_by_day_and_zone(params[:day], params[:zone])
+    
+    if garbage_zone.nil?
+      garbage_zone = GarbageZone.create!(:day => params[:day], :zone => params[:zone])
+    end
+    
+    garbage_region = garbage_zone.garbage_regions.create!(:id => params[:id])
     
     coordinates_element = region.elements[".//coordinates"]
 
-    
+    puts "Adding coordinates to region"
     if coordinates_element
       coordinates = coordinates_element.text.split(" ")
       coordinates.each do |coordinate|

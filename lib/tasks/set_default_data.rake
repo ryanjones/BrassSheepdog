@@ -4,6 +4,7 @@ namespace :db do
     puts "Resetting the database"
     Rake::Task['db:reset'].invoke
     Rake::Task['db:get_garbage_schedule'].invoke
+    Rake::Task['db:get_garbage_zones'].invoke
     puts "Loading a default admin user"
     load_a_default_admin_user
     puts "Loading initial services"
