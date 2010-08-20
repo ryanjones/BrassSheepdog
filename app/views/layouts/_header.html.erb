@@ -8,6 +8,7 @@
 		<%= link_to "Home", root_path, :class => "home" %>
 		<% if admin? %>
 		<%= link_to "Send Message", new_sms_message_path, :class => "send-message"%>
+		<%= link_to "Address Lookup", new_address_path, :class => "address"%>
 		<% end %>
 		<%= link_to "Subscriptions",  service_subscriptions_path, :class => "subscriptions"%>
 		<%= link_to "Settings", edit_user_path(current_user), :class => "settings"%>

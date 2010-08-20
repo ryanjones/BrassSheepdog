@@ -2,11 +2,9 @@ class GarbageZone < ActiveRecord::Base
   has_many :garbage_regions
   
   def self.find_address_zone(address)
-    adr = Address.new
-    adr.address = address
     
     zone = GarbageZone.all.detect do |current_zone|
-      current_zone.contains_address adr
+      current_zone.contains_address address
     end
     
   end

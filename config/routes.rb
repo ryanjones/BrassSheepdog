@@ -10,6 +10,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :users, :collection => { :forgot => :get, :remind => :post}, :member => { :reset => :put, :new_password => :get}
   map.resource :sms_message, :only => [:new, :create], :member => {:incoming => :post}
+  map.resource :address, :only => [:new, :create]
   map.resource :session
   map.resources :service_subscriptions
   map.resources :services, :only => [:index, :show]
