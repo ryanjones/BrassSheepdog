@@ -14,7 +14,8 @@ class AddressesController < ApplicationController
   end
   
   def lookup_zone
-    
+    @address = Address.new(:address_string => params[:address])
+    @zone = @address.formatted_zone
   end
 
 end
