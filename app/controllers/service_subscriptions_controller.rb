@@ -64,7 +64,7 @@ class ServiceSubscriptionsController < ApplicationController
     @service_subscription = ServiceSubscription.find(params[:id])
     
       respond_to do |format|
-        if @service_subscription.update_attributes(params[:service_subscription])
+        if @service_subscription.update_attributes(params[:service_subscription]) && params[:return_to_settings] != 'true'
           format.html { redirect_to(service_subscriptions_path, :notice => 'Your settings were successfully updated.') }
           format.xml  { head :ok }
         else

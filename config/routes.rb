@@ -12,7 +12,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :sms_message, :only => [:new, :create], :member => {:incoming => :post}
   map.resource :address, :only => [:new, :create]
   map.resource :session
-  map.resources :service_subscriptions
+  map.resources :service_subscriptions, :only => [:edit, :index]
   map.resources :services, :only => [:index, :show]
 
   map.contact '/contact', :controller => 'pages', :action => 'contact'

@@ -1,0 +1,10 @@
+<div class="setting-set">
+	<div class="setting-set-title">Zone Settings:</div>
+	<% f.fields_for :address do |address_form| %>		
+		Your Address: <%= address_form.text_field :address_string %>
+		<%= link_to_function "Lookup", "$('return_to_settings').value = true; $(this).up('form').submit()" %><br/>
+	<% end  %>
+	<%= hidden_field_tag :return_to_settings, 0 %>
+	Manually Set Your Zone:<%= f.check_box :manual_zone, :onclick  => "$('service_subscription_formatted_zone').disabled = !$('service_subscription_manual_zone').checked" %><br/>
+	Your Pickup Zone: <%= f.select :formatted_zone, ["--"] | GarbageSubscription.valid_zones, {}, :disabled => !service_subscription.manual_zone %>
+</div>

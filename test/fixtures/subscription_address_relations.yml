@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  garbage_subscription_id: 1
+  address_id: 1
+
+two:
+  garbage_subscription_id: 1
+  address_id: 1

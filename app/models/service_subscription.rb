@@ -1,6 +1,5 @@
 class ServiceSubscription < ActiveRecord::Base
-    
-    attr_accessible :service_id, :delivery_time, :enabled
+    attr_accessible :service_id, :enabled
   
 	 	belongs_to  :user 
 	 	belongs_to  :service

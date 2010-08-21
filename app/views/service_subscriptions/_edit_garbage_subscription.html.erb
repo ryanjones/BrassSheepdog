@@ -1,10 +1,6 @@
-<div class="setting-set">
-	<div class="setting-set-title">Zone Settings:</div>
-	Your Pickup Zone: <%= f.select :formatted_zone, ["--"] | GarbageSubscription.valid_zones %>
+<div id="zone-set">
+	<%= render :partial => "edit_garbage_subscription_zone_set", :locals => {:f => f, :service_subscription => service_subscription} %>
 </div>
-<div class="setting-set">
-	<div class="setting-set-title">Notification Timing Settings:</div>
-	Delivery Time: <%= f.time_select :delivery_time, :minute_step => 30, :twelve_hour => true, :default => Time.parse("9:00 p.m.").to_datetime%><br/>
-	Send notice the day previous to pickup: 
-	<%= f.check_box :day_before %>
+<div id="timing-set">
+	<%= render :partial => "edit_garbage_subscription_timing_set", :locals => {:f => f, :service_subscription => service_subscription} %>
 </div>

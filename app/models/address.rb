@@ -2,23 +2,12 @@ require "geo_ruby"
 include Geokit::Geocoders
 include GeoRuby::SimpleFeatures
 
-class Address < Object
+class Address < ActiveRecord::Base
   
-  #Moodified initialize to provide behavior closer to ActiveRecord::Base
-  def initialize(attributes = nil)
-    @address = attributes[:address] unless attributes.nil?
-  end
-  
-  def address
-    @address
-  end
-  
-  def address=(string)
-    @address=string
-  end
+  attr_accessible :address_string
 
   def res
-    @res or @res = MultiGeocoder.geocode(@address)
+    @res or @res = MultiGeocoder.geocode(self.address_string)
   end
   
   def x
@@ -39,8 +28,4 @@ class Address < Object
     zone.zone + zone.day.to_s unless zone.nil?
   end
   
-  #This model will always report being a new record
-  def new_record?
-    true
-  end
 end
