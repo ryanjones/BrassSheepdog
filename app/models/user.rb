@@ -26,6 +26,7 @@ class User < ActiveRecord::Base
   validates_format_of       :email,    :with => Authentication.email_regex, :message => Authentication.bad_email_message
 
   validates_presence_of     :phone_number
+  validates_uniqueness_of   :phone_number
   validates_numericality_of :phone_number, :integer_only => true
   validates_length_of       :phone_number, :is => 11
   

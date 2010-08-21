@@ -323,6 +323,7 @@ body {
 }
 
 .subscription-index li span.actions{
+	width: 220px;
 }
 
 .subscription-index li span.next-alert{

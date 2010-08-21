@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100821013413) do
+ActiveRecord::Schema.define(:version => 20100821222311) do
 
   create_table "addresses", :force => true do |t|
     t.datetime "created_at"
@@ -91,6 +91,8 @@ ActiveRecord::Schema.define(:version => 20100821013413) do
     t.string   "reset_token"
   end
 
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
+  add_index "users", ["phone_number"], :name => "index_users_on_phone_number", :unique => true
 
 end
