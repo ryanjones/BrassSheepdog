@@ -282,6 +282,7 @@ body {
 .subscription-index li span.name{
 	width: 200px;
 	font-weight:bold;
+	margin-right: 20px;
 }
 
 .subscription-index li span.enabled-state{
@@ -299,7 +300,6 @@ body {
 }
 
 .subscription-index li span.actions{
-	width: 220px;
 }
 
 .subscription-index li span.next-alert{
@@ -359,6 +359,7 @@ body {
 	margin-right: 10px;
 	font-size: 16px;
 	width: 80px;
+	margin-right: 20px;
 }
 
 .services-index .icon {
