@@ -450,7 +450,25 @@ body {
   background-color:#ffffff
 }
 
-
-.login-test {
-	background-color: red;
+.forgot_p {
+  display:-moz-inline-stack;
+  display:inline-block;
+  zoom:1;
+  *display:inline;
 }
+
+
+.not_signed_in {
+  position:relative; left:60px; top:15px;
+}
+
+
+/*input[type="text"]#login {
+  width: 221px !important;
+  background: transparent url('../images/bg.jpg') no-repeat !important;
+  color : #747862 !important;
+  height:20px !important;
+  border:0 !important;
+  padding:4px 8px !important;
+  margin-bottom:0px !important;
+}*/
