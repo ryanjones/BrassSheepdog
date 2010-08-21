@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100820203549) do
+ActiveRecord::Schema.define(:version => 20100821013413) do
 
   create_table "addresses", :force => true do |t|
     t.datetime "created_at"
@@ -62,8 +62,8 @@ ActiveRecord::Schema.define(:version => 20100820203549) do
     t.string   "zone"
     t.integer  "day"
     t.boolean  "day_before",    :default => true
-    t.integer  "address_id"
     t.boolean  "manual_zone"
+    t.string   "address"
   end
 
   create_table "services", :force => true do |t|

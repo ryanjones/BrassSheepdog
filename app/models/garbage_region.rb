@@ -15,6 +15,6 @@ class GarbageRegion < ActiveRecord::Base
   end
   
   def contains_address(address)
-    self.linear_ring.contains_point? address.point
+    self.linear_ring.contains_point? address.point if address.point
   end
 end

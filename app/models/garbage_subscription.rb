@@ -1,10 +1,7 @@
 class GarbageSubscription < ServiceSubscription
-  attr_accessible :formatted_zone, :delivery_time, :day_before, :address_attributes, :manual_zone
+  attr_accessible :formatted_zone, :delivery_time, :day_before, :manual_zone, :address
   
-  belongs_to :address
-  accepts_nested_attributes_for :address
-  
-  before_save :update_zone_if_required
+  before_validation :update_zone_if_required
   
   validates_presence_of :zone, :on => :update
   validates_presence_of :day, :on => :update
@@ -14,7 +11,6 @@ class GarbageSubscription < ServiceSubscription
   
   #being used for method to over-ride the service
   alias_method :original_service, :service
-  alias_method :original_address, :address
   
   #hard-coding the valid zones for now, this might need to change
   #if we want to support more cities, but auto-importing from 
@@ -39,10 +35,6 @@ class GarbageSubscription < ServiceSubscription
   #hardcode the service if not set
   def service
       self.original_service or Service.find_by_name("Garbage")
-  end
-  
-  def address
-    self.original_address or self.build_address
   end
   
   #define the message which will get sent to the uer
@@ -80,16 +72,22 @@ class GarbageSubscription < ServiceSubscription
 
     #this could be made more efficient by only occuring when the address changes
     def update_zone_if_required
-      unless self.manual_zone || self.address.nil?
-        garbage_zone = GarbageZone.find_address_zone(self.address)
+      if !self.manual_zone && (self.address_change || self.manual_zone_change)
+        garbage_zone = zone_lookup
         unless garbage_zone.nil?
           self.zone = garbage_zone.zone
           self.day = garbage_zone.day
         else
+          #if the zone could not be found, clear the field
           errors.add_to_base("We couldn't find your zone.  Please check your address, or set manually.")
           false
         end
       end
+    end
+    
+    def zone_lookup
+      address_object = Address.new(:address_string => self.address)
+      garbage_zone = GarbageZone.find_address_zone(address_object)
     end
     
   

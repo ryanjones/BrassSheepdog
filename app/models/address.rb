@@ -10,16 +10,20 @@ class Address < ActiveRecord::Base
     @res or @res = MultiGeocoder.geocode(self.address_string)
   end
   
+  def valid?
+    self.res.success
+  end
+  
   def x
-    self.res.lng
+    self.res.lng if self.valid?
   end
   
   def y
-    self.res.lat
+    self.res.lat if self.valid?
   end
   
   def point
-    @point or @point = Point.from_coordinates([self.x,self.y])
+    @point or @point = Point.from_coordinates([self.x,self.y]) if self.valid?
   end
   
   def formatted_zone

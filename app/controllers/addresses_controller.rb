@@ -12,5 +12,9 @@ class AddressesController < ApplicationController
       render :new
     end
   end
+  
+  def lookup_zone
+    
+  end
 
 end
