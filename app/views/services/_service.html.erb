@@ -1,5 +1,5 @@
 <li>
-	<div class="actions"><% if !current_user.subscribed?(service) %><%= link_to "Subscribe", {:controller => 'service_subscriptions', :action => 'new', :service_id => service.id}, :class => "sexybutton sexysimple"%>
+	<div class="actions"><% if !current_user.subscribed?(service) %><%= link_to "Subscribe", {:controller => 'service_subscriptions', :action => 'new', :service_id => service.id}, :class => "sexybutton sexysimple sexygreen" %>
 	<% else %>
       Subscribed
 	<% end %>
