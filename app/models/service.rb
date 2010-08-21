@@ -14,4 +14,5 @@ class Service < ActiveRecord::Base
     #return the subscriptions for this service
     self.send(self.subscription_name)
   end
+  
 end

@@ -271,6 +271,12 @@ body {
 	zoom:1;
 	*display:inline;
 	width: 60px;
+	vertical-align:middle;
+}
+
+.subscription-index li span.icon{
+	width: 40px;
+	font-weight:bold;
 }
 
 .subscription-index li span.name{
