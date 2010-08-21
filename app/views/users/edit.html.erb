@@ -1,25 +1,25 @@
 <h1>Edit your settings</h1>
-<div id="default-sub-content-wrapper">
+<div id="default-sub-content-wrapper" class="user-form">
 <% @user.password = @user.password_confirmation = nil %>
 
 <%= error_messages_for :user %>
 <% form_for @user do |f| -%>
-<p><%= label_tag 'login' %><br/>
+<p><%= label_tag 'login' %>
 <%= f.text_field :login %></p>
 
-<p><%= label_tag 'email' %><br/>
+<p><%= label_tag 'email' %>
 <%= f.text_field :email %></p>
 
-<p><%= label_tag 'phone_number', 'Phone Number' %><br/>
+<p><%= label_tag 'phone_number', 'Phone Number' %>
 <%= f.text_field :phone_number %></p>
 
-<p><%= label_tag 'Old password' %><br/>
+<p><%= label_tag 'Old password' %>
 <%= f.password_field :old_password %></p>
 
-<p><%= label_tag 'New password' %><br/>
+<p><%= label_tag 'New password' %>
 <%= f.password_field :password %></p>
 
-<p><%= label_tag 'password_confirmation', 'Confirm New Password' %><br/>
+<p><%= label_tag 'password_confirmation', 'Confirm New Password' %>
 <%= f.password_field :password_confirmation %></p>
 
 <p><%= submit_tag 'Save Changes', :class => "sexybutton sexysimple" %></p>

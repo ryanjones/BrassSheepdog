@@ -1,5 +1,8 @@
 <h1>Log In</h1>
 
+<div id="default-sub-content-wrapper">
+
+
 <% form_tag session_path do -%>
 <p>
 <%= text_field_tag 'login', @login , default_text("Login")%></p>
@@ -14,3 +17,5 @@
 
 <p><%= submit_tag 'Log in' %></p>
 <% end -%>
+
+</div>

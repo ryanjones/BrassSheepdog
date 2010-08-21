@@ -1,5 +1,8 @@
 <h1>Send a text message!</h1>
 
+<div id="default-sub-content-wrapper">
+
+
 <% form_for @sms_message, :url => sms_message_path do |f|-%>
 	<%= f.error_messages %>
   <div class="field">
@@ -14,3 +17,5 @@
     <%= f.submit "Send", :class => "sexybutton sexysimple" %>
   </div>
 <% end %>
+
+</div>
