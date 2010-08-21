@@ -192,7 +192,8 @@ body {
 	.page-link-bar.home a.home,
 	.page-link-bar.services a.services,
 	.page-link-bar.about a.about,
-	.page-link-bar.contact a.contact {
+	.page-link-bar.contact a.contact,
+	.page-link-bar.faq a.faq, {
 		background-color: #555;
 		color:white;
 	}

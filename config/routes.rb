@@ -18,7 +18,7 @@ ActionController::Routing::Routes.draw do |map|
   map.contact '/contact', :controller => 'pages', :action => 'contact'
   map.services_list   '/services_list',   :controller => 'pages', :action => 'services'
   map.about   '/about',   :controller => 'pages', :action => 'about'
-  map.help    '/help',    :controller => 'pages', :action => 'help'
+  map.faq    '/faq',    :controller => 'pages', :action => 'faq'
   
   map.verify  '/verify', :controller => 'users', :action => 'verify'
   map.resend_verification  '/resend_verification', :controller => 'users', :action => 'resend_verification'
