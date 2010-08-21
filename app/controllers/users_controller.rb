@@ -88,11 +88,10 @@ class UsersController < ApplicationController
       # button. Uncomment if you understand the tradeoffs.
       # reset session
       self.current_user = @user # !! now logged in
-      @user.send_verification_no
       redirect_back_or_default(service_subscriptions_path)
       flash[:notice] = "Thanks for signing up!"
     else
-      flash.now[:error]  = "We couldn't set up that account, sorry.  Please try again, or contact an admin (link is above)."
+      flash.now[:error]  = "We couldn't set up that account, sorry.  Please try again, or contact us."
       render :action => 'new'
     end
   end
@@ -101,10 +100,11 @@ class UsersController < ApplicationController
   def verify
     if current_user.verification_no == params[:verification_number]
       current_user.verified = true
-      flash[:notice] = "Your phone number has been verified!  You can now recieve notifications."
+      flash[:success] = "Your phone number has been verified!  You can now recieve notifications."
       current_user.save
       redirect_to :back
     else
+      flash[:error] = "Your verification number did not match."
       redirect_to :back
     end
   end

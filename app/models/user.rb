@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   
   before_validation :prepare_params
   
-  before_update :reset_verification_if_required
+  before_save :send_verification_if_required
   before_update :password_change_checks
   
   validates_presence_of     :login
@@ -26,7 +26,6 @@ class User < ActiveRecord::Base
   validates_format_of       :email,    :with => Authentication.email_regex, :message => Authentication.bad_email_message
 
   validates_presence_of     :phone_number
-  validates_uniqueness_of   :phone_number
   validates_numericality_of :phone_number, :integer_only => true
   validates_length_of       :phone_number, :is => 11
   
@@ -120,7 +119,6 @@ class User < ActiveRecord::Base
   def send_verification_no
     random_number = (89999 * rand + 100000).to_int
     self.verification_no = random_number
-    self.save    # Random verification no saved to db
     sms = SmsMessage.new(:phone_number => self.phone_number,
                          :content      => 'Alertzy verification number: ' + self.verification_no.to_s)
     sms.send_message! # Send out verification text to users phone
@@ -177,9 +175,9 @@ class User < ActiveRecord::Base
       self.phone_number = self.phone_number.gsub(/[^\d]/, '')
     end
     
-    def reset_verification_if_required
+    def send_verification_if_required
       if self.phone_number_change
-        self.update_attribute :verified, false
+        self.verified = false
         self.send_verification_no
       end
     end
