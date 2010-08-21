@@ -16,7 +16,7 @@
 	</div>
     <% else %>
 		<% form_tag session_path do -%>
-		<%= text_field_tag 'login', @login , default_text("Login")%>
+		<%= text_field_tag 'login', @login , default_text("Login").merge(:class => "login-test")%>
 		<%= password_field_tag 'password', nil, default_text("Password") %>
 		<%= submit_tag "Login", :class => "sexybutton sexysimple" %>
 

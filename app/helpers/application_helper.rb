@@ -24,8 +24,8 @@ module ApplicationHelper
   end
   
   def default_text(text)
-    onClickFunction = "field = event.target; if (field.value=='#{text}') {field.value = '';}else {return false}"
-    onBlurFunction = "field = event.target; if (field.value=='') {field.value = '#{text}';}else {return false}"
-    {:value => text, :onclick => onClickFunction, :onblur => onBlurFunction}
+    onFocusFunction = "field = event.target || event.srcElement; if (field.value=='#{text}') {field.value = '';}else {return false}"
+    onBlurFunction = "field = event.target || event.srcElement; if (field.value=='') {field.value = '#{text}';}else {return false}"
+    {:value => text, :onfocus => onFocusFunction, :onblur => onBlurFunction}
   end
 end

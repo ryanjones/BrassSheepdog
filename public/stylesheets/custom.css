@@ -9,6 +9,16 @@
   border-radius: 5px;
 }
 
+/*inline-block */
+.inline-block {
+	list-style-type:none;
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;	
+}
+
+
 body {
    font-family: “Trebuchet MS”, Helvetica, sans-serif;
    color: #444;
@@ -440,3 +450,7 @@ body {
   background-color:#ffffff
 }
 
+
+.login-test {
+	background-color: red;
+}
