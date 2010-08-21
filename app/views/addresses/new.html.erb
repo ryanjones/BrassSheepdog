@@ -1,8 +1,12 @@
 <h1>Lookup Address</h1>
 
+<div id="default-sub-content-wrapper">
+
 <% form_for @address, :url => address_path do |f| -%>
 <p><%= label_tag 'address' %><br/>
 <%= f.text_field :address_string %></p>
 
 <p><%= submit_tag 'Lookup', :class => "sexybutton sexysimple"%></p>
 <% end -%>
+
+</div>

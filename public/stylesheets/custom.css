@@ -11,7 +11,6 @@
 
 /*inline-block */
 .inline-block {
-	list-style-type:none;
 	display:-moz-inline-stack;
 	display:inline-block;
 	zoom:1;
@@ -93,6 +92,7 @@ body {
 
 #header .link-bar a:hover,
 #header .link-bar.home a.home,
+#header .link-bar.address a.address,
 #header .link-bar.send-message a.send-message,
 #header .link-bar.subscriptions a.subscriptions,
 #header .link-bar.settings a.settings{
@@ -139,13 +139,26 @@ body {
 
 }
 
+#default-content-wrapper > h1{
+    text-align: center;
+	color:#444;
+	border-bottom: 1px solid #444;
+	padding-bottom: 5px;
+}
+
+#default-content-wrapper > h2{
+    text-align: center;
+	color:#444;
+
+}
+
 /*A wrapper that wraps the property form, but not the title or back button */
 #default-sub-content-wrapper {
 	background-color: white;
 	border: 1px solid #333;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
-	width:40%;
+	width:50%;
 	border-radius: 5px;
 	padding: 15px 15px 15px 30px;
 	margin: auto auto 10px auto;
@@ -307,6 +320,17 @@ body {
 }
 
 
+/******************************************/
+/* user form css */
+/******************************************/
+
+.user-form label {
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+	width: 100px;
+}
 
 /******************************************/
 /* subscriptions edit css */
