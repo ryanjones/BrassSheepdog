@@ -1,1 +1,9 @@
-page.visual_effect :highlight, 'zone-set', :duration => 3
+page.visual_effect :highlight, 'zone-set', :duration => 2
+if @zone
+  page.call "$('service_subscription_formatted_zone').setValue", @zone
+  page.call "$('service_subscription_formatted_zone_readonly').update", @zone
+  page.hide 'service_subscription_formatted_zone_error'
+else
+  page.call "$('service_subscription_formatted_zone_error').update", "We couldn't find your zone.  Check address, or set manually."
+  page.show 'service_subscription_formatted_zone_error'
+end

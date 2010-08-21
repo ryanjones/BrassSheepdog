@@ -306,6 +306,18 @@ body {
 	font-weight: bold;
 }
 
+/* formatting for the garbage zone read only element */
+#service_subscription_formatted_zone_readonly {
+	font-weight: bold;
+	font-size: 14px;
+}
+
+/* The element ajax will use to insert error */
+#service_subscription_formatted_zone_error {
+	font-weight: bold;
+	color: red;
+}
+
 
 /******************************************/
 /* services index css */
