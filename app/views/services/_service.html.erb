@@ -1,13 +1,13 @@
 <li>
+	<div class="actions"><% if !current_user.subscribed?(service) %><%= link_to "Subscribe", :controller => 'service_subscriptions', :action => 'new', :service_id => service.id %>
+	<% else %>
+      Subscribed
+	<% end %>
+	</div>
 	<div class="icon"><%= FileTest.exists?('public/images/' + service.name.underscore + '.png') ? image_tag( service.name.underscore + '.png') : ""   %>
 	</div>
 	<div class="service-body">
-		<span class="title"><%= h(service.display_name)%>
-		<% if !current_user.subscribed?(service) %>
-		| <%= link_to "Subscribe", :controller => 'service_subscriptions', :action => 'new', :service_id => service.id %>
-		<% else %>
-		| Subscribed
-		<% end %></span>
+		<span class="title"><%= h(service.display_name)%></span>
 
 		<br/><span class="description"><%= h service.description %></span>
 	</div>

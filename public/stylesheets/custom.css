@@ -148,7 +148,7 @@ body {
 	width:40%;
 	border-radius: 5px;
 	padding: 15px 15px 15px 30px;
-	margin-bottom: 10px;
+	margin: auto auto 10px auto;
 }
 
 #default-content-wrapper .h1 {
@@ -350,6 +350,17 @@ body {
   padding: 15px 15px 15px 30px;
 }
 
+.services-index .actions {
+	vertical-align: middle;
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+	margin-right: 10px;
+	font-size: 16px;
+	width: 80px;
+}
+
 .services-index .icon {
 	vertical-align: middle;
 	display:-moz-inline-stack;
@@ -365,7 +376,7 @@ body {
 	display:inline-block;
 	zoom:1;
 	*display:inline;
-	width: 750px;
+	width: 640px;
 }
 
 .services-index .title {
