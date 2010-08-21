@@ -1,4 +1,7 @@
 class AddressesController < ApplicationController
+  before_filter :login_required
+  before_filter :set_header_link_class
+  
   def new
     @title = "Address Lookup"
     @address = Address.new
@@ -18,4 +21,9 @@ class AddressesController < ApplicationController
     @zone = @address.formatted_zone
   end
 
+
+  private
+    def set_header_link_class 
+      @header_link_class = "address"
+    end
 end
