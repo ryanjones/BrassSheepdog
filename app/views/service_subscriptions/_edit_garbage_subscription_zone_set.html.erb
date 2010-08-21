@@ -1,7 +1,8 @@
 <div class="setting-set">
 	<div class="setting-set-title">Garbage Pickup Zone Settings:</div>
+	<div class="setting-set-hint">Either lookup your zone by address, or manually set it.<br/>Example Address: 10145 119th St, Edmonton, AB</div>
 	
-	Your Address: <%= f.text_field :address %>
+	Your Address: <%= f.text_field :address%>
 	<%= link_to_remote("Lookup",
 	          :url =>{ :action => :lookup_zone, :controller => "addresses" },
 			  :with => "'address=' + $('service_subscription_address').value") %><br/>

@@ -1,21 +1,25 @@
 <h1>Log In</h1>
 
-<div id="default-sub-content-wrapper">
+<div id="default-sub-content-wrapper" class="user-form">
 
 
 <% form_tag session_path do -%>
 <p>
-<%= text_field_tag 'login', @login , default_text("Login")%></p>
+<%= label_tag 'login' %>
+<%= text_field_tag 'login'%></p>
 
 <p>
-<%= password_field_tag 'password', nil, default_text("Password") %></p>
+<%= label_tag 'password' %>	
+<%= password_field_tag 'password' %></p>
 
 <!-- Uncomment this if you want this functionality
 <p><%= label_tag 'remember_me', 'Remember me' %>
 <%= check_box_tag 'remember_me', '1', @remember_me %></p>
 -->
 
-<p><%= submit_tag 'Log in' %></p>
+<p>
+<%= submit_tag 'Log in', :class => "sexybutton sexysimple"%>
+<%= forgot_password_button %></p>
 <% end -%>
 
 </div>

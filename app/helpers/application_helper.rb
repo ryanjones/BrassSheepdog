@@ -23,6 +23,10 @@ module ApplicationHelper
     end
   end
   
+  def forgot_password_button
+    link_to "Forgot Password?", forgot_users_path, :class => "sexybutton sexysimple sexylightgrey"
+  end
+  
   def default_text(text)
     onFocusFunction = "field = event.target || event.srcElement; if (field.value=='#{text}') {field.value = '';}else {return false}"
     onBlurFunction = "field = event.target || event.srcElement; if (field.value=='') {field.value = '#{text}';}else {return false}"

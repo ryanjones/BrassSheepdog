@@ -13,7 +13,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :address, :only => [:new, :create]
   map.resource :session
   map.resources :service_subscriptions, :only => [:edit, :index]
-  map.resources :services, :only => [:index, :show]
+  map.resources :services, :only => [:index]
 
   map.contact '/contact', :controller => 'pages', :action => 'contact'
   map.services_list   '/services_list',   :controller => 'pages', :action => 'services'

@@ -17,6 +17,11 @@
 	*display:inline;	
 }
 
+/* remove the spaces underneath images */
+img{
+	vertical-align: bottom;
+}
+
 
 body {
    font-family: “Trebuchet MS”, Helvetica, sans-serif;
@@ -143,7 +148,7 @@ body {
     text-align: center;
 	color:#444;
 	border-bottom: 1px solid #444;
-	padding-bottom: 5px;
+	padding-bottom: 5px;hahah
 }
 
 #default-content-wrapper > h2{
@@ -264,6 +269,11 @@ body {
 /******************************************/
 /* subscriptions index css */
 /******************************************/
+.subscription-empty-text {
+  font-size: 16px;
+  text-align: center;
+}
+
 .subscription-index {
   background-color: white;
   border: 1px solid #333;
@@ -340,6 +350,13 @@ body {
 /* a group of related settings in the edit form */
 .setting-set {
 	margin-bottom: 10px;
+}
+
+/* a group of related settings in the edit form */
+.setting-set-hint {
+	font-size: 12px;
+	color: #666;
+	font-style: italic;
 }
 
 /* the title for a group of related settings */
@@ -430,14 +447,12 @@ body {
 /******************************************/
 
 .fieldWithErrors {
-  padding: 2px;
-  background-color: red;
-  display: table;
 }
 
-.fieldWithErrors label {
-  color: #fff;
+.fieldWithErrors input, .fieldWithErrors select{
+  background-color: #EEAAAA;
 }
+
 
 #errorExplanation {
   width: 400px;

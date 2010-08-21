@@ -3,9 +3,13 @@
 <div id="current-subscriptions-wrapper">
 
 <ul class="subscription-index">
-<%= render @service_subscriptions %>
+<% if @service_subscriptions.empty? %>
+	<div class="subscription-empty-text">You aren't subscribed to any services yet.  <br/><br/>Click on the button below to find and subscribe to Alertzy services and start receiving alerts!</div>
+<% else %>
+	<%= render @service_subscriptions %>
+<% end %>
 </ul>
 
-<%= link_to 'Subscribe to more services', services_path %>
+<%= link_to 'Subscribe to more services', services_path, :class => "sexybutton sexysimple" %>
 
 </div>

@@ -9,6 +9,14 @@ class GarbageSubscription < ServiceSubscription
   validates_inclusion_of :day_before, :in => [true, false]
   validate :must_have_valid_zone
   
+  HUMANIZED_ATTRIBUTES = {
+      :formatted_zone => "Zone"
+    }
+
+  def self.human_attribute_name(attr)
+    HUMANIZED_ATTRIBUTES[attr.to_sym] || super
+  end
+  
   #being used for method to over-ride the service
   alias_method :original_service, :service
   
@@ -79,7 +87,9 @@ class GarbageSubscription < ServiceSubscription
           self.day = garbage_zone.day
         else
           #if the zone could not be found, clear the field
-          errors.add_to_base("We couldn't find your zone.  Please check your address, or set manually.")
+          #errors.add_to_base("We couldn't find your zone.  Please check your address, or set manually.")
+          errors.add(:address, "didn't map to a zone.  Please check or set manually.")
+          
           false
         end
       end
@@ -92,7 +102,9 @@ class GarbageSubscription < ServiceSubscription
     
   
     def must_have_valid_zone
-      errors.add_to_base("You must select a valid zone") unless GarbageSubscription.valid_zones.include?(self.formatted_zone)
+      unless GarbageSubscription.valid_zones.include?(self.formatted_zone)
+        errors.add(:formatted_zone, " must be a valid value.") 
+      end
     end
   
     def pickup_today?
