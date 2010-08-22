@@ -454,6 +454,24 @@ body {
 	color: red;
 }
 
+.address-box .form {
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+	vertical-align: top;
+	width: 345px;
+}
+
+.address-box .ajax {
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+	vertical-align: top;
+	margin-top: 5px;
+}
+
 
 /******************************************/
 /* services index css */
