@@ -3,8 +3,15 @@ namespace :db do
   task :populate => :environment do
     puts "Resetting the database"
     Rake::Task['db:reset'].invoke
-    Rake::Task['db:get_garbage_schedule'].invoke
-    Rake::Task['db:get_garbage_zones'].invoke
+    #Rake::Task['db:get_garbage_schedule'].invoke
+    #Rake::Task['db:get_garbage_zones'].invoke
+    puts "Import garbage data from packaged sql file"
+    Rake::Task['db:import_garbage_data_from_sql'].invoke
+    Rake::Task['db:populate_without_garbage'].invoke
+  end
+  
+  task :populate_without_garbage => :environment do
+
     puts "Loading a default admin user"
     load_a_default_admin_user
     puts "Loading initial services"

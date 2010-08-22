@@ -15,6 +15,14 @@ namespace :db do
     GarbageCoordinate.delete_all
     load_zone_data_from_city
   end
+  
+  
+  task :import_garbage_data_from_sql => :environment do
+    sql = File.open("script/dbdata/garbage_only_data.sql").read
+    sql.split(';').each do |sql_statement|
+      ActiveRecord::Base.connection.execute(sql_statement)
+    end
+  end
 end
 
 #will fetch the garabe pickup data from the city data catalogue api
