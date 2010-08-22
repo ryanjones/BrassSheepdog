@@ -28,6 +28,13 @@ body {
    color: #444;
 }
 
+/* hint text */
+.hint {
+	font-size: 12px;
+	color: #666;
+	font-style: italic;
+}
+
 /*Header formatting */
 #header {
   margin-bottom: 10px;
@@ -245,11 +252,16 @@ body {
 }
 
 /* the box containing the yielded content */
-#page-content .divider{
+#page-content h1{
+	text-align:center;
+}
+
+/* a standard dividing line */
+.divider{
 	width:95%;
 	height: 1px;
 	background-color: #AAA;
-	margin: auto;
+	margin: 10px auto 10px auto;
 }
 
 /* the area around the right sidebar */
@@ -340,6 +352,10 @@ body {
   padding: 15px 15px 15px 30px;
 }
 
+.subscription-index .fee-hint{
+  text-align:center;
+}
+
 .subscription-index li {
 	list-style-type:none;
 }
@@ -399,12 +415,7 @@ body {
 	width: 100px;
 }
 
-/* a group of related settings in the edit form */
-.user-form .hint {
-	font-size: 12px;
-	color: #666;
-	font-style: italic;
-}
+
 
 /******************************************/
 /* subscriptions edit css */
