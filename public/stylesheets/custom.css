@@ -399,6 +399,13 @@ body {
 	width: 100px;
 }
 
+/* a group of related settings in the edit form */
+.user-form .hint {
+	font-size: 12px;
+	color: #666;
+	font-style: italic;
+}
+
 /******************************************/
 /* subscriptions edit css */
 /******************************************/
