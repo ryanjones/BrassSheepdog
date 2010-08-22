@@ -263,6 +263,30 @@ body {
 /* the content area of the right sidebar*/
 #page-sidebar-content .body {
 	height: 353px;
+	text-align:center;
+	padding-top: 10px;
+}
+
+/******************************************/
+/*home page layout properties */
+/******************************************/
+
+.home #page-content {
+	height: 360px;
+	background-image: url('../images/home-splash.png');
+	background-repeat: no-repeat;
+}
+
+/******************************************/
+/*faq page layout properties */
+/******************************************/
+
+.faq .question {
+	font-weight:bold;
+}
+
+.faq .answer {
+	margin-bottom:10px;
 }
 
 

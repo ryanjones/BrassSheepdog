@@ -1,7 +1,7 @@
 <% content_for :content do %>
 <div id="page-wrapper">
 	<div class="span-16">
-		<div id="page-content-area">
+		<div id="page-content-area" class="<%= params[:action] %>">
 			<div class="page-link-bar round <%= params[:action] %>">
 				<%= link_to "Home", root_path, :class => "sexybutton sexysimple sexylarge" %>
 				<%= link_to "Services", services_list_path, :class => "sexybutton sexysimple sexylarge" %>
@@ -23,7 +23,7 @@
 					Sponsors
 				</div>
 				<div class="body">
-					Direct Text Marketing
+					<%= link_to image_tag('dtm_logo_fix.png', :alt => "Direct Text Marketing"), "http://www.directtextmarketing.com" , {:target => "_blank" } %>
 				</div>
 			</div>
 		</div>
