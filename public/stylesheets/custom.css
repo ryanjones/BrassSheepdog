@@ -116,6 +116,10 @@ body {
 	display:inline;
 }
 
+#header-right {
+	padding-left: 20px;
+}
+
 /******************************************/
 /* Page Footer Navigation Links */
 /******************************************/

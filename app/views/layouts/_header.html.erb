@@ -3,6 +3,7 @@
   	<%= link_to logo, root_path %>
   </div>
   <div class="span-14 last">
+	<div id="header-right">
 	<% if logged_in? %>
 	<div class="link-bar <%= header_link_class%>">
 		<%= link_to "Home", root_path, :class => "home" %>
@@ -28,5 +29,6 @@
   		<%= link_to "Not signed up? Register now for free!", new_user_path, :class => "sexybutton sexysimple sexygreen sexyxxxl" -%>
   		</div>
     <% end %>
+	</div>
   </div>
 </div>
