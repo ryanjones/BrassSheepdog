@@ -244,6 +244,14 @@ body {
 	border: 2px solid #DDD;
 }
 
+/* the box containing the yielded content */
+#page-content .divider{
+	width:95%;
+	height: 1px;
+	background-color: #AAA;
+	margin: auto;
+}
+
 /* the area around the right sidebar */
 #page-sidebar-area {
 	margin: 56px 10px 10px 10px;
@@ -287,6 +295,30 @@ body {
 
 .faq .answer {
 	margin-bottom:10px;
+}
+
+/******************************************/
+/*service page layout properties */
+/******************************************/
+
+.service .logo {
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+	width:100px;
+}
+
+.service .text {
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+	width:460px;
+}
+
+.service .title {
+	font-size: 20px;
 }
 
 
