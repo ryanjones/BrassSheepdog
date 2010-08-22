@@ -114,10 +114,11 @@ class UsersController < ApplicationController
       current_user.send_verification_no
       current_user.verification_try = Date.today
       current_user.save
+      flash[:success] = "Verification number resent!"
     else
       flash[:notice] = "You can only re-send 1 verification # per day!"
     end
-    redirect_to(root_path)
+    redirect_to :back
   end
   
   private

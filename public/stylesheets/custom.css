@@ -261,7 +261,7 @@ body {
 	width:95%;
 	height: 1px;
 	background-color: #AAA;
-	margin: 10px auto 10px auto;
+	margin: 20px auto 20px auto;
 }
 
 /* the area around the right sidebar */
@@ -439,6 +439,7 @@ body {
 /* the title for a group of related settings */
 .setting-set-title {
 	font-weight: bold;
+	font-size: 14px;
 }
 
 /* formatting for the garbage zone read only element */

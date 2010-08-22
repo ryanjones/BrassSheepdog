@@ -114,8 +114,8 @@ class User < ActiveRecord::Base
     self.save!
   end
   
-  
   # Send verification no to logged in user
+  # note this method doesn't save, so it must be saved elsewhere
   def send_verification_no
     random_number = (89999 * rand + 100000).to_int
     self.verification_no = random_number
