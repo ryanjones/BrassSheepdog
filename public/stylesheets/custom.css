@@ -266,11 +266,24 @@ body {
 
 /* the area around the right sidebar */
 #page-sidebar-area {
-	margin: 56px 10px 10px 10px;
+	margin: 0px 10px 10px 10px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 	border: 2px solid #DDD;	
+}
+
+/* the area around the right sidebar */
+#page-sidebar-social-links {
+	text-align:center;
+	padding-top:15px;
+	padding-bottom:15px;
+}
+
+/* each of the social buttons */
+#page-sidebar-social-links a{
+	margin-left: 2px;
+	margin-right: 2px;
 }
 
 /* the title area of the right sidebar */
