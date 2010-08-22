@@ -270,7 +270,7 @@ body {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
-	border: 2px solid #DDD;
+	border: 2px solid #DDD;	
 }
 
 /* the title area of the right sidebar */
@@ -285,6 +285,8 @@ body {
 	height: 353px;
 	text-align:center;
 	padding-top: 10px;
+	background-color:#C8C8C8;
+	
 }
 
 /******************************************/
