@@ -1,0 +1,5 @@
+production:
+  adapter: mysql
+  database: pr711226_alertzy
+  username: pr711226_admin
+  password: applesauce55
