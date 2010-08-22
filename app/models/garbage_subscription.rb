@@ -66,7 +66,7 @@ class GarbageSubscription < ServiceSubscription
     pickup_day = pickup_time.to_date
     
     alert_day = (self.day_before ? 1.day.until(pickup_day) : pickup_day)
-    alert_time = (self.delivery_time.to_i - self.delivery_time.to_date.to_time.to_i).seconds.since(alert_day)
+    alert_time = (self.delivery_time.to_i - self.delivery_time.to_date.to_time.to_i).seconds.since(alert_day).in_time_zone
   end
   
   #method to determine whether an alert should be sent to the subscribed user
