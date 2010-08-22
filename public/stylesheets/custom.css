@@ -274,10 +274,16 @@ body {
 }
 
 /* the area around the right sidebar */
-#page-sidebar-contest-link {
+#page-sidebar-social-links {
 	text-align:center;
 	padding-top:15px;
 	padding-bottom:15px;
+}
+
+/* each of the social buttons */
+#page-sidebar-social-links a{
+	margin-left: 2px;
+	margin-right: 2px;
 }
 
 /* the title area of the right sidebar */
