@@ -54,7 +54,6 @@ class ServiceSubscription < ActiveRecord::Base
       if time_difference > 1.day / 2
         time_difference = time_difference - 1.day
       end
-      30.minutes
       # check if the difference is less than 15 minute
       time_difference.abs <= 15.minutes
     end

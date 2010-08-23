@@ -6,7 +6,7 @@ sms_logger = Log4r::Logger.new "sms_logger"
 #define the level
 sms_logger.level = INFO
 # define the outputter
-file_outputter = FileOutputter.new('sms', :trunc => "false", :filename => "log/sms.log")
+file_outputter = FileOutputter.new('sms', :trunc => "false", :filename => Rails.root.join("log/sms.log").to_s)
 # specify the format for the message.
 file_outputter.formatter = PatternFormatter.new(:pattern => "[%l] %d :: %m")
 # assign the outputter
