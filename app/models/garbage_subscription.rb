@@ -96,7 +96,7 @@ class GarbageSubscription < ServiceSubscription
     end
     
     def zone_lookup
-      address_object = Address.new(:address_string => self.address)
+      address_object = Address.new(:address_string => "#{self.address}, Edmonton, AB")
       garbage_zone = GarbageZone.find_address_zone(address_object)
     end
     

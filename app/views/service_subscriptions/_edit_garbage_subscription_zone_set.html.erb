@@ -4,7 +4,7 @@
 	
 	<div class="address-box">
 		<div class="form">
-			Your Address: <%= f.text_field :address%><br/>
+			Your Address: <%= f.text_field :address%><span>, Edmonton, AB </span><br/>
 				<div id="service_subscription_formatted_zone_error"></div>
 				Your Pickup Zone: <%= f.select :formatted_zone, ["--"] | GarbageSubscription.valid_zones, {}, :style => (service_subscription.manual_zone ? "" : "display:none")%>
 				<span id="service_subscription_formatted_zone_readonly" style="<%= (service_subscription.manual_zone ? "display:none" : "") %>"><%= (service_subscription.formatted_zone.nil? ? "--" : service_subscription.formatted_zone )%></span>
