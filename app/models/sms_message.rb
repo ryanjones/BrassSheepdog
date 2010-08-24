@@ -11,7 +11,7 @@ class SmsMessage < Object
   
   validates_presence_of     :phone_number
   validates_numericality_of :phone_number, :only_integer => true
-  validates_length_of       :phone_number, :is => 11, :message => "must be 11 digits"
+  validates_length_of       :phone_number, :is => 10, :message => "must be 10 digits"
   
   validates_length_of       :content, :maximum => 140
   validates_presence_of     :content
@@ -49,7 +49,7 @@ class SmsMessage < Object
     #otherwise continue to send the message
 
     # build the params string
-    post_args = { 'cellphone' => self.phone_number, 
+    post_args = { 'cellphone' => "1#{self.phone_number}", 
                     'message_body' => self.content,
                     'api_key' => "lskjdf87fhyr6"}
                     

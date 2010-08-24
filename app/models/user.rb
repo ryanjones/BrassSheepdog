@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
 
   validates_presence_of     :phone_number
   validates_numericality_of :phone_number, :integer_only => true
-  validates_length_of       :phone_number, :is => 11
+  validates_length_of       :phone_number, :is => 10
   
 
   # HACK HACK HACK -- how to do attr_accessible from here?
@@ -181,6 +181,7 @@ class User < ActiveRecord::Base
     end
   
     def prepare_params
+      #remove any non digit characters from the phone number
       self.phone_number = self.phone_number.gsub(/[^\d]/, '')
     end
     

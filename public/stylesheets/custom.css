@@ -434,6 +434,32 @@ body {
 	width: 100px;
 }
 
+#service_subscription_address {
+	width: 100px;
+}
+
+#user-password-change-wrapper {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 1px solid #333;
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 20px;
+	background-color: #DDD;
+}
+
+#user-password-change-wrapper .change-password-title {
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+#user-password-change-wrapper label {
+	width: 140px;
+}
+
 
 
 /******************************************/

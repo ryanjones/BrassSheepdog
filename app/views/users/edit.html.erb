@@ -13,6 +13,9 @@
 <p><%= label_tag 'phone_number', 'Phone Number' %>
 <%= f.text_field :phone_number %></p>
 
+<div id="user-password-change-wrapper">
+<div class="change-password-title">Change password: </div>
+
 <p><%= label_tag 'Old password' %>
 <%= f.password_field :old_password %></p>
 
@@ -21,6 +24,8 @@
 
 <p><%= label_tag 'password_confirmation', 'Confirm New Password' %>
 <%= f.password_field :password_confirmation %></p>
+
+</div>
 
 <p><%= submit_tag 'Save Changes', :class => "sexybutton sexysimple" %></p>
 <% end -%>
