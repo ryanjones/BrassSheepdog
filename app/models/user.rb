@@ -117,11 +117,17 @@ class User < ActiveRecord::Base
   # Send verification no to logged in user
   # note this method doesn't save, so it must be saved elsewhere
   def send_verification_no
-    random_number = (89999 * rand + 100000).to_int
-    self.verification_no = random_number
-    sms = SmsMessage.new(:phone_number => self.phone_number,
-                         :content      => 'Alertzy verification number: ' + self.verification_no.to_s)
-    sms.send_message! # Send out verification text to users phone
+    if self.verification_no?
+      sms = SmsMessage.new(:phone_number => self.phone_number,
+                           :content      => 'Alertzy verification number: ' + self.verification_no.to_s)
+      sms.send_message! # Send out verification text to users phone
+    else
+      random_number = (89999 * rand + 100000).to_int
+      self.verification_no = random_number
+      sms = SmsMessage.new(:phone_number => self.phone_number,
+                           :content      => 'Alertzy verification number: ' + self.verification_no.to_s)
+      sms.send_message! # Send out verification text to users phone
+    end
   end
   
   ##################################################
