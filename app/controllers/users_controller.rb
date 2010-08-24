@@ -100,6 +100,7 @@ class UsersController < ApplicationController
   def verify
     if current_user.verification_no == params[:verification_number]
       current_user.verified = true
+      current_user.verification_no = nil
       flash[:success] = "Your phone number has been verified!  You can now recieve notifications."
       current_user.save
       redirect_to :back
