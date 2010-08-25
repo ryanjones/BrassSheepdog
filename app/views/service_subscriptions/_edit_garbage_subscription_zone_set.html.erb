@@ -1,10 +1,11 @@
+<div class="setting-set-title">Step 1: Configure Garbage Pickup Zone</div>
+<div class="setting-set-hint">Either lookup your zone by address, or manually set it.<br/>Example Address: 10145 119th St, Edmonton, AB</div>
 <div class="setting-set">
-	<div class="setting-set-title">Garbage Pickup Zone Settings:</div>
-	<div class="setting-set-hint">Either lookup your zone by address, or manually set it.<br/>Example Address: 10145 119th St, Edmonton, AB</div>
+	
 	
 	<div class="address-box">
 		<div class="form">
-			Your Address: <%= f.text_field :address%><span>, Edmonton, AB </span><br/>
+			Your Address: <%= f.text_field :address, :onchange => remote_function({:url =>{ :action => :lookup_zone, :controller => "addresses" }, :with => "'address=' + $('service_subscription_address').value"}) + ";$('lookup-link').hide(); $('loading-image').show();"%><span>, Edmonton, AB </span><br/>
 				<div id="service_subscription_formatted_zone_error"></div>
 				Your Pickup Zone: <%= f.select :formatted_zone, ["--"] | GarbageSubscription.valid_zones, {}, :style => (service_subscription.manual_zone ? "" : "display:none")%>
 				<span id="service_subscription_formatted_zone_readonly" style="<%= (service_subscription.manual_zone ? "display:none" : "") %>"><%= (service_subscription.formatted_zone.nil? ? "--" : service_subscription.formatted_zone )%></span>

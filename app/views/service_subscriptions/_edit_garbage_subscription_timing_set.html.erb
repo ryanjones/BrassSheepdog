@@ -1,8 +1,8 @@
+<div class="setting-set-title">Step 2: Configure Alert Timing</div>
+<div class="setting-set-hint">Configure when alerts will be sent.</div>
 <div class="setting-set">
-	<div class="setting-set-title">Alert Timing Settings:</div>
-	<div class="setting-set-hint">Configure when alerts will be sent.</div>
-	Send alert the day previous to pickup: 
+	Send the alert on the day before the pickup: 
 	<%= f.check_box :day_before %><br/>
-	Delivery Time: <%= f.time_select :delivery_time, :minute_step => 30, :twelve_hour => true, :default => Time.parse("9:00 p.m.").to_datetime%>
+	Alert Time: <%= f.time_select :delivery_time, :minute_step => 30, :twelve_hour => true, :default => Time.parse("9:00 p.m.").to_datetime%>
 
 </div>

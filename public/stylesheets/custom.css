@@ -479,11 +479,12 @@ body {
 /* a group of related settings in the edit form */
 .setting-set {
 	margin-bottom: 10px;
+	padding: 5px 5px 5px 15px;
 }
 
 /* a group of related settings in the edit form */
 .setting-set-hint {
-	font-size: 12px;
+	font-size: 11px;
 	color: #666;
 	font-style: italic;
 }
@@ -512,7 +513,7 @@ body {
 	zoom:1;
 	*display:inline;
 	vertical-align: top;
-	width: 345px;
+	width: 300px;
 }
 
 .address-box .ajax {
