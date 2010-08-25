@@ -9,7 +9,7 @@ class ServiceSubscriptionsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @service_subscriptions }
+      #format.xml  { render :xml => @service_subscriptions }
     end
   end
 
