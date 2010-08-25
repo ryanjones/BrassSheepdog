@@ -1,0 +1,10 @@
+--- 
+user: app_Alertzy
+group: app_Alertzy
+cwd: /opt/apps/Alertzy/current
+log_file: /opt/apps/Alertzy/shared/log/mongrel.log
+port: "8000"
+environment: production
+address: 127.0.0.1
+pid_file: /opt/apps/Alertzy/shared/pids/mongrel.pid
+servers: 2
