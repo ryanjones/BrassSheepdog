@@ -7,10 +7,10 @@ class ServiceSubscriptionsController < ApplicationController
   def index
     @service_subscriptions = current_user.service_subscriptions
 
-    # respond_to do |format|
-    #      format.html # index.html.erb
-    #      format.xml  { render :xml => @service_subscriptions }
-    #    end
+    respond_to do |format|
+       format.html # index.html.erb
+       format.xml  { render :xml => @service_subscriptions }
+    end
   end
 
   # GET /service_subscriptions/1
