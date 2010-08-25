@@ -155,8 +155,8 @@ class User < ActiveRecord::Base
   #### A currently fake method for the users timezone ##
   ##################################################
   def time_zone
-    #{}"Mountain Time (US & Canada)"
-    "Eastern Time (US & Canada)"
+    "Mountain Time (US & Canada)"
+    #{}"Eastern Time (US & Canada)"
   end
   
   

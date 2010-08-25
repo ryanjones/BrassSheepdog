@@ -14,7 +14,7 @@ set :mongrel_rails, "/opt/ruby-enterprise-1.8.6-20090610/bin/mongrel_rails"
 # your SCM below:
 set :scm, :git
    
-set :ruby_vm_type,      :ree        # :ree, :mri
+set :ruby_vm_type,      :ree       # :ree, :mri
 set :web_server_type,   :apache     # :apache, :nginx
 set :app_server_type,   :mongrel  # :passenger, :mongrel
 set :db_server_type,    :mysql      # :mysql, :postgresql, :sqlite
