@@ -108,8 +108,8 @@ class GarbageSubscription < ServiceSubscription
     end
   
     def pickup_today?
-      # this has been refactoed to handle the "day_before" setting
-      now = DateTime.now
+      # this has been refactored to handle the "day_before" setting
+      now = DateTime.now.in_time_zone
       #define the day to check
       if self.day_before
         # if they want the update the day before, we're interested in whether there's a pickup tomorrow
