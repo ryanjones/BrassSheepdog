@@ -8,6 +8,9 @@ class Delivery < ActiveRecord::Base
     # Cycle through the user array and user subscriptions
     user_array.each do |user|
       
+      #set the users timezone
+      Time.zone = user.time_zone
+      
       # For each subscription, check if the delivery time ~now, if so send message
       user_subscription_array = user.service_subscriptions
       user_subscription_array.each do |subscription|
