@@ -57,6 +57,11 @@ body {
 	margin-right: auto;
 }
 
+/* get satisfaction tab */
+#fdbk_tab {
+	top: 40% !important;
+}
+
 /******************************************/
 /*Navigation link formatting */
 /******************************************/

@@ -17,9 +17,11 @@
 	</div>
     <% else %>
   		<% form_tag session_path do -%>
+		<span>
   		<%= text_field_tag 'login', @login, default_text("Login").merge({ :class => "textbox_s"}) %>
   		<%= password_field_tag 'password', nil, default_text("Password") %>
   		<%= submit_tag "Login", :class => "sexybutton sexysimple" %>
+		</span>
       <% end -%>
       
   		<div class="forgot_p">
