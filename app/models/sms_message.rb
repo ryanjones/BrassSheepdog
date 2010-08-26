@@ -52,7 +52,7 @@ class SmsMessage < Object
     post_args = { 'cellphone' => "1#{self.phone_number}", 
                     'message_body' => self.content,
                     'api_key' => "lskjdf87fhyr6"}
-    unless FAKE_SMS_MESSAGES
+    unless (defined?(FAKE_SMS_MESSAGES) && FAKE_SMS_MESSAGES)
       submit_to_gateway! post_args 
     else
       fake_submit_to_gateway! post_args
