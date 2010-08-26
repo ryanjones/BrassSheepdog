@@ -7,4 +7,5 @@
     <li><%= link_to "FAQ", faq_path %></li>
   </ul>
 <%= debug(params) if Rails.env.development? %>
+<%= debug(ActionController::Base.perform_caching) if Rails.env.development? %>
 </div>
