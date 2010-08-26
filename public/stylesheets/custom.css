@@ -319,10 +319,9 @@ body {
 /*home page layout properties */
 /******************************************/
 
-.home #page-content {
-	height: 360px;
-	background-image: url('../images/home-splash.png');
-	background-repeat: no-repeat;
+.home #page-content{
+	padding: 0px;
+
 }
 
 /******************************************/
