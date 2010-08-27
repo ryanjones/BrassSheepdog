@@ -128,6 +128,7 @@ class UsersController < ApplicationController
  
   def validation_page
     @hide_verification_bar = true
+    (redirect_to service_subscriptions_path and return) if current_user.verified?
   end 
  
   
