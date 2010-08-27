@@ -1,4 +1,8 @@
 class Delivery < ActiveRecord::Base
+  def self.scheduled_events
+    FieldStatus.update
+    Delivery.check_subscription
+  end
   
   def self.check_subscription
     # Get all of the users
@@ -20,6 +24,7 @@ class Delivery < ActiveRecord::Base
           s = SmsMessage.new(:phone_number => user.phone_number,
                          :content      => subscription.sms_content)
           s.send_message!
+          subscription.alert_sent
         end 
         
         # testing lewp

@@ -5,6 +5,7 @@ class ServiceSubscriptionsController < ApplicationController
   # GET /service_subscriptions
   # GET /service_subscriptions.xml
   def index
+    @title = "Your subscriptions"
     @service_subscriptions = current_user.service_subscriptions
 
     respond_to do |format|

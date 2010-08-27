@@ -1,0 +1,16 @@
+<div id="field-selection-set">
+	<div class="setting-set-title">Select The Areas You Would Like Updates For</div>
+	<div class="setting-set-hint">Updates will only be sent for selected areas.</div>
+	<div class="setting-set">
+		<p><%= label_tag 'Edmonton Northwest Fields', 'Edmonton Northwest Fields' %>
+		<%= f.check_box :update_about_northwest %></p>
+
+		<p><%= label_tag 'Edmonton Northeast Fields', 'Edmonton Northeast Fields' %>
+		<%= f.check_box :update_about_northeast %><br/>
+		
+		<p><%= label_tag 'Edmonton Southside Fields', 'Edmonton Southside Fields' %>
+		<%= f.check_box :update_about_southside %><br/>
+
+	</div>
+
+</div>

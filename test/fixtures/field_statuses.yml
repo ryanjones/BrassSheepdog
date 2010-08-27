@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  northeast_open: false
+  northwest_open: false
+  south_open: false
+  last_update_time: 2010-08-27 12:01:53
+
+two:
+  northeast_open: false
+  northwest_open: false
+  south_open: false
+  last_update_time: 2010-08-27 12:01:53

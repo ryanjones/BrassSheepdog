@@ -47,7 +47,7 @@ class GarbageSubscription < ServiceSubscription
   
   #define the message which will get sent to the uer
   def sms_content
-    "Remember to take out your garbage!\nSent by Alertzy"
+    "Remember to take out your garbage!\nSent by Alertzy.com"
   end
   
   #set up a pseudo property for the formatted zone
@@ -67,13 +67,15 @@ class GarbageSubscription < ServiceSubscription
     
     alert_day = (self.day_before ? 1.day.until(pickup_day) : pickup_day)
     alert_time = (self.delivery_time.to_i - self.delivery_time.to_date.to_time.to_i).seconds.since(alert_day).in_time_zone
+    
+    alert_time.strftime("%I:%M %p %a, %b, #{alert_time.to_time.day.ordinalize} %Y")
   end
   
   #method to determine whether an alert should be sent to the subscribed user
   def alert_user?
     # check the three necessary conditions
     # in order of increasing cost
-    self.enabled? && self.approximately_now? && pickup_today?
+    self.enabled? && approximately_now? && pickup_today?
   end
   
   private 
@@ -120,6 +122,18 @@ class GarbageSubscription < ServiceSubscription
       end
       
       GarbagePickup.pickup_on_day? self.zone, self.day, day_of_interest
+    end
+    
+    def approximately_now?(current_time = DateTime.now)
+      # determine how many seconds apart the delivery is from the current time
+      # take the modulus to isolate time from days
+      time_difference = (current_time.to_i - self.delivery_time.to_i) % 1.day
+      #make sure that we are looking at the smallest difference ( think looping at midnight )
+      if time_difference > 1.day / 2
+        time_difference = time_difference - 1.day
+      end
+      # check if the difference is less than 15 minute
+      time_difference.abs <= 15.minutes
     end
   
 end
