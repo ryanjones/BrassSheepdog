@@ -278,15 +278,6 @@ body {
 }
 
 /* the area around the right sidebar */
-#page-sidebar-area {
-	margin: 0px 10px 10px 10px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
-	border: 2px solid #DDD;	
-}
-
-/* the area around the right sidebar */
 #page-sidebar-social-links {
 	text-align:center;
 	padding-top:15px;
@@ -299,21 +290,52 @@ body {
 	margin-right: 2px;
 }
 
+/* the area around the right sidebar */
+#page-sidebar-updates-area {
+	margin: 0px 10px 10px 10px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 2px solid #DDD;	
+}
+
+
+
+/* the content area of the right sidebar*/
+#page-sidebar-updates-content .body {
+	height: 210px;
+	text-align:left;
+	padding: 10px;
+	background-color:#FFF;
+	
+}
+
+/* the area around the right sidebar */
+#page-sidebar-sponsors-area {
+	margin: 0px 10px 10px 10px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 2px solid #DDD;	
+}
+
 /* the title area of the right sidebar */
-#page-sidebar-content .title {
+.page-sidebar-area .title {
 	text-align:center;
 	border-bottom: 2px solid #DDD;
 	font-size: 18px
 }
 
 /* the content area of the right sidebar*/
-#page-sidebar-content .body {
-	height: 353px;
+#page-sidebar-sponsors-content .body {
+	height: 100px;
 	text-align:center;
 	padding-top: 10px;
 	background-color:#C8C8C8;
 	
 }
+
+
 
 /******************************************/
 /*home page layout properties */

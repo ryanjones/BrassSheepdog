@@ -2,6 +2,7 @@ class ServicesController < ApplicationController
   before_filter :set_header_link_class
   
   def index
+    @title = "Available Services"
     @services = Service.all
   end
   
