@@ -1,6 +1,7 @@
 class Service < ActiveRecord::Base
   has_many :service_subscriptions
   has_many :garbage_subscriptions
+  has_many :field_status_subscriptions
   
   validates_presence_of :name
   validates_presence_of :display_name

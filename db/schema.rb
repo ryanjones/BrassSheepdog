@@ -9,12 +9,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100821222311) do
+ActiveRecord::Schema.define(:version => 20100827204301) do
 
   create_table "addresses", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "address_string"
+  end
+
+  create_table "field_statuses", :force => true do |t|
+    t.boolean  "northeast_open"
+    t.boolean  "northwest_open"
+    t.boolean  "south_open"
+    t.datetime "update_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "garbage_coordinates", :force => true do |t|
@@ -58,12 +67,22 @@ ActiveRecord::Schema.define(:version => 20100821222311) do
     t.integer  "user_id"
     t.integer  "service_id"
     t.datetime "delivery_time"
-    t.boolean  "enabled",       :default => true
+    t.boolean  "enabled",                  :default => true
     t.string   "zone"
     t.integer  "day"
-    t.boolean  "day_before",    :default => true
+    t.boolean  "day_before",               :default => true
     t.boolean  "manual_zone"
     t.string   "address"
+    t.boolean  "update_about_northeast",   :default => true
+    t.boolean  "update_about_northwest",   :default => true
+    t.boolean  "update_about_southside",   :default => true
+    t.boolean  "send_only_on_change",      :default => true
+    t.boolean  "previous_northeast_state"
+    t.boolean  "previous_northwest_state"
+    t.boolean  "previous_southside_state"
+    t.boolean  "current_northeast_state"
+    t.boolean  "current_northwest_state"
+    t.boolean  "current_southside_state"
   end
 
   create_table "services", :force => true do |t|

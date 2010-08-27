@@ -385,6 +385,7 @@ body {
 
 .subscription-index li {
 	list-style-type:none;
+	margin-bottom: 10px;
 }
 
 .subscription-index li span{
@@ -525,12 +526,31 @@ body {
 	margin-top: 5px;
 }
 
+/******************************************/
+/* field status subscriptoin new/edit css */
+/******************************************/
+
+#field-selection-set label {
+	width:180px;
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+	vertical-align: top;
+}
+
 
 /******************************************/
 /* services index css */
 /******************************************/
 
 .services-index {
+
+  list-style-type:none;
+
+}
+
+.services-index li{
   background-color: white;
   border: 1px solid #333;
   -webkit-border-radius: 5px;
@@ -538,6 +558,7 @@ body {
   border-radius: 5px;
   list-style-type:none;
   padding: 15px 15px 15px 30px;
+  margin-bottom:20px;
 }
 
 .services-index .actions {
@@ -567,7 +588,7 @@ body {
 	display:inline-block;
 	zoom:1;
 	*display:inline;
-	width: 640px;
+	width: 620px;
 }
 
 .services-index .title {

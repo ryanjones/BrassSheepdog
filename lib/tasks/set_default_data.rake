@@ -33,5 +33,8 @@ end
 def load_services
   garbage = Service.create!(:name => "Garbage",
                        :display_name => "Garbage Pickup Notifications",
-                       :description => "This service will provide you with helpful alerts to remind you to take out your garbage before pickups.  The notification timing is customizable")
+                       :description => "This service will provide you with helpful alerts to remind you to take out your garbage before pickups.  The notification timing is customizable.")
+  field_subscription = Service.create!(:name => "FieldStatus",
+                       :display_name => "Sports Field Status Updates",
+                       :description => "This service will send you updates whenever the statuses of sports fields published by the City of Edmonton.  You can select which areas of Edmonton you would like updates for.")                     
 end

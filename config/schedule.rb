@@ -23,6 +23,6 @@
 #
 
  every 30.minutes do
-   runner "Delivery.check_subscription"
+   runner "Delivery.scheduled_events"
  end
 
