@@ -10,6 +10,13 @@ module ApplicationHelper
     end
   end
   
+  #Returns a meta tag with description if a description was provided
+  def description
+    unless @description.nil?
+      "<META name=\"description\" content=\"#{h(@description)}\"/>"
+    end
+  end
+  
   #Returns an image tag containing the project logo
   def logo
     image_tag "logo.png", :alt => "Alertzy", :class => "round"

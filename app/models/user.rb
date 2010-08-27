@@ -37,7 +37,6 @@ class User < ActiveRecord::Base
   attr_accessible :login, :email, :name, :password, :password_confirmation, :phone_number, :old_password
 
 
-
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   #
   # uff.  this is really an authorization, not authentication routine.  

@@ -35,7 +35,6 @@ class UsersController < ApplicationController
   
   def forgot
     @title = "Forgotten Login/Password"
-    @user = User.new
   end
   
   def remind

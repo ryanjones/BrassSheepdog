@@ -319,10 +319,9 @@ body {
 /*home page layout properties */
 /******************************************/
 
-.home #page-content {
-	height: 360px;
-	background-image: url('../images/home-splash.png');
-	background-repeat: no-repeat;
+.home #page-content{
+	padding: 0px;
+
 }
 
 /******************************************/
@@ -454,9 +453,10 @@ body {
 	border: 1px solid #333;
 	padding-top: 10px;
 	padding-left: 10px;
-	padding-right: 10px;
+	margin-left: -10px;
+	width: 360px;
 	margin-bottom: 20px;
-	background-color: #DDD;
+	background-color: #EEF;
 }
 
 #user-password-change-wrapper .change-password-title {
@@ -466,7 +466,7 @@ body {
 }
 
 #user-password-change-wrapper label {
-	width: 140px;
+	width: 100px;
 }
 
 

@@ -45,15 +45,18 @@ class SmsMessage < Object
   #Sends the text message to our message provider
   def send_message!
     #fail to send if the message doesn't pass validation
-    return false if !self.valid?
+    return false unless self.valid?
     #otherwise continue to send the message
 
     # build the params string
     post_args = { 'cellphone' => "1#{self.phone_number}", 
                     'message_body' => self.content,
                     'api_key' => "lskjdf87fhyr6"}
-                    
-    submit_to_gateway! post_args
+    unless (defined?(FAKE_SMS_MESSAGES) && FAKE_SMS_MESSAGES)
+      submit_to_gateway! post_args 
+    else
+      fake_submit_to_gateway! post_args
+    end
 
   end
   
@@ -82,6 +85,11 @@ class SmsMessage < Object
       Log4r::Logger['sms_logger'].info "Message attempt failed with http response #{resp}\n#{post_args.to_yaml}"
       false
     end
+  end
+  
+  #Function to pull this logic out of send_message and simplify it
+  def fake_submit_to_gateway!(post_args)
+      Log4r::Logger['sms_logger'].info "Message attempt succeeded with api response \"Fake Message\"\n#{post_args.to_yaml}"
   end
   
 end
