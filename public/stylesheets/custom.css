@@ -668,6 +668,28 @@ body {
 }
 
 
+.notice_vald_page_c {
+  position:relative; left:68px; bottom:26px;
+}
+
+.image_iphone
+{ 
+  position:relative; bottom:0px;
+  width:450px; 
+  height:400px; 
+  background-image:url(/images/verify_400high.png); 
+  background-repeat:no-repeat; 
+} 
+
+.validation_page
+{
+ position:relative; bottom:325px; left:190px;
+ padding-left:100px;
+ height:0px;
+}
+
+
+
 /*input[type="text"]#login {
   width: 221px !important;
   background: transparent url('../images/bg.jpg') no-repeat !important;

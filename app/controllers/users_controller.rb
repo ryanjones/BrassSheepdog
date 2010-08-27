@@ -88,7 +88,8 @@ class UsersController < ApplicationController
       # button. Uncomment if you understand the tradeoffs.
       # reset session
       self.current_user = @user # !! now logged in
-      redirect_back_or_default(service_subscriptions_path)
+      #redirect_back_or_default(service_subscriptions_path)
+      redirect_to(validation_path)
       flash[:notice] = "Thanks for signing up!"
     else
       flash.now[:error]  = "We couldn't set up that account, sorry.  Please try again, or contact us."
@@ -103,7 +104,11 @@ class UsersController < ApplicationController
       current_user.verification_no = nil
       flash[:success] = "Your phone number has been verified!  You can now recieve notifications."
       current_user.save
-      redirect_to :back
+      if params[:page] == 'validation'
+        redirect_to(service_subscriptions_path)
+      else
+        redirect_to :back
+      end
     else
       flash[:error] = "Your verification number did not match."
       redirect_to :back
@@ -121,6 +126,11 @@ class UsersController < ApplicationController
     end
     redirect_to :back
   end
+ 
+  def validation_page
+    @hide_verification_bar = true
+  end 
+ 
   
   private
     

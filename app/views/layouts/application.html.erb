@@ -9,7 +9,7 @@
   <body>
     <div class="container">
       <%= render 'layouts/header' %>
-      <%= render 'layouts/verification' %>
+      <%= render 'layouts/verification' unless @hide_verification_bar == true %>
       <div id="content" class="round span-24 last">
         <% flash.each do |key, value| %>
           <%= content_tag(:div, value, :class => "flash #{key}") %>

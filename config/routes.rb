@@ -21,6 +21,7 @@ ActionController::Routing::Routes.draw do |map|
   map.faq    '/faq',    :controller => 'pages', :action => 'faq'
   
   map.verify  '/verify', :controller => 'users', :action => 'verify'
+  map.validation  '/validation', :controller => 'users', :action => 'validation_page'
   map.resend_verification  '/resend_verification', :controller => 'users', :action => 'resend_verification'
   # The priority is based upon order of creation: first created -> highest priority.
 
