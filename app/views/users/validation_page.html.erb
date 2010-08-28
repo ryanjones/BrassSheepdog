@@ -1,0 +1,29 @@
+<h1>Validation</h1>
+
+<div class="image_iphone">
+</div>
+<div class="validation_page">
+  <div id="default-sub-content-wrapper">
+    <% if current_user %>
+      <% unless current_user.verified? %>
+         You are not verified and can't receive updates! 
+         <br/><br/>Please verify your phone number by entering the 6 digit code sent to your phone:
+           <div class="notice_vald_page_a">
+           <% form_tag :verify do %>
+            <%= text_field_tag :verification_number%>
+            <%= hidden_field_tag(:page, 'validation') %>
+           </div>
+           <div class="notice_vald_page_b">
+            <%= submit_tag "Verify!", :class => "sexybutton sexysimple sexylightgreen"%>
+           </div>
+           <% end %>
+           <div class="notice_vald_page_c">
+           <% form_tag :resend_verification do %>
+            <%= submit_tag "Re-send Verification Number!", :class => "sexybutton sexysimple sexylightred"%>
+           <% end %>
+        </div>
+      <% end %>
+    <% end %>
+    </div>
+  </div>
+
