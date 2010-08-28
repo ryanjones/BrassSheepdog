@@ -34,22 +34,15 @@ end
 
 def load_services
   unless Service.find_by_name("Garbage")
-<<<<<<< HEAD
-    garbage = Service.create!(:name => "Garbage",
-=======
+
     garbage = Service.create!(
                        :name => "Garbage",
->>>>>>> f91e25ea8f502dd1fb2e34ddb66859792f968654
                        :display_name => "Garbage Pickup Notifications",
                        :description => "This service will provide you with helpful alerts to remind you to take out your garbage before pickups.  The notification timing is customizable.")
   end
   unless Service.find_by_name("FieldStatus")
-<<<<<<< HEAD
-    field_subscription = Service.create!(:name => "FieldStatus",
-=======
     field_subscription = Service.create!(
                        :name => "FieldStatus",
->>>>>>> f91e25ea8f502dd1fb2e34ddb66859792f968654
                        :display_name => "Sports Field Closure Updates",
                        :description => "This service will send you updates whenever the City of Edmonton open or closes fields.  You can select which areas of Edmonton you would like updates for.")                     
   end
