@@ -1,4 +1,4 @@
-class AddUpdateAboutNortheastAndUpdateAboutNorthwestAndUpdateAboutSouthsideAndSendOnlyOnChangeAndPreviousNortheastStateAndPreviousNorthwestStateAndPreviousSouthsideStateToServiceSubscriptions < ActiveRecord::Migration
+class AddFieldStatusPropertiesSubscriptionsTable < ActiveRecord::Migration
   def self.up
     add_column :service_subscriptions, :update_about_northeast, :boolean
     add_column :service_subscriptions, :update_about_northwest, :boolean
