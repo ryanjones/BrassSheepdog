@@ -710,9 +710,18 @@ body {
   position:relative; left:7px; top:15px;
 }
 
+.notice_vald_page_b {
+  display:-moz-inline-stack;
+  display:inline-block;
+  zoom:1;
+  *display:inline;
+}
 
 .notice_vald_page_c {
-  position:relative; left:68px; bottom:26px;
+  display:-moz-inline-stack;
+  display:inline-block;
+  zoom:1;
+  *display:inline;
 }
 
 .image_iphone
