@@ -1,12 +1,13 @@
 class ServiceSubscription < ActiveRecord::Base
-    attr_accessible :service_id, :enabled
+    attr_accessible :service_id, :sms_enabled, :email_enabled
   
 	 	belongs_to  :user 
 	 	belongs_to  :service
     
     validates_presence_of :user_id
     validates_presence_of :service_id
-    validates_inclusion_of :enabled, :in => [true, false]
+    validates_inclusion_of :sms_enabled, :in => [true, false]
+    validates_inclusion_of :email_enabled, :in => [true, false]
 
     # This is breaking partial paths
     def self.model_name
@@ -23,11 +24,11 @@ class ServiceSubscription < ActiveRecord::Base
     # over-riding the default enabled getter so that all services are disabled
     # if the user is not verified
     def enabled
-      if self.user.verified?
-        self[:enabled]
-      else
-        false
-      end
+      self.sms_enabled? or self.email_enabled?
+    end
+    
+    def enabled?
+      self.enabled
     end
     
     # Defines a method for pointing to the edit view partial
@@ -42,8 +43,26 @@ class ServiceSubscription < ActiveRecord::Base
       false
     end
     
-    def enabled?
-        self.enabled
+    #require the user to be verified for sms updates
+    def sms_enabled
+      if self.user.verified?
+        self[:sms_enabled]
+      else
+        false
+      end
+    end
+    
+    def sms_enabled?
+      self.sms_enabled
+    end
+    
+    #verification not required for email updates
+    def email_enabled
+      self[:email_enabled]
+    end
+    
+    def email_enabled?
+      self.email_enabled
     end
     
     #these function can be over-ridden in the STI children
@@ -55,4 +74,9 @@ class ServiceSubscription < ActiveRecord::Base
       true
     end
     
+    def alert_subject
+      nil
+    end
+    
 end
+

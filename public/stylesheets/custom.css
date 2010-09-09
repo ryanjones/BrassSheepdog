@@ -409,7 +409,7 @@ body {
 	margin-bottom: 10px;
 }
 
-.subscription-index li span{
+.subscription-index li > span, .subscription-index li > div{
 	display:-moz-inline-stack;
 	display:inline-block;
 	zoom:1;
@@ -424,27 +424,25 @@ body {
 }
 
 .subscription-index li span.name{
-	width: 200px;
+	width: 180px;
 	font-weight:bold;
 	margin-right: 20px;
 }
 
-.subscription-index li span.enabled-state{
-	width: 60px;
+.subscription-index li div.enabled-states{
+	width: 100px;
 }
 
 .subscription-index li span.enabled-state.Enabled{
 	color: #3A3;
-	width: 60px;
 }
 
 .subscription-index li span.enabled-state.Disabled{
 	color: #A33;
-	width: 60px;
 }
 
 .subscription-index li span.actions{
-	width: 220px;
+	width: 210px;
 }
 
 .subscription-index li span.next-alert{

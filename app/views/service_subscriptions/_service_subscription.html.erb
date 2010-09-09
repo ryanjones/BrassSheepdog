@@ -1,7 +1,10 @@
 <li>
 	<span class="icon"><%= FileTest.exists?('public/images/' + service_subscription.service.name.underscore + '.png') ? image_tag( service_subscription.service.name.underscore + '.png') : "" %></span>
 	<span class="name"><%= h service_subscription.service.display_name %></span>
-	<span class="enabled-state <%= service_subscription.enabled ? "Enabled" : "Disabled" %> "><%= service_subscription.enabled ? "Enabled" : "Disabled" %></span>
+	<div class="enabled-states">
+	<span class="sms enabled-state <%= service_subscription.sms_enabled? ? "Enabled" : "Disabled" %> "><%= service_subscription.sms_enabled? ? "SMS Enabled" : "SMS Disabled" %></span>
+	<span class="email enabled-state <%= service_subscription.email_enabled? ? "Enabled" : "Disabled" %> "><%= service_subscription.email_enabled? ? "Email Enabled" : "Email Disabled" %></span>
+	</div>
 	<span class="next-alert">Next Alert: <%= service_subscription.enabled ? (service_subscription.next_alert_time ? service_subscription.next_alert_time : "N/A") : "Alerts Disabled" %></span>
 	<span class="actions"><%= link_to "Edit Settings", edit_service_subscription_path(service_subscription), :class => "sexybutton sexysimple" %> <%= link_to "Unsubscribe", service_subscription_path(service_subscription), :class => "sexybutton sexysimple", :method => :delete %></span>
 		

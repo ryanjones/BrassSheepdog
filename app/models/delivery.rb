@@ -20,11 +20,20 @@ class Delivery < ActiveRecord::Base
       user_subscription_array.each do |subscription|
         logger.debug "Evaluating user"
         if subscription.alert_user?
-          logger.debug "Sending Message"
-          s = SmsMessage.new(:phone_number => user.phone_number,
-                         :content      => subscription.sms_content)
-          s.send_message!
-          subscription.alert_sent
+          #send an sms message if they are enabled
+          if subscription.sms_enabled?
+            logger.debug "Sending Message"
+            message_content = subscription.alert_content + "\nSent by Alertzy.com"
+            s = SmsMessage.new(:phone_number => user.phone_number,
+                           :content      => message_content)
+            s.send_message!
+            subscription.alert_sent
+          end
+          #send an email if they are enabled
+          if subscription.email_enabled?
+            logger.debug "Sending email to #{user.email}"
+            AlertMailer.deliver_alert_email(user, subscription.alert_content, subscription.alert_subject)
+          end
         end 
         
         # testing lewp

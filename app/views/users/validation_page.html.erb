@@ -6,7 +6,7 @@
   <div id="default-sub-content-wrapper">
     <% if current_user %>
       <% unless current_user.verified? %>
-         You are not verified and can't receive updates! 
+         You are not verified and can't receive SMS updates! 
          <br/><br/>Please verify your phone number by entering the 6 digit code sent to your phone:
            <div class="notice_vald_page_a">
            <% form_tag :verify do %>

@@ -30,7 +30,7 @@ class FieldStatusSubscription < ServiceSubscription
   end
   
   #define the message which will get sent to the uer
-  def sms_content
+  def alert_content
     message = String.new
     #only send informatio for which the user is interested
     if (self.update_about_northeast)
@@ -52,7 +52,11 @@ class FieldStatusSubscription < ServiceSubscription
                   
     end
     
-    message += "Sent by Alertzy.com"
+  end
+  
+  #define the subject line for alerts sent to the user
+  def alert_subject
+    "Field Statuses Have Changed!"
   end
   
   def next_alert_time

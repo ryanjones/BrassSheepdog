@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100827204301) do
+ActiveRecord::Schema.define(:version => 20100909020710) do
 
   create_table "addresses", :force => true do |t|
     t.datetime "created_at"
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(:version => 20100827204301) do
     t.integer  "user_id"
     t.integer  "service_id"
     t.datetime "delivery_time"
-    t.boolean  "enabled",                  :default => true
+    t.boolean  "sms_enabled",              :default => true
     t.string   "zone"
     t.integer  "day"
     t.boolean  "day_before",               :default => true
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(:version => 20100827204301) do
     t.boolean  "current_northeast_state"
     t.boolean  "current_northwest_state"
     t.boolean  "current_southside_state"
+    t.boolean  "email_enabled",            :default => true
   end
 
   create_table "services", :force => true do |t|

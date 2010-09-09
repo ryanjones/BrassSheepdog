@@ -21,7 +21,7 @@ class FieldStatus < ActiveRecord::Base
   end 
   
   def self.latest_update
-    FieldStatus.find(:first, :order => "update_time ASC")
+    FieldStatus.find(:first, :order => "update_time DESC")
   end
     
 end

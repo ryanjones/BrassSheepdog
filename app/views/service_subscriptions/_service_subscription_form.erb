@@ -10,10 +10,12 @@
 	<div class="setting-set">
 		<div class="setting-set-title">Enabled:</div>
     <% if current_user.verified? %>
-       Receive messages from this service:<%= f.check_box :enabled, :default => true %>
+       Receive SMS alerts from this service:<%= f.check_box :sms_enabled, :default => true %>
     <% else %>
-       You must be verified to enable a subscription!
+       You must be verified to enable SMS alerts!
     <% end %>
+		<br/>
+		Receive E-mail alerts from this service:<%= f.check_box :email_enabled, :default => true %>
 	</div>
 
   <p>

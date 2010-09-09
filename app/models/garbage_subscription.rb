@@ -45,9 +45,14 @@ class GarbageSubscription < ServiceSubscription
       self.original_service or Service.find_by_name("Garbage")
   end
   
-  #define the message which will get sent to the uer
-  def sms_content
-    "Remember to take out your garbage!\nSent by Alertzy.com"
+  #define the message which will get sent to the user
+  def alert_content
+    "Remember to take out your garbage!"
+  end
+  
+  #define the subject line for alerts sent to the user
+  def alert_subject
+    "Upcoming Garbage Pickup!"
   end
   
   #set up a pseudo property for the formatted zone
