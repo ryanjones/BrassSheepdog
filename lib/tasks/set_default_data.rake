@@ -56,7 +56,7 @@ def load_services
   unless Service.find_by_name("CityElection")
     election_service = Service.create!(
                        :name => "CityElection",
-                       :display_name => "Edmonton Civic Election Live Updates",
+                       :display_name => "City Election Live Updates",
                        :description => "This service will send you live updates as the votes are tallied in the City of Edmonton's Mayoral election occuring on October 18th, 2010.",
                        :enabled => false)                     
   end

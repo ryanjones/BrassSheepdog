@@ -11,6 +11,8 @@ config.whiny_nils = true
 # Fake sms messages
 FAKE_SMS_MESSAGES = true
 
+config.action_mailer.delivery_method = :test
+
 # Show full error reports and disable caching
 config.action_controller.consider_all_requests_local = true
 config.action_view.debug_rjs                         = true

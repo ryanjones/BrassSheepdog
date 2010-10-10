@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101010011729) do
+ActiveRecord::Schema.define(:version => 20101010212532) do
 
   create_table "addresses", :force => true do |t|
     t.datetime "created_at"
@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(:version => 20101010011729) do
     t.boolean  "current_northwest_state"
     t.boolean  "current_southside_state"
     t.boolean  "email_enabled",            :default => true
+    t.integer  "previous_votes_cast",      :default => 0
   end
 
   create_table "services", :force => true do |t|
