@@ -3,7 +3,7 @@ class ServicesController < ApplicationController
   
   def index
     @title = "Available Services"
-    @services = Service.all
+    @services = Service.find(:all, :conditions => { :enabled => true })
   end
   
   def show

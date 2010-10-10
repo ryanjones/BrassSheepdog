@@ -9,12 +9,36 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100909020710) do
+ActiveRecord::Schema.define(:version => 20101010011729) do
 
   create_table "addresses", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "address_string"
+  end
+
+  create_table "election_candidates", :force => true do |t|
+    t.string   "row_key"
+    t.string   "contest"
+    t.string   "candidate_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "election_result_sets", :force => true do |t|
+    t.integer  "votes_cast"
+    t.integer  "reporting"
+    t.integer  "out_of"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "election_results", :force => true do |t|
+    t.integer  "election_candidate_id"
+    t.integer  "election_result_set_id"
+    t.integer  "votes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "field_statuses", :force => true do |t|
@@ -92,6 +116,7 @@ ActiveRecord::Schema.define(:version => 20100909020710) do
     t.datetime "updated_at"
     t.string   "display_name"
     t.string   "description"
+    t.boolean  "enabled",      :default => true
   end
 
   create_table "users", :force => true do |t|

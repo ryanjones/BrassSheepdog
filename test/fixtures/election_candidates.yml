@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  row_key: MyString
+  contest: MyString
+  candidate_name: MyString
+
+two:
+  row_key: MyString
+  contest: MyString
+  candidate_name: MyString

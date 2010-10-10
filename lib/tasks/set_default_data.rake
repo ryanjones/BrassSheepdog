@@ -14,6 +14,11 @@ namespace :db do
 
     puts "Loading a default admin user"
     load_a_default_admin_user
+    Rake::Task['db:load_services'].invoke
+  end
+  
+  task :load_services => :environment do
+
     puts "Loading initial services"
     load_services
   end
@@ -38,12 +43,21 @@ def load_services
     garbage = Service.create!(
                        :name => "Garbage",
                        :display_name => "Garbage Pickup Notifications",
-                       :description => "This service will provide you with helpful alerts to remind you to take out your garbage before pickups.  The notification timing is customizable.")
+                       :description => "This service will provide you with helpful alerts to remind you to take out your garbage before pickups.  The notification timing is customizable.",
+                       :enabled => true)
   end
   unless Service.find_by_name("FieldStatus")
-    field_subscription = Service.create!(
+    field_status = Service.create!(
                        :name => "FieldStatus",
                        :display_name => "Sports Field Closure Updates",
-                       :description => "This service will send you updates whenever the City of Edmonton open or closes fields.  You can select which areas of Edmonton you would like updates for.")                     
+                       :description => "This service will send you updates whenever the City of Edmonton open or closes fields.  You can select which areas of Edmonton you would like updates for.",
+                       :enabled => true)                     
+  end
+  unless Service.find_by_name("CityElection")
+    election_service = Service.create!(
+                       :name => "CityElection",
+                       :display_name => "Edmonton Civic Election Live Updates",
+                       :description => "This service will send you live updates as the votes are tallied in the City of Edmonton's Mayoral election occuring on October 18th, 2010.",
+                       :enabled => false)                     
   end
 end

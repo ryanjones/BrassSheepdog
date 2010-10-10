@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  votes_cast: 1
+  reporting: 1
+  out_of: 1
+
+two:
+  votes_cast: 1
+  reporting: 1
+  out_of: 1
