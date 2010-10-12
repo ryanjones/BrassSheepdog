@@ -53,7 +53,7 @@ class CityElectionSubscription < ServiceSubscription
   end
   
   def next_alert_time
-    "During vote counting"
+    "During vote counting Oct.18th"
   end
 
   
