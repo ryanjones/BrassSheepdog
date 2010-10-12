@@ -41,7 +41,7 @@ module ApplicationHelper
   end
   
   def social_buttons
-    apps4edmonton = link_to "Vote for us @ Apps for Edmonton!", "http://contest.apps4edmonton.ca/apps/17", :class => "sexybutton sexysimple sexyblue"
+    apps4edmonton = link_to "Apps4Edmonton", "http://contest.apps4edmonton.ca/apps/17", :class => "sexybutton sexysimple sexyblue"
     twitter = link_to image_tag('twitter-icon.png'), "http://twitter.com/Alertzy"
     facebook = link_to image_tag('facebook-icon.png'), "http://www.facebook.com/home.php?#!/pages/Alertzy/153604841323348?ref=ts"
     apps4edmonton + twitter + facebook

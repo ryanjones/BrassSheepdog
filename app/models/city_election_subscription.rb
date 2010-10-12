@@ -61,7 +61,10 @@ class CityElectionSubscription < ServiceSubscription
   def alert_user?
     # check the three necessary conditions
     # in order of increasing cost
-    self.enabled? && are_there_new_votes?
+    
+    #uncomment when the real data is available
+    #self.enabled? && are_there_new_votes?
+    false
   end
   
   def update_previous_values
