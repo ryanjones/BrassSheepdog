@@ -8,7 +8,7 @@ class ServiceSubscriptionsController < ApplicationController
     @title = "Your subscriptions"
     #@service_subscriptions = current_user.service_subscriptions
     #only return subscriptions for services which are enabled
-    @service_subscriptions = current_user.service_subscriptions.find(:all, :joins => [:service], :conditions => ['"services".enabled = ?', true])
+    @service_subscriptions = current_user.service_subscriptions.find(:all, :joins => [:service], :conditions => ['`services`.enabled = ?', true])
     
     respond_to do |format|
        format.html # index.html.erb
