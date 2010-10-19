@@ -6,7 +6,7 @@ class ElectionResultSet < ActiveRecord::Base
     #use ruby odata to fetch the data from the api
     svc = OData::Service.new "http://datafeed.edmonton.ca/v1/coe/"
     #get the election results so far
-    svc.Election2010ResultsSamples
+    svc.Election2010Results
     election_results = svc.execute
     
     #create a new set with only mayoral candidates

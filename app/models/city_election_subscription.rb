@@ -63,8 +63,7 @@ class CityElectionSubscription < ServiceSubscription
     # in order of increasing cost
     
     #uncomment when the real data is available
-    #self.enabled? && are_there_new_votes?
-    false
+    self.enabled? && are_there_new_votes?
   end
   
   def update_previous_values

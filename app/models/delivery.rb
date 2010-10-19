@@ -1,8 +1,7 @@
 class Delivery < ActiveRecord::Base
   def self.scheduled_events
     FieldStatus.update
-    #Need to add this back in when the real data is available
-    #ElectionResultSet.update
+    ElectionResultSet.update
     Delivery.check_subscription
   end
   
