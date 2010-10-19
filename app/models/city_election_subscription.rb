@@ -28,8 +28,10 @@ class CityElectionSubscription < ServiceSubscription
     latest_result_set = ElectionResultSet.latest
     
     #get results and sort by number of votes
-    results = latest_result_set.election_result.first(3)
+    results = latest_result_set.election_result.all
     results.sort! { |a, b|  b.votes <=> a.votes }
+    
+    results = results.first(3)
     
     #for each candidates result create an entry
     results.each do |election_result|
