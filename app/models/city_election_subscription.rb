@@ -73,11 +73,12 @@ class CityElectionSubscription < ServiceSubscription
   
   private 
     def are_there_new_votes?
-      #update the value recorded in the subscription
-      update_previous_values
       
       #check if there are any new votes since the last update sent to the user
       ElectionResultSet.latest_votes_cast != self.previous_votes_cast
+      
+      #update the value recorded in the subscription
+      update_previous_values
     end
   
 end
