@@ -1,7 +1,7 @@
 class Delivery < ActiveRecord::Base
   def self.scheduled_events
     FieldStatus.update
-    ElectionResultSet.update
+    # ElectionResultSet.update
     Delivery.check_subscription
   end
   
