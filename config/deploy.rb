@@ -2,7 +2,7 @@ require 'deprec'
   
 set :application, "Alertzy"
 set :domain, "www.alertzy.com"
-set :repository,  "git@github.com:ryanjones1234/BrassSheepdog.git"
+set :repository,  "git@github.com:RyanonRails/BrassSheepdog.git"
 
 #added by me to get things working [bzittlau]
 set :user, 'deploy'
