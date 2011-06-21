@@ -67,3 +67,5 @@ module Alertzy
     config.filter_parameters += [:password]
   end
 end
+
+ActionView::Base.field_error_proc = Proc.new { |html_tag, instance| "<span class=\"fieldWithErrors\">#{html_tag}</span>" }
