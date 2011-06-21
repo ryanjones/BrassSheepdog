@@ -5,24 +5,23 @@ Alertzy::Application.routes.draw do
   match '/logout' => 'sessions#destroy', :as => :logout
   match '/edit' => 'users#explicit_edit', :as => :explicit_edit
   match '/unsubscribe' => 'service_subscriptions#destroy', :as => :unsubscribe
+
   resources :users do
     collection do
-  get :forgot
-  post :remind
-  end
+      get :forgot
+      post :remind
+    end
+
     member do
-  put :reset
-  get :new_password
-  end
-  
+      put :reset
+      get :new_password
+    end
   end
 
   resource :sms_message, :only => [:new, :create] do
-  
     member do
-  post :incoming
-  end
-  
+      post :incoming
+    end
   end
 
   resource :address, :only => [:new, :create]
