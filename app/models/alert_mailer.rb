@@ -24,5 +24,4 @@ class AlertMailer < ActionMailer::Base
     subject      ""
     sent_on      Time.now
   end
-
 end

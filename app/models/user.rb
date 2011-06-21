@@ -98,7 +98,7 @@ class User < ActiveRecord::Base
   ##################################################
   
   def send_reminder_email 
-    UserMailer.deliver_reminder_email(self)
+    UserMailer.reminder_email(self).deliver
   end
   
   def create_reset_token

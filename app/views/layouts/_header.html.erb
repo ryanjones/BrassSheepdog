@@ -16,7 +16,7 @@
 		<%= link_to "Sign out", logout_path, :method => :delete %>
 	</div>
     <% else %>
-  		<% form_tag session_path do -%>
+  		<%= form_tag session_path do -%>
 		<span>
   		<%= text_field_tag 'login', @login, default_text("Login").merge({ :class => "textbox_s"}) %>
   		<%= password_field_tag 'password', nil, default_text("Password") %>

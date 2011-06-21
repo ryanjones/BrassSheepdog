@@ -3,7 +3,7 @@
 <div id="default-sub-content-wrapper">
 
 
-<% form_for @sms_message, :url => sms_message_path do |f|-%>
+<%= form_for @sms_message, :url => sms_message_path do |f|-%>
 	<%= f.error_messages %>
   <div class="field">
     <%= f.label :phone_number %><br />

@@ -4,7 +4,7 @@
 		<div class="veri_notice">
        You are not verified and can't receive SMS updates! Please verify your phone number by entering the 6 digit code sent to your phone:
        <div class="notice_a">
-       <% form_tag :verify  do %>
+       <%= form_tag :verify  do %>
         <%= text_field_tag :verification_number%>
        </div>
        <div class="notice_b">
@@ -12,7 +12,7 @@
        </div>
        <% end %>
        <div class="notice_c">
-       <% form_tag :resend_verification do %>
+       <%= form_tag :resend_verification do %>
         <%= submit_tag "Re-send Verification Number!", :class => "sexybutton sexysimple sexylightred"%>
        <% end %>
        </div>

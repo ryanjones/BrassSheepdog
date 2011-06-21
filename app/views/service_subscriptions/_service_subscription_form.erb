@@ -2,7 +2,7 @@
 
 <div id="default-sub-content-wrapper">
 
-<% form_for(service_subscription) do |f| %>
+<%= form_for(service_subscription) do |f| %>
   	<%= f.error_messages %>
 	<%= hidden_field_tag  :service_id, service_subscription.service_id  %>
 	<%= render :partial => service_subscription.edit_partial, :locals => {:f => f, :service_subscription => service_subscription}%>

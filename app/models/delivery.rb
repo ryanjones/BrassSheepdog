@@ -33,7 +33,7 @@ class Delivery < ActiveRecord::Base
           #send an email if they are enabled
           if subscription.email_enabled?
             logger.debug "Sending email to #{user.email}"
-            AlertMailer.deliver_alert_email(user, subscription.alert_content, subscription.alert_subject)
+            AlertMailer.alert_email(user, subscription.alert_content, subscription.alert_subject).deliver
           end
         end 
         

@@ -12,9 +12,10 @@
 				Manually Set Your Zone:<%= f.check_box :manual_zone, :onclick  => "$('service_subscription_formatted_zone').disabled = !$('service_subscription_manual_zone').checked; $('service_subscription_formatted_zone').toggle();
 				$('service_subscription_formatted_zone_readonly').toggle()" %></div>
 		<div class="ajax">
-			<%= link_to_remote("Lookup",
-			          {:url =>{ :action => :lookup_zone, :controller => "addresses" },
-					  :with => "'address=' + $('service_subscription_address').value"},
+			<%= link_to("Lookup",
+                  {:url =>{ :action => :lookup_zone, :controller => "addresses" },
+                   :with => "'address=' + $('service_subscription_address').value"},
+            :remote => true, 
 					  :onclick => "$('lookup-link').hide(); $('loading-image').show();",
 					  :id => 'lookup-link' )%>
 			<%= image_tag 'ajax-loader.gif', :id => 'loading-image', :style => "display:none;" %>
