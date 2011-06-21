@@ -13,7 +13,7 @@ module ApplicationHelper
   #Returns a meta tag with description if a description was provided
   def description
     unless @description.nil?
-      "<META name=\"description\" content=\"#{h(@description)}\"/>"
+      "<META name=\"description\" content=\"#{h(@description)}\"/>".html_safe
     end
   end
   

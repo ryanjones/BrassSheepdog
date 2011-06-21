@@ -23,5 +23,4 @@ class PagesController < ApplicationController
     @title = "You've got questions..."
     @description = "A collection of common questions which users of Alertzy have, and their answers."
   end
-  
 end

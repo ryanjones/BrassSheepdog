@@ -19,7 +19,7 @@
       </div>
       <%= render 'layouts/footer' %>
     </div>
-	<%= get_satisfaction_feedback_widget %>
-	<%= google_analytics %>
+	<%= get_satisfaction_feedback_widget.html_safe %>
+	<%= google_analytics.html_safe %>
   </body>
 </html>
