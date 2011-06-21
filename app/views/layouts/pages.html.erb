@@ -11,7 +11,7 @@
 			</div>
 			<div id="page-content-wrapper">
 				<div id="page-content">
-					<%= yield %>
+					<%= yield if yield(:pages_content) == "" %>
 				</div>
 			</div>
 		</div>
