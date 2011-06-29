@@ -31,7 +31,7 @@ def load_pickup_data_from_city
   puts "Creating OData connection"
   svc = OData::Service.new "http://datafeed.edmonton.ca/v1/coe/"
   #get the garbage schedule collection
-  svc.GarbageCollectionSchedule
+  svc.GarbageCollectionSchedule2011s
   puts "Fetching data from api"
   pickup_events = svc.execute
   
