@@ -30,7 +30,7 @@ def load_a_default_admin_user
                          :email => "ben@zittlau.ca",
                          :password => "applesauce55",
                          :password_confirmation => "applesauce55",
-                         :phone_number => "7809072969")
+                         :phone_number => "5556667777")
     admin.verified = true
     admin.admin = true
     admin.save

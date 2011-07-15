@@ -11,9 +11,6 @@ class ApplicationController < ActionController::Base
   
   # Be sure to include AuthenticationSystem in Application Controller instead
   include AuthenticatedSystem
-
-  # Scrub sensitive parameters from your log
-  filter_parameter_logging :password
   
   # set the timezone to a users setting
   before_filter :set_user_time_zone
