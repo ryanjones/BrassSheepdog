@@ -14,6 +14,7 @@ class ServiceSubscription < ActiveRecord::Base
       # make children models use service subscriptions paths by default
       name = "service_subscription"
       name.instance_eval do
+        def human; humanize; end
         def plural;   pluralize;   end
         def singular; singularize; end
         def partial_path; singularize; end
