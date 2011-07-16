@@ -13,3 +13,7 @@ gem 'GeoRuby'
 gem 'log4r'
 gem 'sqlite3'
 gem 'dynamic_form'
+
+group :development do
+  gem 'ruby-debug19', :require => 'ruby-debug'
+end
