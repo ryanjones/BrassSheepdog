@@ -1,7 +1,7 @@
 <% content_for :content do %>
 <div id="default-content-wrapper">
 
-    <%= yield(:default_content) or yield %>
+    <%= yield if yield(:default_content) == "" %>
 
 </div>
 <% end %>

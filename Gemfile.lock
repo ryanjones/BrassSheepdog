@@ -31,6 +31,7 @@ GEM
     activesupport (3.0.9)
     arel (2.0.10)
     builder (2.1.2)
+    dynamic_form (1.1.4)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     geokit (1.6.0)
@@ -87,6 +88,7 @@ PLATFORMS
 
 DEPENDENCIES
   GeoRuby
+  dynamic_form
   geokit
   log4r
   rails (= 3.0.9)
