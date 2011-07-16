@@ -1,12 +1,13 @@
 # Example syntax of how to send a text message
 # @sms_message = SmsMessage.new(:phone_number => "17807102820", :content => "hi")
 # success = @sms_message.valid? && @sms_message.send_message!
+require 'rexml/document'
 
 class SmsMessage < Object
+  include ActiveModel::Validations
+  include ActiveModel::Naming
+  include ActiveModel::Conversion
   
-  require 'rexml/document'
-  
-  include Validatable
   attr_accessor :phone_number, :content
   
   validates_presence_of     :phone_number
@@ -65,7 +66,6 @@ class SmsMessage < Object
     true
   end
   
-  
   #Function to pull this logic out of send_message and simplify it
   def submit_to_gateway!(post_args)
     require 'net/http'
@@ -90,6 +90,10 @@ class SmsMessage < Object
   #Function to pull this logic out of send_message and simplify it
   def fake_submit_to_gateway!(post_args)
       Log4r::Logger['sms_logger'].info "Message attempt succeeded with api response \"Fake Message\"\n#{post_args.to_yaml}"
+  end
+  
+  def persisted?
+    false
   end
   
 end
