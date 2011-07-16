@@ -17,7 +17,7 @@ class Delivery < ActiveRecord::Base
       Time.zone = user.time_zone
       
       # For each subscription, check if the delivery time ~now, if so send message
-      user_subscription_array = user.service_subscriptions.find(:all, :joins => [:service], :conditions => ['`services`.enabled = ?', true])
+      user_subscription_array = user.service_subscriptions.find(:all, :joins => [:service], :conditions => ['`services`.enabled = ?', true], :readonly => false)
       user_subscription_array.each do |subscription|
         logger.debug "Evaluating user"
         if subscription.alert_user?
