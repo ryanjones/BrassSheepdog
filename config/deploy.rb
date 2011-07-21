@@ -2,7 +2,7 @@ require "bundler/capistrano"
 
 set :application, "alertzy"
 set :domain, "www.alertzy.com"
-set :repository,  "git@github.com:ryanonrails/BrassSheepdog.git"
+set :repository,  "git@github.com:RyanonRails/BrassSheepdog.git"
 
 set :scm, :git
 default_run_options[:pty] = true 
