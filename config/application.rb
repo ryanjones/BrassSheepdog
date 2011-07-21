@@ -31,9 +31,9 @@ module Alertzy
     #    :password       => 'applesauce55'
     #  }
     
-    #:enable_starttls_auto => true,
     config.action_mailer.smtp_settings = {
-      :tls => true,
+      :enable_starttls_auto => true,
+      #:tls => true,
       :address => "smtp.gmail.com",
       :port => 587,
       :domain => "alertzy.com",
