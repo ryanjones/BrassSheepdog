@@ -1,3 +1,5 @@
+require "bundler/capistrano"
+
 set :application, "alertzy"
 set :domain, "www.alertzy.com"
 set :repository,  "git@github.com:ryanonrails/BrassSheepdog.git"
