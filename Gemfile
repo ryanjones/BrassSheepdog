@@ -16,7 +16,7 @@ gem 'dynamic_form'
 gem 'whenever'
 
 group :production do
-  gem 'mysql2'
+  gem 'mysql2', '=0.2.11'
 end
 
 group :development do
