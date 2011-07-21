@@ -13,6 +13,7 @@ gem 'GeoRuby'
 gem 'log4r'
 gem 'sqlite3'
 gem 'dynamic_form'
+gem 'whenever'
 
 group :development do
   gem 'capistrano'
