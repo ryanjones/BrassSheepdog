@@ -71,7 +71,7 @@ class GarbageSubscription < ServiceSubscription
     pickup_day = pickup_time.to_date
     
     alert_day = (self.day_before ? 1.day.until(pickup_day) : pickup_day)
-    alert_time = (self.delivery_time.to_i - self.delivery_time.to_date.to_time.to_i).seconds.since(alert_day).in_time_zone
+    alert_time = (self.delivery_time.hour * 3600 + self.delivery_time.min * 60 + self.delivery_time.sec).seconds.since(alert_day).in_time_zone
     
     alert_time.strftime("%I:%M %p %a, %b, #{alert_time.to_time.day.ordinalize} %Y")
   end
