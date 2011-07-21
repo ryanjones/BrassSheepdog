@@ -10,7 +10,7 @@ class AlertMailer < ActionMailer::Base
     content_type "multipart/alternative"
 
     part "text/plain" do |p|
-      p.body = render("alert_email_text", :locals => {:content => content})
+      p.body = Base64.encode64(render("alert_email_text", :locals => {:content => content}))
       p.content_transfer_encoding = "base64"
     end
     
