@@ -32,11 +32,18 @@ GEM
     archive-tar-minitar (0.5.2)
     arel (2.0.10)
     builder (2.1.2)
+    capistrano (2.6.0)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
     columnize (0.3.4)
     dynamic_form (1.1.4)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     geokit (1.6.0)
+    highline (1.6.2)
     i18n (0.5.0)
     linecache19 (0.5.12)
       ruby_core_source (>= 0.1.4)
@@ -47,6 +54,13 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
+    net-scp (1.0.4)
+      net-ssh (>= 1.99.1)
+    net-sftp (2.0.5)
+      net-ssh (>= 2.0.9)
+    net-ssh (2.1.4)
+    net-ssh-gateway (1.1.0)
+      net-ssh (>= 1.99.1)
     nokogiri (1.5.0)
     nokogiri (1.5.0-x86-mingw32)
     polyglot (0.3.1)
@@ -102,6 +116,7 @@ PLATFORMS
 
 DEPENDENCIES
   GeoRuby
+  capistrano
   dynamic_form
   geokit
   log4r

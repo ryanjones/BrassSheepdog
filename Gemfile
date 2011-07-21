@@ -15,5 +15,6 @@ gem 'sqlite3'
 gem 'dynamic_form'
 
 group :development do
+  gem 'capistrano'
   gem 'ruby-debug19', :require => 'ruby-debug'
 end
