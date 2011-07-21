@@ -39,7 +39,8 @@ module Alertzy
       :domain => "alertzy.com",
       :authentication => :plain,
       :user_name => "updates@alertzy.com",
-      :password => "applesauce55"
+      :password => "applesauce55",
+      :openssl_verify_mode  => OpenSSL::SSL::VERIFY_NONE
     }
     
    config.plugins = [ :exception_notification, :ssl_requirement, :all ]
