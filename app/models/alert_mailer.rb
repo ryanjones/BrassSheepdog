@@ -1,5 +1,5 @@
 class AlertMailer < ActionMailer::Base
-  default :from => "Alertzy.com Update <update@alertzy.com>", :sent_on => Time.now, :subject => ""
+  default :from => "Alertzy.com Update <update@alertzy.com>", :subject => ""
 
   def alert_email(user, content, subject = nil)
     if subject
