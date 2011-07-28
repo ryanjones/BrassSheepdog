@@ -6,6 +6,9 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)
 
+# Use the yamler engine for yaml for safety
+YAML::ENGINE.yamler = 'syck'
+
 module Alertzy
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
