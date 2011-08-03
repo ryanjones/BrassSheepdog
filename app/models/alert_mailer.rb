@@ -10,12 +10,12 @@ class AlertMailer < ActionMailer::Base
     content_type "multipart/alternative"
 
     part "text/plain" do |p|
-      p.body = render("alert_email_text", :locals => {:content => @content})
+      p.body = render("alert_email_text", :locals => {:content => content})
       p.content_transfer_encoding = "base64"
     end
     
     part :content_type => "text/html",
-      :body => render("alert_email_html", :locals => {:content => @content})
+      :body => render("alert_email_html", :locals => {:content => content})
   end
   
   def setup_email(user)
