@@ -5,19 +5,13 @@
 	
 	<div class="address-box">
 		<div class="form">
-			Your Address: <%= f.text_field :address, :onchange => remote_function({:url =>{ :action => :lookup_zone, :controller => "addresses" }, :with => "'address=' + $('service_subscription_address').value"}) + ";$('lookup-link').hide(); $('loading-image').show();"%><span>, Edmonton, AB </span><br/>
+      Your Address: <%= f.text_field :address %><span>, Edmonton, AB </span><br/>
 				<div id="service_subscription_formatted_zone_error"></div>
 				Your Pickup Zone: <%= f.select :formatted_zone, ["--"] | GarbageSubscription.valid_zones, {}, :style => (service_subscription.manual_zone ? "" : "display:none")%>
 				<span id="service_subscription_formatted_zone_readonly" style="<%= (service_subscription.manual_zone ? "display:none" : "") %>"><%= (service_subscription.formatted_zone.nil? ? "--" : service_subscription.formatted_zone )%></span>
-				Manually Set Your Zone:<%= f.check_box :manual_zone, :onclick  => "$('service_subscription_formatted_zone').disabled = !$('service_subscription_manual_zone').checked; $('service_subscription_formatted_zone').toggle();
-				$('service_subscription_formatted_zone_readonly').toggle()" %></div>
+				Manually Set Your Zone:<%= f.check_box :manual_zone, :onclick  => "$('#service_subscription_formatted_zone').disabled = !$('#service_subscription_manual_zone').checked; $('#service_subscription_formatted_zone').toggle();
+				$('#service_subscription_formatted_zone_readonly').toggle()" %></div>
 		<div class="ajax">
-			<%= link_to("Lookup",
-                  {:url =>{ :action => :lookup_zone, :controller => "addresses" },
-                   :with => "'address=' + $('service_subscription_address').value"},
-            :remote => true, 
-					  :onclick => "$('lookup-link').hide(); $('loading-image').show();",
-					  :id => 'lookup-link' )%>
 			<%= image_tag 'ajax-loader.gif', :id => 'loading-image', :style => "display:none;" %>
 		</div>
 	</div>

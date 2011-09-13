@@ -1,0 +1,13 @@
+$('#loading-image').hide()
+<% if @zone %>
+  $('#zone-set').effect("highlight", {color: "#99ff99"}, 2000);
+  $('#service_subscription_formatted_zone').val("<%= @zone %>");
+  $('#service_subscription_formatted_zone_readonly').text("<%= @zone %>");
+  $('#service_subscription_formatted_zone_error').hide();
+<% else %>
+  $('#zone-set').effect("highlight", {color: "#ff9999"}, 2000);
+  $('#service_subscription_formatted_zone').val("--");
+  $('#service_subscription_formatted_zone_readonly').text("--");
+  $('#service_subscription_formatted_zone_error').val("We couldn't find your zone.  Check address, or set manually.");
+  $('#service_subscription_formatted_zone_error').show();
+<% end %>
