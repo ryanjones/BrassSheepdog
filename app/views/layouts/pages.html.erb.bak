@@ -1,0 +1,48 @@
+<% content_for :content do %>
+<div id="page-wrapper">
+	<div class="span-16">
+		<div id="page-content-area" class="<%= params[:action] %>">
+			<div class="page-link-bar round <%= params[:action] %>">
+				<%= link_to "Home", root_path, :class => "sexybutton sexysimple sexylarge" %>
+				<%= link_to "Services", services_list_path, :class => "sexybutton sexysimple sexylarge" %>
+			    <%= link_to "About", about_path, :class => "sexybutton sexysimple sexylarge" %>
+			    <%= link_to "Contact", contact_path, :class => "sexybutton sexysimple sexylarge" %>
+				<%= link_to "FAQ", faq_path, :class => "sexybutton sexysimple sexylarge" %>
+			</div>
+			<div id="page-content-wrapper">
+				<div id="page-content">
+					<%= yield if yield(:pages_content) == "" %>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="span-8 page-sidebar-area last">
+		<div id="page-sidebar-social-links">
+			<%= social_buttons %>
+		</div>
+		<div id="page-sidebar-updates-area">
+			<div id="page-sidebar-updates-content">
+				<div class="title">
+					Updates
+				</div>
+				<div class="body">
+					<b>Oct 11th, 2010</b> - Sign up for live updates during vote counting in the Edmonton Civic Election!
+					<b>Sept 8th, 2010</b> - We've added e-mail alerts!
+					<b>August 27th, 2010</b> - We just launched sports field closure updates!
+				</div>
+			</div>
+		</div>
+		<div id="page-sidebar-sponsors-area">
+			<div id="page-sidebar-sponsors-content">
+				<div class="title">
+					Sponsors
+				</div>
+				<div class="body">
+					<%= link_to image_tag('dtm_logo_fix.png', :alt => "Direct Text Marketing"), "http://www.directtextmarketing.com" , {:target => "_blank" } %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<% end %>
+<%= render :file => 'layouts/application' %>

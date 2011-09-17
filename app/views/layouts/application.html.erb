@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title><%= title %></title>
 	<%= description %>
     <%= render 'layouts/stylesheets' %>
@@ -11,13 +11,11 @@
   <body>
     <div class="container">
       <%= render 'layouts/header' %>
+      <div class="clear"></div>
+      <%= render 'layouts/carousel' %>
       <%= render 'layouts/verification' unless @hide_verification_bar == true %>
-      <div id="content" class="round span-24 last">
-        <% flash.each do |key, value| %>
-          <%= content_tag(:div, value, :class => "flash #{key}") %>
-        <% end %> 
-        <%= yield(:content) or yield %>
-      </div>
+      <%= yield(:content) or yield %>
+      <div class="clear"></div>
       <%= render 'layouts/footer' %>
     </div>
 	<%= get_satisfaction_feedback_widget.html_safe %>

@@ -1,0 +1,11 @@
+<div id="footer" class="span-24 last">
+  <ul class="navigation round">
+	<li><%= link_to "Home", root_path %></li>
+	<li><%= link_to "Services", services_list_path, :class => "services" %></li>
+    <li><%= link_to "About", about_path %></li>
+    <li><%= link_to "Contact", contact_path %></li>
+    <li><%= link_to "FAQ", faq_path %></li>
+  </ul>
+<%= debug(params) if Rails.env.development? %>
+<%= debug(ActionController::Base.perform_caching) if Rails.env.development? %>
+</div>

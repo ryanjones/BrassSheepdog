@@ -1,1 +1,61 @@
-<%= image_tag 'home-splash.png', :alt => "Alertzy - Text alerts based on garbage schedules so residents of Edmonton never forgot to take out the trash again." %>
+<% content_for :content do %>
+<!-- ************ -->
+<!-- MAIN CONTENT -->
+<!-- ************ -->
+
+	<div class="main_content_wrapper">
+    	<div id="teaser">
+        	<h2>Let us remember for you, so you don't have to!</h2>
+            <p>We'll let you know about the things you need to remember, when you need to remember them.</p>
+        </div>
+        <div class="question_and_answer">
+          <h3>Do I need to have an iPhone or smartphone?</h3>
+          <h2>No! Alertzy will work with any phone that can get text messages!</h2>
+        </div>
+        <div class="question_and_answer">
+          <h3>How much does it cost?</h3>
+          <h2>It's free! Alertzy doesn't charge you anything for your updates!</h2>
+        </div>
+        <div class="box">
+        	<h2>Fresh Leadership</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin lobortis, sem at varius tempus, nisi mauris semper arcu...</p>
+            <a href="#">Learn more</a>
+        </div><!-- End of box 1 -->
+        <div class="box">
+        	<h2>Fresh Strategies</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin lobortis, sem at varius tempus, nisi mauris semper arcu...</p>
+            <a href="#">Learn more</a>
+        </div><!-- End of box 2 -->
+        <div class="box box_last">
+        	<h2>Fresh Solutions</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin lobortis, sem at varius tempus, nisi mauris semper arcu...</p>
+            <a href="#">Learn more</a>
+        </div><!-- End of box 3 -->
+        
+        <div class="content_630">
+        	<h3>Welcome to fresh ideas</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin lobortis, sem at varius tempus, nisi mauris semper arcu, et feugiat dolor est eu lacus. Aenean eget est in libero condimentum convallis et a lacus. 
+            Donec ut magna quam, vitae facilisis enim. Nunc velit lorem, ullamcorper non porttitor nec, tristique condimentum lectus. Nunc vel erat enim. Sed mattis pretium arcu, eu aliquet urna varius sit amet. 
+            Proin dolor est, viverra tristique iaculis vitae, sollicitudin a magna.</p>
+            <p>Hasellus sit amet rutrum orci. In hac habitasse platea dictumst. Aliquam tempor lectus eu dolor ultrices malesuada. Nulla facilisi.</p>
+        </div><!-- End of content_630 -->
+        
+        <div class="content_300">
+        	<h3>Our fresh services</h3>
+            <ul id="fresh_services">
+            	<li><a href="#">Lorem ipsum dolor sit amet</a></li>
+                <li><a href="#">Fusce arcu ipsum</a></li>
+                <li><a href="#">Aliquam nec orci quam</a></li>
+                <li><a href="#">Sed commodo hendrerit egestas</a></li>
+                <li><a href="#">Mauris quis tortor tellus</a></li>
+                <li><a href="#">Fusce dictum nisl in metus</a></li>
+            </ul>
+        </div><!-- End of content_300 -->
+    </div><!-- End of main_contetn_wrapper -->
+
+<!-- ******************* -->
+<!-- END OF MAIN CONTENT -->
+<!-- ******************* -->
+<% end %>
+
+<%= render :file => 'layouts/application' %>

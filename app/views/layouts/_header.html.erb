@@ -1,36 +1,24 @@
-<div id="header" class="round span-24 last">
-  <div class="span-10">
-  	<%= link_to logo, root_path %>
-  </div>
-  <div class="span-14 last">
-	<div id="header-right">
-	<% if logged_in? %>
-	<div class="link-bar <%= header_link_class%>">
-		<%= link_to "Home", root_path, :class => "home" %>
-		<% if admin? %>
-  		<%= link_to "Send Message", new_sms_message_path, :class => "send-message"%>
-  		<%= link_to "Address Lookup", new_address_path, :class => "address"%>
-		<% end %>
-		<%= link_to "Subscriptions",  service_subscriptions_path, :class => "subscriptions"%>
-		<%= link_to "Settings", edit_user_path(current_user), :class => "settings"%>
-		<%= link_to "Sign out", logout_path, :method => :delete %>
-	</div>
-    <% else %>
-  		<%= form_tag session_path do -%>
-		<span>
-  		<%= text_field_tag 'login', @login, default_text("Login").merge({ :class => "textbox_s"}) %>
-  		<%= password_field_tag 'password', nil, default_text("Password") %>
-  		<%= submit_tag "Login", :class => "sexybutton sexysimple" %>
-		</span>
-      <% end -%>
-      
-  		<div class="forgot_p">
-  		<%= forgot_password_button  %>
-  		</div>
-  		<div class="not_signed_in">
-  		<%= link_to "Not signed up? Register now for free!", new_user_path, :class => "sexybutton sexysimple sexygreen sexyxxxl" -%>
-  		</div>
-    <% end %>
-	</div>
-  </div>
-</div>
+<!-- ***** HEADER START ***** -->
+
+<div id="header">
+<div class="header_wrapper">
+    <!-- logo -->
+    <div id="logo"><a href="index.html"><img src ="images/green_grey/header_logo.png" alt="Alertzy Homepage" width=114 height=31></a></div>
+    <!-- logo -->
+    
+    <!-- main menu -->
+    <div id="navigation">
+        <ul class="nav">
+        <li class="current"><%= link_to content_tag(:span, "Home"), root_path %></li>
+        <li><%= link_to content_tag(:span, "Services"), services_list_path%></li>
+        <li><%= link_to content_tag(:span, "About"), about_path %></li>
+        <li><%= link_to content_tag(:span, "Contact"), contact_path %></li>
+        <li><%= link_to content_tag(:span, "FAQ"), faq_path%></li>
+        <li><%= link_to content_tag(:span, "Municipalities"), faq_path%></li>
+        </ul> 
+    </div>
+    <!-- end of main menu -->
+</div><!-- End of header_wrapper -->
+</div><!-- End of header -->
+
+<!-- ***** HEADER END ***** -->
