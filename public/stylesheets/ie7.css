@@ -1,0 +1,35 @@
+#searchform .search_input{
+	height:25px;
+	padding-top:8px;
+}
+
+#contact_form input[type=text]{
+	padding-top:5px;
+	height:25px;
+}
+
+.footer_box #contact_page a{
+	display:block;
+	padding-top:9px;
+}
+
+div.cite p{
+	display:block;
+	overflow:hidden;
+}
+
+.portfolio_box, .portfolio_box_2_col{
+	margin-bottom:0;
+}
+
+#price_table .column.featured {
+	margin-bottom:-20px;
+	margin-top:-10px;
+	padding-top:24px;
+}
+
+#price_table #ribborn{
+	position: absolute;
+	right:16px;
+	top:16px;
+}
