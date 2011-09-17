@@ -26,7 +26,19 @@ img{
 body {
    font-family: “Trebuchet MS”, Helvetica, sans-serif;
    color: #444;
+   line-height: 1.5;
 }
+
+/* defining the header 1 style type */ 
+h1 {
+  font-size: 3em;
+  line-height: 1;
+  margin-bottom: 0.5em;
+  font-weight: normal;
+  color: #111;
+  text-align: center;
+}
+
 
 /* hint text */
 .hint {
@@ -37,7 +49,6 @@ body {
 
 /*Header formatting */
 #header {
-  margin-bottom: 10px;
 }
 
 /*content formatting */
@@ -47,6 +58,12 @@ body {
   -webkit-border-radius: 5px;
   -moz-border-radius 5px;
   border-radius 5px;
+}
+
+/*pages content with reduced width*/
+#pages_content {
+	width:630px;
+  margin:0 auto
 }
 
 /*Footer formatting */

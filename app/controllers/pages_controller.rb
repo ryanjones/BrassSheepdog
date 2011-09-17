@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  layout :resolve_layout
   def home
     @title = "Updates and Alerts right to your phone!"
     @description = "Alertzy provides free sms-updates for Edmonton residents from our services.  Our services include Garbage Pickup schedules, sports field closures, and many more are coming soon."
@@ -22,5 +23,15 @@ class PagesController < ApplicationController
   def faq
     @title = "You've got questions..."
     @description = "A collection of common questions which users of Alertzy have, and their answers."
+  end
+
+  private
+  def resolve_layout
+    case action_name
+    when "home"
+      "home"
+    else
+      "pages"
+    end
   end
 end

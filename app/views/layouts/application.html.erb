@@ -9,15 +9,12 @@
     <%= csrf_meta_tag %>
   </head>
   <body>
-    <div class="container">
-      <%= render 'layouts/header' %>
-      <div class="clear"></div>
-      <%= render 'layouts/carousel' %>
-      <%= render 'layouts/verification' unless @hide_verification_bar == true %>
-      <%= yield(:content) or yield %>
-      <div class="clear"></div>
-      <%= render 'layouts/footer' %>
-    </div>
+    <%= render 'layouts/header' %>
+    <div class="clear"></div>
+    <%= render 'layouts/verification' unless @hide_verification_bar == true %>
+    <%= yield(:content) or yield %>
+    <div class="clear"></div>
+    <%= render 'layouts/footer' %>
 	<%= get_satisfaction_feedback_widget.html_safe %>
 	<%= google_analytics.html_safe %>
   </body>

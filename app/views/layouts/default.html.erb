@@ -1,8 +1,6 @@
 <% content_for :content do %>
-<div id="default-content-wrapper">
 
     <%= yield if yield(:default_content) == "" %>
 
-</div>
 <% end %>
 <%= render :file => 'layouts/application' %>
