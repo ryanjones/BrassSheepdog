@@ -20,6 +20,7 @@
 /* remove the spaces underneath images */
 img{
 	vertical-align: bottom;
+  color: white;
 }
 
 
@@ -146,6 +147,27 @@ h1 {
 	width: 150px;
 }
 
+
+/******************************************/
+/* Flash Messages */
+/******************************************/
+#flash_messages_wrapper{
+	margin:0 auto;
+	width:984px;
+}
+
+/* Derived from blueprint */
+.error, .notice, .success {padding:.8em;margin-bottom:1em;border:2px solid #ddd}
+.veri_notice{padding:.8em;margin-bottom:1em;border:2px solid #ddd; height:40px}
+.error {background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;}
+.notice {background:#FFF6BF;color:#514721;border-color:#FFD324;}
+.success {background:#E6EFC2;color:#264409;border-color:#C6D880;}
+.veri_notice {background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;}
+.error a {color:#8a1f11;}
+.notice a {color:#514721;}
+.success a {color:#264409;}
+
+
 /******************************************/
 /* Page Footer Navigation Links */
 /******************************************/
@@ -176,19 +198,19 @@ h1 {
 /*formatting for the default wrapper */
 /********************************************/
 
-#default-content-wrapper {
+.main_content_wrapper {
     padding: 30px;
 
 }
 
-#default-content-wrapper > h1{
+.main_content_wrapper > h1{
     text-align: center;
 	color:#444;
 	border-bottom: 1px solid #444;
 	padding-bottom: 5px;hahah
 }
 
-#default-content-wrapper > h2{
+.main_content_wrapper > h2{
     text-align: center;
 	color:#444;
 
@@ -206,7 +228,7 @@ h1 {
 	margin: auto auto 10px auto;
 }
 
-#default-content-wrapper .h1 {
+.main_content_wrapper .h1 {
   margin-left: auto ;
   margin-right: auto ;
 }
@@ -366,11 +388,11 @@ h1 {
 /*faq page layout properties */
 /******************************************/
 
-.faq .question {
+.question {
 	font-weight:bold;
 }
 
-.faq .answer {
+.answer {
 	margin-bottom:10px;
 }
 
@@ -447,7 +469,7 @@ h1 {
 }
 
 .subscription-index li div.enabled-states{
-	width: 100px;
+	width: 150px;
 }
 
 .subscription-index li span.enabled-state.Enabled{
@@ -463,7 +485,7 @@ h1 {
 }
 
 .subscription-index li span.next-alert{
-	width: 250px;
+	width: 300px;
 }
 
 

@@ -1,8 +1,9 @@
+<div class="divider"></div>
 <li>
 	<span class="icon"><%= FileTest.exists?('public/images/' + service_subscription.service.name.underscore + '.png') ? image_tag( service_subscription.service.name.underscore + '.png') : "" %></span>
 	<span class="name"><%= h service_subscription.service.display_name %></span>
 	<div class="enabled-states">
-	<span class="sms enabled-state <%= service_subscription.sms_enabled? ? "Enabled" : "Disabled" %> "><%= service_subscription.sms_enabled? ? "SMS Enabled" : "SMS Disabled" %></span>
+    <span class="sms enabled-state <%= service_subscription.sms_enabled? ? "Enabled" : "Disabled" %> "><%= service_subscription.sms_enabled? ? "SMS Enabled" : "SMS Disabled" %></span><br/>
 	<span class="email enabled-state <%= service_subscription.email_enabled? ? "Enabled" : "Disabled" %> "><%= service_subscription.email_enabled? ? "Email Enabled" : "Email Disabled" %></span>
 	</div>
 	<span class="next-alert">Next Alert: <%= service_subscription.enabled ? (service_subscription.next_alert_time ? service_subscription.next_alert_time : "N/A") : "Alerts Disabled" %></span>

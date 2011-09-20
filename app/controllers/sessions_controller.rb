@@ -1,5 +1,7 @@
 # This controller handles the login/logout function of the site.  
 class SessionsController < ApplicationController
+
+  set_tab :login
 	
   # render new.erb.html
   def new

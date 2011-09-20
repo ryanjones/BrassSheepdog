@@ -12,6 +12,11 @@
     <%= render 'layouts/header' %>
     <div class="clear"></div>
     <%= render 'layouts/verification' unless @hide_verification_bar == true %>
+    <div id="flash_messages_wrapper">
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, :class => "flash #{key}") %>
+      <% end %> 
+    </div>
     <%= yield(:content) or yield %>
     <div class="clear"></div>
     <%= render 'layouts/footer' %>

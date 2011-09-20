@@ -1,6 +1,8 @@
 class ServiceSubscriptionsController < ApplicationController
   before_filter :login_required
   before_filter :set_header_link_class
+
+  set_tab :application
   
   # GET /service_subscriptions
   # GET /service_subscriptions.xml

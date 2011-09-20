@@ -1,5 +1,12 @@
 class PagesController < ApplicationController
   layout :resolve_layout
+
+  set_tab :home, :only => :home
+  set_tab :services, :only => :services
+  set_tab :about, :only => :about
+  set_tab :contact, :only => :contact
+  set_tab :faq, :only => :faq
+
   def home
     @title = "Updates and Alerts right to your phone!"
     @description = "Alertzy provides free sms-updates for Edmonton residents from our services.  Our services include Garbage Pickup schedules, sports field closures, and many more are coming soon."

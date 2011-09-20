@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   before_filter :correct_user, :only => [:edit, :update]
   before_filter :set_header_link_class
   
+
+  set_tab :settings
   # render new.rhtml
   def new
     @title = "Create a new user"

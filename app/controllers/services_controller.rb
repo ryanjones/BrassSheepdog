@@ -1,5 +1,7 @@
 class ServicesController < ApplicationController
   before_filter :set_header_link_class
+
+  set_tab :application
   
   def index
     @title = "Available Services"

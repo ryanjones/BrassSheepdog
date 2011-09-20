@@ -3,19 +3,24 @@
 <div id="header">
 <div class="header_wrapper">
     <!-- logo -->
-    <div id="logo"><a href="index.html"><img src ="images/green_grey/header_logo.png" alt="Alertzy Homepage" width=114 height=31></a></div>
+    <div id="logo"><a href="/"><img src ="/images/green_grey/header_logo.png" alt="Alertzy Homepage" width=114 height=31></a></div>
     <!-- logo -->
     
     <!-- main menu -->
     <div id="navigation">
-        <ul class="nav">
-        <li class="current"><%= link_to content_tag(:span, "Home"), root_path %></li>
-        <li><%= link_to content_tag(:span, "Services"), services_list_path%></li>
-        <li><%= link_to content_tag(:span, "About"), about_path %></li>
-        <li><%= link_to content_tag(:span, "Contact"), contact_path %></li>
-        <li><%= link_to content_tag(:span, "FAQ"), faq_path%></li>
-        <li><%= link_to content_tag(:span, "Municipalities"), faq_path%></li>
-        </ul> 
+      <%= tabs_tag(:builder => TopMenuBuilder, :open_tabs => { :class => "nav"}) do |tab| %>
+        <%= tab.home           "Home", root_path %>
+        <%= tab.about          "About", about_path %>
+        <%= tab.contact        "Contact", contact_path %>
+        <%= tab.faq            "FAQ", faq_path %>
+        <% if logged_in? -%>
+          <%= tab.logout         "Logout", logout_path, :class => "right"  %>
+          <%= tab.settings       "Settings", edit_user_path(current_user), :class => "right" %>
+          <%= tab.application    "Subscriptions", service_subscriptions_path, :class => "right" %>
+        <% else -%>
+          <%= tab.login          "Login",  login_path, :class => "right"  %>
+        <% end -%>
+      <% end -%>
     </div>
     <!-- end of main menu -->
 </div><!-- End of header_wrapper -->

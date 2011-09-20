@@ -15,6 +15,7 @@ gem 'sqlite3'
 gem 'dynamic_form'
 gem 'whenever'
 gem "jquery-rails"
+gem "tabs_on_rails"
 
 group :production do
   gem 'mysql2', '=0.2.11'

@@ -4,29 +4,29 @@
 
 <%= error_messages_for :user , :use_span => true%>
 <%= form_for @user do |f| -%>
-<p><%= label_tag 'login' %>
-<%= f.text_field :login %></p>
+  <p><%= label_tag 'login' %>
+  <%= f.text_field :login %></p>
 
-<p><%= label_tag 'email' %>
-<%= f.text_field :email %></p>
+  <p><%= label_tag 'email' %>
+  <%= f.text_field :email %></p>
 
-<p><%= label_tag 'phone_number', 'Mobile Number' %>
-<%= f.text_field :phone_number %></p>
+  <p><%= label_tag 'phone_number', 'Mobile Number' %>
+  <%= f.text_field :phone_number %></p>
 
-<div id="user-password-change-wrapper">
-<div class="change-password-title">Change password: </div>
+  <div id="user-password-change-wrapper">
+  <div class="change-password-title">Change password: </div>
 
-<p><%= label_tag 'Old password' %>
-<%= f.password_field :old_password %></p>
+  <p><%= label_tag 'Old password' %>
+  <%= f.password_field :old_password %></p>
 
-<p><%= label_tag 'New password' %>
-<%= f.password_field :password %></p>
+  <p><%= label_tag 'New password' %>
+  <%= f.password_field :password %></p>
 
-<p><%= label_tag 'password_confirmation', 'Confirm New Password' %>
-<%= f.password_field :password_confirmation %></p>
+  <p><%= label_tag 'password_confirmation', 'Confirm New Password' %>
+  <%= f.password_field :password_confirmation %></p>
 
-</div>
+  </div>
 
-<p><%= submit_tag 'Save Changes', :class => "sexybutton sexysimple" %></p>
+  <p><%= submit_tag 'Save Changes', :class => "sexybutton sexysimple" %></p>
 <% end -%>
 </div>

@@ -114,6 +114,11 @@ hr{
 	z-index:5;
  
 }
+
+.nav li.right {
+  float:right;
+}
+
 .nav li a{
 	color:#ccc;
 	cursor:pointer;
@@ -300,6 +305,7 @@ hr{
 
 .main_content_wrapper{
 	margin:0 auto;
+  padding-top: 40px;
 	width:984px;
 }
 
