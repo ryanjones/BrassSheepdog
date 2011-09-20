@@ -1,0 +1,8 @@
+<% content_for :content do %>
+  <%= render 'pages/carousel' %>
+  <div class="main_content_wrapper">
+    <%= yield if yield(:default_content) == "" %>
+  </div>
+
+<% end %>
+<%= render :file => 'layouts/application' %>
