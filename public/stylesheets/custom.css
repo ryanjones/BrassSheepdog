@@ -199,21 +199,28 @@ h1 {
 /********************************************/
 
 .main_content_wrapper {
-    padding: 30px;
-
+  padding: 30px;
 }
 
-.main_content_wrapper > h1{
-    text-align: center;
+.application_content_wrapper{
+  width: 890px;
+  margin: 0 auto;
+  font-size: 12px;
+  color: #444;
+}
+
+
+
+.application_content_wrapper > h1{
+  text-align: center;
 	color:#444;
 	border-bottom: 1px solid #444;
-	padding-bottom: 5px;hahah
+	padding-bottom: 5px;
 }
 
-.main_content_wrapper > h2{
-    text-align: center;
+.application_content_wrapper > h2{
+  text-align: center;
 	color:#444;
-
 }
 
 /*A wrapper that wraps the property form, but not the title or back button */
@@ -435,6 +442,7 @@ h1 {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
+  margin-bottom: 18px;
   list-style-type:none;
   padding: 15px 15px 15px 30px;
 }
@@ -469,7 +477,7 @@ h1 {
 }
 
 .subscription-index li div.enabled-states{
-	width: 150px;
+	width: 100px;
 }
 
 .subscription-index li span.enabled-state.Enabled{
@@ -485,7 +493,7 @@ h1 {
 }
 
 .subscription-index li span.next-alert{
-	width: 300px;
+	width: 250px;
 }
 
 

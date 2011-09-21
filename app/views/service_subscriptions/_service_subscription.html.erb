@@ -1,4 +1,3 @@
-<div class="divider"></div>
 <li>
 	<span class="icon"><%= FileTest.exists?('public/images/' + service_subscription.service.name.underscore + '.png') ? image_tag( service_subscription.service.name.underscore + '.png') : "" %></span>
 	<span class="name"><%= h service_subscription.service.display_name %></span>
