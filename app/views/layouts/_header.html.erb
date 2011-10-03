@@ -10,7 +10,7 @@
     <div id="navigation">
       <%= tabs_tag(:builder => TopMenuBuilder, :open_tabs => { :class => "nav"}) do |tab| %>
         <%= tab.home           "Home", root_path %>
-        <%= tab.services       "Services", services_path %>
+        <%= tab.services       "Services", services_list_path %>
         <%= tab.about          "About", about_path %>
         <%= tab.contact        "Contact", contact_path %>
         <%= tab.faq            "FAQ", faq_path %>
