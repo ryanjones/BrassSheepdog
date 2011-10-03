@@ -2,8 +2,8 @@
 
 <div class="image_iphone">
 </div>
-<div class="validation_page">
-  <div id="default-sub-content-wrapper">
+<div class="validation_page_position">
+  <div class="validation_page">
     <% if current_user %>
       <% unless current_user.verified? %>
          You are not verified and can't receive SMS updates! 
@@ -24,6 +24,5 @@
         </div>
       <% end %>
     <% end %>
-    </div>
   </div>
-
+</div>

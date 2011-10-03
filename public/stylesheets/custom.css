@@ -84,12 +84,12 @@ h1 {
 /*Navigation link formatting */
 /******************************************/
 
-.navigation li {
-	list-style-type:none;
-	display:-moz-inline-stack;
-	display:inline-block;
-	zoom:1;
-	*display:inline;
+
+#navigation span.nav-text{
+  color: #CCCCCC;
+  float: right;
+  margin-right: 10px;
+  margin-left: 20px;
 }
 
 
@@ -156,6 +156,11 @@ h1 {
 	width:984px;
 }
 
+#verification{
+  width:950px;
+  margin:0 auto;
+}
+
 /* Derived from blueprint */
 .error, .notice, .success {padding:.8em;margin-bottom:1em;border:2px solid #ddd}
 .veri_notice{padding:.8em;margin-bottom:1em;border:2px solid #ddd; height:40px}
@@ -200,6 +205,10 @@ h1 {
 
 .main_content_wrapper {
   padding: 30px;
+}
+
+.slider_bg + .main_content_wrapper {
+  padding: 0px;
 }
 
 .application_content_wrapper{
@@ -718,7 +727,7 @@ h1 {
 
 #errorExplanation ul li {
   font-size: 12px;
-  list-style: square;
+  list-style: none;
 }
 
 .notice_a {
@@ -777,11 +786,22 @@ h1 {
   background-repeat:no-repeat; 
 } 
 
+.validation_page_position {
+  position:absolute; left: 0px;
+  width: 100%;
+}
+
 .validation_page
 {
- position:relative; bottom:325px; left:190px;
- padding-left:100px;
- height:0px;
+  position:relative; bottom:325px; left:620px;
+  background-color: white;
+  border: 1px solid #333;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding: 15px 15px 15px 30px;
+  margin: 0px;
+  width: 450px;
 }
 
 

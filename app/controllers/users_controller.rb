@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   before_filter :set_header_link_class
   
 
-  set_tab :settings
+  set_tab :settings, :except => :new
+  set_tab :register, :only => :new
   # render new.rhtml
   def new
     @title = "Create a new user"

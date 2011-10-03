@@ -10,6 +10,7 @@
     <div id="navigation">
       <%= tabs_tag(:builder => TopMenuBuilder, :open_tabs => { :class => "nav"}) do |tab| %>
         <%= tab.home           "Home", root_path %>
+        <%= tab.services       "Services", services_path %>
         <%= tab.about          "About", about_path %>
         <%= tab.contact        "Contact", contact_path %>
         <%= tab.faq            "FAQ", faq_path %>
@@ -18,6 +19,8 @@
           <%= tab.settings       "Settings", edit_user_path(current_user), :class => "right" %>
           <%= tab.application    "Subscriptions", service_subscriptions_path, :class => "right" %>
         <% else -%>
+          <%= tab.register "Register",  new_user_path, :class => "right"  %>
+          <span class="nav-text">Not signed up?</span>
           <%= tab.login          "Login",  login_path, :class => "right"  %>
         <% end -%>
       <% end -%>
