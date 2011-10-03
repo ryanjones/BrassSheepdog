@@ -1,14 +1,16 @@
 require 'open-uri'
 class FieldStatus < ActiveRecord::Base
   def self.update
-    rss = SimpleRSS.parse open('http://coewebapps.edmonton.ca/external/communityservices/rss/sportsfieldstatus.rss')
-    latest_update_time = rss.items.first.pubDate.to_datetime
+    southside_rss = SimpleRSS.parse open('http://coewebapps.edmonton.ca/external/facilitynotifications/rss/SouthsideSportsFields.rss')
+    northeast_rss = SimpleRSS.parse open('http://coewebapps.edmonton.ca/external/facilitynotifications/rss/NortheastSportsFields.rss')
+    northwest_rss = SimpleRSS.parse open('http://coewebapps.edmonton.ca/external/facilitynotifications/rss/NorthwestSportsFields.rss')
+    update_times = [southside_rss.items.first.pubDate.to_datetime, northeast_rss.items.first.pubDate.to_datetime, northwest_rss.items.first.pubDate.to_datetime]
+    latest_update_time = update_times.max
     if (latest_update_time != self.last_update_time) 
-      description = rss.items.first.description
       newupdate = Hash.new
-      newupdate[:northeast_open] = (description.gsub(/^.*Northeast fields are (open|closed).*$/im, '\\1')  == 'open')
-      newupdate[:northwest_open] = (description.gsub(/^.*Northwest fields are (open|closed).*$/im, '\\1')  == 'open')
-      newupdate[:south_open] = (description.gsub(/^.*Southside fields are (open|closed).*$/im, '\\1')  == 'open')
+      newupdate[:northeast_open] = (northeast_rss.items.first.description.gsub(/^.*Status: (Open|Closed).*$/im, '\\1')  == 'Open')
+      newupdate[:northwest_open] = (northwest_rss.items.first.description.gsub(/^.*Status: (Open|Closed).*$/im, '\\1')  == 'Open')
+      newupdate[:south_open] = (southside_rss.items.first.description.gsub(/^.*Status: (Open|Closed).*$/im, '\\1')  == 'Open')
       newupdate[:update_time] = latest_update_time
     
       FieldStatus.create!(newupdate)
