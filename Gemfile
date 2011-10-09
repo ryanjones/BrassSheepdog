@@ -14,11 +14,12 @@ gem 'log4r'
 gem 'sqlite3'
 gem 'dynamic_form'
 gem 'whenever'
-gem "jquery-rails"
-gem "tabs_on_rails"
+gem 'jquery-rails'
+gem 'tabs_on_rails'
+gem 'twilio-ruby'
 
 group :production do
-  gem 'mysql2', '=0.2.11'
+  gem 'mysql2', '=0.2.6'
 end
 
 group :development do

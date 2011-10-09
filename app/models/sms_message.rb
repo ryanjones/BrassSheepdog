@@ -2,6 +2,7 @@
 # @sms_message = SmsMessage.new(:phone_number => "17807102820", :content => "hi")
 # success = @sms_message.valid? && @sms_message.send_message!
 require 'rexml/document'
+require 'twilio-ruby'
 
 class SmsMessage < Object
   include ActiveModel::Validations
@@ -30,7 +31,7 @@ class SmsMessage < Object
   end
   
   def self.info_message_content
-    "Visit #{SITE_URL} for info and to change your settings."
+    "Visit Alertzy.com for info and to change your settings."
   end
   
   def self.send_disabled_message_to_phone_number(phone_number)
@@ -39,7 +40,7 @@ class SmsMessage < Object
   end
   
   def self.disabled_message_content
-    "All your alertzy subscriptions have been disabled.\n  Visit #{SITE_URL} to change your settings or re-enable."
+    "All your alertzy subscriptions have been disabled.\n  Visit Alertzy.com to change your settings or re-enable."
   end
   
   
@@ -49,15 +50,31 @@ class SmsMessage < Object
     return false unless self.valid?
     #otherwise continue to send the message
 
+    # api key for twilio
+    account_sid = 'ACc52800f150bf4cb5ac88d887129a9458'
+    auth_token = '2faa2bb513de605158559d95d81d9b2d'
+
+    # create the twilio REST client
+    @client = Twilio::REST::Client.new(account_sid, auth_token)
+
+    #build and send SMS
+    @client.account.sms.messages.create(
+      :from => '+19519994321',
+      :to => "1#{self.phone_number}",
+      :body => self.content
+    )
+    
+    # i need to buy a twilio number to test the requests and such.
+
     # build the params string
-    post_args = { 'cellphone' => "1#{self.phone_number}", 
-                    'message_body' => self.content,
-                    'api_key' => "lskjdf87fhyr6"}
-    unless (defined?(FAKE_SMS_MESSAGES) && FAKE_SMS_MESSAGES)
-      submit_to_gateway! post_args 
-    else
-      fake_submit_to_gateway! post_args
-    end
+    # post_args = { 'cellphone' => "1#{self.phone_number}", 
+                    # 'message_body' => self.content,
+                    # 'api_key' => "lskjdf87fhyr6"}
+    # unless (defined?(FAKE_SMS_MESSAGES) && FAKE_SMS_MESSAGES)
+      # submit_to_gateway! post_args 
+    # else
+      # fake_submit_to_gateway! post_args
+    # end
 
   end
   
