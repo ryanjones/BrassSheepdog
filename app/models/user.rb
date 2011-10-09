@@ -82,14 +82,16 @@ class User < ActiveRecord::Base
   #disable all the users alerts
   def disable_all_alerts
     self.service_subscriptions.each do |subscription|
-      subscription.update_attribute :enabled, false
+      subscription.update_attribute :sms_enabled, false
+      subscription.update_attribute :email_enabled, false
     end
   end
 
   #enable all the users alerts
   def enable_all_alerts
     self.service_subscriptions.each do |subscription|
-      subscription.update_attribute :enabled, false
+      subscription.update_attribute :sms_enabled, true
+      subscription.update_attribute :email_enabled, true
     end
   end
   

@@ -5,12 +5,14 @@ class SmsMessagesController < ApplicationController
   #action to handle incoming messages from the gateway
   def incoming
     message = params[:Body]
-    #if the user sent a message for info
+    # cut off the +1 from the phone number for a legit phone number
+    from_number = params[:From].to_s.sub('+1', '')
     
+    #if the user sent a message for info
     if /info/i.match(message)
-      SmsMessage.send_info_message_to_phone_number(params[:From].to_s.sub('+1', ''))
+      SmsMessage.send_info_message_to_phone_number(from_number)
     elsif /stop/i.match(message)
-      user = User.find_by_phone_number(params[:From])
+      user = User.find_by_phone_number(from_number)
       user.disable_all_alerts unless user.nil?
       SmsMessage.send_disabled_message_to_phone_number(user.phone_number)
     end
