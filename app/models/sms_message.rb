@@ -10,6 +10,7 @@ class SmsMessage < Object
   include ActiveModel::Conversion
   
   attr_accessor :phone_number, :content
+  attr_reader :account_sid, :auth_token, :client
   
   validates_presence_of     :phone_number
   validates_numericality_of :phone_number, :only_integer => true
@@ -22,6 +23,11 @@ class SmsMessage < Object
   def initialize(attributes = nil)
     @phone_number = attributes[:phone_number] unless attributes.nil?
     @content = attributes[:content] unless attributes.nil?
+    
+    # Setup Twilio information
+    @account_sid = 'ACc52800f150bf4cb5ac88d887129a9458'
+    @auth_token = '2faa2bb513de605158559d95d81d9b2d'
+    @client = Twilio::REST::Client.new(@account_sid, @auth_token)
   end
   
   # The obligatory messages for SMS requirements
@@ -50,19 +56,28 @@ class SmsMessage < Object
     return false unless self.valid?
     #otherwise continue to send the message
     
+    #get a phone number from twilio
+    phone_number = number_from_twilio
+    
     #build args for twilio
     post_args = {
-      :from => '+19519994321',
+      :from => phone_number,
       :to => "1#{self.phone_number}",
       :body => self.content
     }
     
+    # if in dev, post to the dev log
     unless (defined?(FAKE_SMS_MESSAGES) && FAKE_SMS_MESSAGES)
       submit_to_gateway!(post_args)
     else
       fake_submit_to_gateway!(post_args)
     end
+  end
 
+  def number_from_twilio
+    # Get a list of numbers that belong to the account
+    number_list = @client.account.incoming_phone_numbers.list
+    number = number_list[0].phone_number
   end
   
   #This model will always report being a new record
@@ -72,13 +87,6 @@ class SmsMessage < Object
   
   #Function to pull this logic out of send_message and simplify it
   def submit_to_gateway!(post_args)
-    # api key for twilio
-    account_sid = 'ACc52800f150bf4cb5ac88d887129a9458'
-    auth_token = '2faa2bb513de605158559d95d81d9b2d'
-
-    # create the twilio REST client
-    @client = Twilio::REST::Client.new(account_sid, auth_token)
-
     #send SMS via post_args
     @client.account.sms.messages.create(
       post_args
