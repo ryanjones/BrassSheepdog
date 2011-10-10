@@ -9,7 +9,7 @@ class SmsMessage < Object
   include ActiveModel::Naming
   include ActiveModel::Conversion
   
-  attr_accessor :phone_number, :content
+  attr_accessor :phone_number, :content, :twilio_number
   attr_reader :account_sid, :auth_token, :client
   
   validates_presence_of     :phone_number
@@ -25,6 +25,8 @@ class SmsMessage < Object
     @content = attributes[:content] unless attributes.nil?
     
     # Setup Twilio information
+    @twilio_number = attributes[:twilio_number] unless attributes.nil?
+    
     @account_sid = 'ACc52800f150bf4cb5ac88d887129a9458'
     @auth_token = '2faa2bb513de605158559d95d81d9b2d'
     @client = Twilio::REST::Client.new(@account_sid, @auth_token)
@@ -56,12 +58,17 @@ class SmsMessage < Object
     return false unless self.valid?
     #otherwise continue to send the message
     
-    #get a phone number from twilio
-    twilio_phone_number = number_from_twilio
+    # Get the number from twilio if the twilio number isn't defined
+    unless(@twilio_number)
+      twilio_numbers_list = twilio_numbers
+      
+      # grab the first number in the list
+      @twilio_number = twilio_numbers_list[0].phone_number
+    end
     
     #build args for twilio
     post_args = {
-      :from => twilio_phone_number,
+      :from => @twilio_number,
       :to => "+1#{self.phone_number}",
       :body => self.content
     }
@@ -74,10 +81,9 @@ class SmsMessage < Object
     end
   end
 
-  def number_from_twilio
+  def twilio_numbers
     # Get a list of numbers that belong to the account
     number_list = @client.account.incoming_phone_numbers.list
-    number = number_list[0].phone_number
   end
   
   #This model will always report being a new record

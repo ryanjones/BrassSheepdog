@@ -6,8 +6,12 @@ class Delivery < ActiveRecord::Base
   end
   
   def self.check_subscription
-    # Get all of the users
+    # Get all twilio numbers
+    sms_message = SmsMessage.new
+    twilio_number_list = sms_message.twilio_numbers
     
+    
+    # Get all of the users
     user_array = User.all
     
     # Cycle through the user array and user subscriptions
