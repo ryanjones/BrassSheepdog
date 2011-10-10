@@ -24,7 +24,8 @@ class SmsMessage < Object
     @phone_number = attributes[:phone_number] unless attributes.nil?
     @content = attributes[:content] unless attributes.nil?
     
-    # Setup Twilio information
+    # if the twilio number is sent in set it here otherwise we'll have to get one
+    #  from the list later on
     @twilio_number = attributes[:twilio_number] unless attributes.nil?
     
     @account_sid = 'ACc52800f150bf4cb5ac88d887129a9458'
