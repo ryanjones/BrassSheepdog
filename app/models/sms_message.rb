@@ -57,16 +57,16 @@ class SmsMessage < Object
     #otherwise continue to send the message
     
     #get a phone number from twilio
-    phone_number = number_from_twilio
+    twilio_phone_number = number_from_twilio
     
     #build args for twilio
     post_args = {
-      :from => phone_number,
-      :to => "1#{self.phone_number}",
+      :from => twilio_phone_number,
+      :to => "+1#{self.phone_number}",
       :body => self.content
     }
     
-    # if in dev, post to the dev log
+    # if in dev, post to the sms log
     unless (defined?(FAKE_SMS_MESSAGES) && FAKE_SMS_MESSAGES)
       submit_to_gateway!(post_args)
     else
