@@ -1,7 +1,7 @@
 class SmsMessagesController < ApplicationController
   #before_filter :login_required
   before_filter :set_header_link_class
-  
+
   #action to handle incoming messages from the gateway
   def incoming
     message = params[:Body]

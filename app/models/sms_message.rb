@@ -49,32 +49,19 @@ class SmsMessage < Object
     #fail to send if the message doesn't pass validation
     return false unless self.valid?
     #otherwise continue to send the message
-
-    # api key for twilio
-    account_sid = 'ACc52800f150bf4cb5ac88d887129a9458'
-    auth_token = '2faa2bb513de605158559d95d81d9b2d'
-
-    # create the twilio REST client
-    @client = Twilio::REST::Client.new(account_sid, auth_token)
-
-    #build and send SMS
-    @client.account.sms.messages.create(
+    
+    #build args for twilio
+    post_args = {
       :from => '+19519994321',
       :to => "1#{self.phone_number}",
       :body => self.content
-    )
+    }
     
-    # i need to buy a twilio number to test the requests and such.
-
-    # build the params string
-    # post_args = { 'cellphone' => "1#{self.phone_number}", 
-                    # 'message_body' => self.content,
-                    # 'api_key' => "lskjdf87fhyr6"}
-    # unless (defined?(FAKE_SMS_MESSAGES) && FAKE_SMS_MESSAGES)
-      # submit_to_gateway! post_args 
-    # else
-      # fake_submit_to_gateway! post_args
-    # end
+    unless (defined?(FAKE_SMS_MESSAGES) && FAKE_SMS_MESSAGES)
+      submit_to_gateway!(post_args)
+    else
+      fake_submit_to_gateway!(post_args)
+    end
 
   end
   
@@ -85,23 +72,17 @@ class SmsMessage < Object
   
   #Function to pull this logic out of send_message and simplify it
   def submit_to_gateway!(post_args)
-    require 'net/http'
-    url = URI.parse('http://207.176.140.81:8088/garb/pybin.py/in_port')
-    
-    # send the request
-    resp, data = Net::HTTP.post_form(url, post_args)
-    
-    if resp.kind_of?(Net::HTTPSuccess) 
-      #report the returned message
-      xml_object = REXML::Document.new(data)
-      response_message = xml_object.elements['response'].text
-      Log4r::Logger['sms_logger'].info "Message attempt succeeded with api response \"#{response_message}\"\n#{post_args.to_yaml}"
-      true
-    else
-      #report the failure
-      Log4r::Logger['sms_logger'].info "Message attempt failed with http response #{resp}\n#{post_args.to_yaml}"
-      false
-    end
+    # api key for twilio
+    account_sid = 'ACc52800f150bf4cb5ac88d887129a9458'
+    auth_token = '2faa2bb513de605158559d95d81d9b2d'
+
+    # create the twilio REST client
+    @client = Twilio::REST::Client.new(account_sid, auth_token)
+
+    #send SMS via post_args
+    @client.account.sms.messages.create(
+      post_args
+    )
   end
   
   #Function to pull this logic out of send_message and simplify it
