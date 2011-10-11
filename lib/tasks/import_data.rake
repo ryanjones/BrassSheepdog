@@ -18,7 +18,7 @@ namespace :db do
   
   
   task :import_garbage_data_from_sql => :environment do
-    sql = File.open("script/dbdata/garbage_only_data.sql").read
+    sql = File.open("script/dbdata/garbage_only_data_mysql.sql").read
     sql.split(';').each do |sql_statement|
       ActiveRecord::Base.connection.execute(sql_statement)
     end
