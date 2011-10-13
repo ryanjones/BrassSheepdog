@@ -98,6 +98,7 @@ class SmsMessage < Object
     @client.account.sms.messages.create(
       post_args
     )
+    Log4r::Logger['sms_logger'].info "Message attempted: \n #{post_args.to_yaml}"
   end
   
   #Function to pull this logic out of send_message and simplify it
