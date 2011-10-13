@@ -6,13 +6,29 @@ class Delivery < ActiveRecord::Base
   end
   
   def self.check_subscription
-    # Get all of the users
+    # Get all twilio numbers
+    sms_message = SmsMessage.new
+    twilio_number_list = sms_message.twilio_numbers
     
+    twilio_number_counter = 0 #used to count through the numbers
+    
+    # Get all of the users
     user_array = User.all
     
     # Cycle through the user array and user subscriptions
     user_array.each do |user|
       
+      # set twilio # to use
+      twilio_number = twilio_number_list[twilio_number_counter].phone_number
+
+      # if we're at the end of the numbers, kick it back to the beginning of the list
+      if (twilio_number_counter == twilio_number_list.count - 1)
+        twilio_number_counter = 0
+      else  
+        # move the counter up the list of numbers
+        twilio_number_counter = twilio_number_counter + 1
+      end
+
       #set the users timezone
       Time.zone = user.time_zone
       
@@ -26,7 +42,8 @@ class Delivery < ActiveRecord::Base
             logger.debug "Sending Message"
             message_content = subscription.alert_content + "\nSent by Alertzy.com"
             s = SmsMessage.new(:phone_number => user.phone_number,
-                           :content      => message_content)
+                           :content      => message_content,
+                           :twilio_number => twilio_number)
             s.send_message!
             subscription.alert_sent
           end

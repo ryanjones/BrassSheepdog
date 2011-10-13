@@ -589,7 +589,7 @@ h1 {
 	zoom:1;
 	*display:inline;
 	vertical-align: top;
-	width: 300px;
+	width: 320px;
 }
 
 .address-box .ajax {
@@ -793,7 +793,7 @@ h1 {
 
 .validation_page
 {
-  position:relative; bottom:325px; left:620px;
+  position:relative; bottom:306px; left:640px;
   background-color: white;
   border: 1px solid #333;
   -webkit-border-radius: 5px;
