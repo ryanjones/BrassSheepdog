@@ -1,6 +1,6 @@
 class SmsMessagesController < ApplicationController
   before_filter :login_required, :except => [:incoming]
-  before_filter :authenticate, :only => [:incoming]
+  before_filter :http_basic_auth, :only => [:incoming]
   before_filter :set_header_link_class
 
   #action to handle incoming messages from the gateway
@@ -45,7 +45,7 @@ class SmsMessagesController < ApplicationController
       current_user.admin?
     end
     
-    def basic_authorized?
+    def http_basic_auth
       # Just basic authentication for now
       # alertzy / the normal PW
       authenticate_or_request_with_http_basic do |username, password|
