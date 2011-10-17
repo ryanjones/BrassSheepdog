@@ -1,5 +1,6 @@
 class SmsMessagesController < ApplicationController
-  #before_filter :login_required
+  before_filter :login_required, :except => [:incoming]
+  before_filter :authenticate, :only => [:incoming]
   before_filter :set_header_link_class
 
   #action to handle incoming messages from the gateway
@@ -42,6 +43,14 @@ class SmsMessagesController < ApplicationController
     # only allow admins to send messages directly
     def authorized?
       current_user.admin?
+    end
+    
+    def basic_authorized?
+      # Just basic authentication for now
+      # alertzy / the normal PW
+      authenticate_or_request_with_http_basic do |username, password|
+        username == "aa3d56897dbf2a187a55421332dd4632" && password == "6a1368ad8685e957f33654ca3663ec43"
+      end
     end
     
     def set_header_link_class 
