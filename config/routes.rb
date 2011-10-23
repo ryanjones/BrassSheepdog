@@ -1,4 +1,4 @@
-ActionController::Routing::Routes.draw do |map|
+ActionController::Routing::Routes.draw do
   
   # Singular Resources
   match 'signup' => 'users#new'
