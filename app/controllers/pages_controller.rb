@@ -25,6 +25,14 @@ class PagesController < ApplicationController
   def contact
     @title = "How to get ahold of us"
     @description = "The contact information to reach the Alertzy team."
+    @contact = Contact.new
+  end
+  
+  def contact_submit
+    @contact  = Contact.new(params[:contact])
+    ContactMailer.contact_form(@contact).deliver
+    redirect_to :back
+    flash[:notice] = "Thanks for contacting us! We'll respond as soon as possible."
   end
 
   def faq

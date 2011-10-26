@@ -8,6 +8,8 @@ ActionController::Routing::Routes.draw do
   match 'unsubscribe' => 'service_subscriptions#destroy'
   
   match 'contact' => 'pages#contact'
+  match 'contact_submit' => 'pages#contact_submit', :via => :post
+
   match 'services_list' => 'pages#services'
   match 'about' => 'pages#about'
   match 'faq' => 'pages#faq'
@@ -28,7 +30,6 @@ ActionController::Routing::Routes.draw do
         put :reset
       end
     end
-  
   resources :service_subscriptions
   resources :services, :only => [:index]
   
@@ -44,7 +45,6 @@ ActionController::Routing::Routes.draw do
   # Root
   root :to => 'pages#home'
   
-
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

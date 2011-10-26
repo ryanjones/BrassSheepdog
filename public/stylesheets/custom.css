@@ -507,6 +507,19 @@ h1 {
 
 
 /******************************************/
+/* contact form css */
+/******************************************/
+
+.contact-form label {
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+	width: 100px;
+}
+
+
+/******************************************/
 /* user form css */
 /******************************************/
 

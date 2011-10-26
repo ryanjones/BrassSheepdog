@@ -1,2 +1,21 @@
 <h1>Contact</h1>
-<p>For any general inquiries we can be contacted at <%= mail_to 'general@alertzy.com', 'general@alertzy.com' %></p>
+<p>For any general inquiries we can be contacted at <%= mail_to 'general@alertzy.com', 'general@alertzy.com' %> or:</p>
+
+<div id="default-sub-content-wrapper" class="contact-form">
+<%= form_for @contact, :url => contact_submit_path do |form| %>
+
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <%= form.label :email %>
+  <%= form.text_field :email %>
+
+  <%= form.label :subject %>
+  <%= form.text_field :subject %>
+
+  <%= form.label :message %>
+  <%= form.text_field :message %>
+
+<%= submit_tag 'Contact!', :class => "sexybutton sexysimple"%></p>
+<% end %>
+</div>
