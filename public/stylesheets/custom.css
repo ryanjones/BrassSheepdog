@@ -510,13 +510,39 @@ h1 {
 /* contact form css */
 /******************************************/
 
-.contact-form label {
+#default-sub-content-wrapper.contact-override{
+	width: 90%;
+	height: 90%;
+}
+
+#contact-info label {
 	display:-moz-inline-stack;
 	display:inline-block;
 	zoom:1;
 	*display:inline;
 	width: 100px;
+	vertical-align: top;
 }
+
+
+/** just apply to the input fields with p's **/
+#contact-info p > input {
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+}
+
+#contact_btn {
+	width:300px;
+	position:relative;
+	padding-left:105px;
+}
+
+#contact_btn input{
+	width:300px;
+}
+
 
 
 /******************************************/
