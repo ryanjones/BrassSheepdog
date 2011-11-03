@@ -533,6 +533,12 @@ h1 {
 	*display:inline;
 }
 
+#contact-info p > textarea {
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+
+
 #contact_btn {
 	width:300px;
 	position:relative;
@@ -540,7 +546,7 @@ h1 {
 }
 
 #contact_btn input{
-	width:378px;
+	width:372px;
 }
 
 
