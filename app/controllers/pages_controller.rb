@@ -25,6 +25,21 @@ class PagesController < ApplicationController
   def contact
     @title = "How to get ahold of us"
     @description = "The contact information to reach the Alertzy team."
+    @contact = Contact.new
+  end
+  
+  def contact_submit
+    @contact  = Contact.new(params[:contact])
+    
+    if @contact.valid?
+      ContactMailer.contact_form(@contact).deliver
+      flash.now[:notice] = "Thanks for contacting us! We'll respond as soon as possible."
+      @contact = Contact.new
+      render :action => 'contact'
+    else  
+       flash.now[:error] = "Sorry we\'re unable to process the contact request. Please fix the fields below:"
+       render :action => 'contact'
+    end
   end
 
   def faq
