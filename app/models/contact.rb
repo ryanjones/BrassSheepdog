@@ -6,7 +6,7 @@ class Contact < Object
   attr_accessor :name, :email, :subject, :message
 
   validates :name, :email, :message, :subject, :presence => true, :length => { :minimum => 3 }
-  validates :email, :format => { :with => %r{.+@.+\..+} }, :allow_blank => true
+  validates :email, :format => { :with => %r{.+@.+\..+} }
 
   #Modified initialize to provide behavior closer to ActiveRecord::Base
   def initialize(attributes = nil)
