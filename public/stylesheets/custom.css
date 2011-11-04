@@ -20,7 +20,13 @@
 /* remove the spaces underneath images */
 img{
 	vertical-align: bottom;
+	color: white;
+}
+
+.description img{
+	vertical-align: bottom;
   color: white;
+	padding-bottom:2px;
 }
 
 
