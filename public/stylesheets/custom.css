@@ -422,6 +422,8 @@ h1 {
 	zoom:1;
 	*display:inline;
 	width:100px;
+	vertical-align:middle;
+	padding-top:10px;
 }
 
 .service .text {
