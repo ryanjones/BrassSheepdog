@@ -110,7 +110,6 @@ ActiveRecord::Schema.define(:version => 20111104223247) do
     t.boolean  "current_southside_state"
     t.boolean  "email_enabled",            :default => true
     t.integer  "previous_votes_cast",      :default => 0
-    t.boolean  "birth_control_enabled"
     t.integer  "pill_day",                 :default => 0
   end
 
