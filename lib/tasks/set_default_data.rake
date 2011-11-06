@@ -60,4 +60,11 @@ def load_services
                        :description => "This service will send you live updates as the votes are tallied in the City of Edmonton's Mayoral election occuring on October 18th, 2010.",
                        :enabled => false)                     
   end
+  unless Service.find_by_name("BirthControl")
+                        Service.create!(
+                             :name => "BirthControl",
+                             :display_name => "Birth Control Reminder",
+                             :description => "This service will remind you to take your birth control.",
+                             :enabled => true)                     
+  end
 end
