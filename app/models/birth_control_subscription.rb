@@ -25,7 +25,7 @@ class BirthControlSubscription < ServiceSubscription
   end
   
   def next_alert_time
-    #gotta calculate the next day here
+    #gotta calculate the next day here (display in service sub area)
     "CALC NEXT DAY"
   end
   

@@ -5,10 +5,11 @@ class User < ActiveRecord::Base
   include Authentication::ByPassword
   include Authentication::ByCookieToken
   
-  has_many  :service_subscriptions, :dependent => :destroy
-  has_many  :garbage_subscriptions, :dependent => :destroy
-  has_many  :field_status_subscriptions, :dependent => :destroy
-  has_many  :city_election_subscriptions, :dependent => :destroy
+  has_many :service_subscriptions, :dependent => :destroy
+  has_many :garbage_subscriptions, :dependent => :destroy
+  has_many :field_status_subscriptions, :dependent => :destroy
+  has_many :city_election_subscriptions, :dependent => :destroy
+  has_many :birth_control_subscriptions, :dependant => :destroy
   
   has_many  :services, :through => :service_subscriptions
   
