@@ -650,6 +650,16 @@ h1 {
 	width: 320px;
 }
 
+.day-box .form {
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+	vertical-align: top;
+	width: 340px;
+}
+
+
 .address-box .ajax {
 	display:-moz-inline-stack;
 	display:inline-block;

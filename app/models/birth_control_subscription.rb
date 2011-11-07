@@ -1,4 +1,5 @@
 class BirthControlSubscription < ServiceSubscription
+  attr_accessible :pill_day, :pill_length, :pill_delivery_time
   
   #being used for method to over-ride the service
   alias_method :original_service, :service
@@ -26,7 +27,7 @@ class BirthControlSubscription < ServiceSubscription
   
   def next_alert_time
     #gotta calculate the next day here (display in service sub area)
-    "CALC NEXT DAY"
+    "CALC NEXT DAY AND PILL # TO SEND"
   end
   
   #method to determine whether an alert should be sent to the subscribed user
@@ -39,16 +40,8 @@ class BirthControlSubscription < ServiceSubscription
   
   private 
    def birth_control_now?
-      # this has been refactored to handle the "day_before" setting
-      now = DateTime.now.in_time_zone
-      #define the day to check
-      if self.day_before
-        # if they want the update the day before, we're interested in whether there's a pickup tomorrow
-        day_of_interest = 1.day.since(now).to_date
-      else 
-        # if they want the update the the day of, we're interested in whether there's a pickup today
-        day_of_interest = now.to_date
-      end
+      #date = DateTime.now.in_time_zone.to_date
+      #BirthControl.send_reminder?
 
     end
     

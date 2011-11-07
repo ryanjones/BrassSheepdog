@@ -111,6 +111,8 @@ ActiveRecord::Schema.define(:version => 20111104223247) do
     t.boolean  "email_enabled",            :default => true
     t.integer  "previous_votes_cast",      :default => 0
     t.integer  "pill_day",                 :default => 0
+    t.datetime "pill_delivery_time"
+    t.integer  "pill_length",              :default => 0
   end
 
   create_table "services", :force => true do |t|
