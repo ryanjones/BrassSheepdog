@@ -659,6 +659,21 @@ h1 {
 	width: 340px;
 }
 
+.pill-length{
+	padding-top:5px;
+	padding-bottom:8px;
+}
+
+.pill-current-day{
+	padding-top:2px;
+	padding-bottom:8px;
+	width:440px;
+}
+
+.pill-reminder-time{
+	padding-top:2px;
+}
+
 
 .address-box .ajax {
 	display:-moz-inline-stack;

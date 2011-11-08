@@ -21,8 +21,7 @@ class BirthControlSubscription < ServiceSubscription
   #define the message which will get sent to the uer
   def alert_content
     message = String.new
-    message = "Take pill ##{self.pill_day} today" # set day here
-    # gotta set the day to take also
+    message = "Take birth control pill ##{self.pill_day} today!"
   end
   
   #define the subject line for alerts sent to the user
@@ -31,8 +30,7 @@ class BirthControlSubscription < ServiceSubscription
   end
   
   def next_alert_time
-    # need to decide what to do about 21 day cycle
-    # will have to add 7 days if it's in the "empty" period.
+    # Determine the net alert time
     pickup_time = self.pill_delivery_time.to_time
     pickup_day = self.pill_delivery_time.to_date
     
@@ -66,11 +64,11 @@ class BirthControlSubscription < ServiceSubscription
       send_message = false
       
       # if they're on the 21 day cycle and the day <= 21. send reminder
-      if self.day_length == 21 && self.pill_day <= 21
+      if self.pill_length == 21 && self.pill_day <= 21
         send_message = true
         
       # 28 day cycle gets a reminder every day
-      elsif self.day_length == 28
+      elsif self.pill_length == 28
         send_message = true
       end
       

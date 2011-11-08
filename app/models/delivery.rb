@@ -45,13 +45,14 @@ class Delivery < ActiveRecord::Base
                            :content      => message_content,
                            :twilio_number => twilio_number)
             s.send_message!
-            subscription.alert_sent
           end
           #send an email if they are enabled
           if subscription.email_enabled?
             logger.debug "Sending email to #{user.email}"
             AlertMailer.alert_email(user, subscription.alert_content, subscription.alert_subject).deliver
           end
+          
+            subscription.alert_sent
         end 
         
         # testing lewp
