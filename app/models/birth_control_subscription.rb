@@ -21,7 +21,7 @@ class BirthControlSubscription < ServiceSubscription
   #define the message which will get sent to the uer
   def alert_content
     message = String.new
-    message = "Take your pill!" # set day here
+    message = "Take pill ##{self.pill_day} today" # set day here
     # gotta set the day to take also
   end
   
@@ -31,6 +31,8 @@ class BirthControlSubscription < ServiceSubscription
   end
   
   def next_alert_time
+    # need to decide what to do about 21 day cycle
+    # will have to add 7 days if it's in the "empty" period.
     pickup_time = self.pill_delivery_time.to_time
     pickup_day = self.pill_delivery_time.to_date
     
@@ -47,20 +49,38 @@ class BirthControlSubscription < ServiceSubscription
     self.enabled? && approximately_now? && birth_control_now?
   end
   
+  def alert_sent
+    # If we're at 28 we need to go back to 1
+    if self.pill_day == 28
+      self.pill_day = 1
+    else  
+    # if we're not at 28, we increment by 1  
+      self.pill_day += 1
+    end
+    # save the new pill day
+    self.save
+  end
+  
   private 
     def birth_control_now?
-      self.send_reminder? pill_day, pill_length, pill_delivery_time
-    end
-    
-    def send_reminder?
+      send_message = false
       
+      # if they're on the 21 day cycle and the day <= 21. send reminder
+      if self.day_length == 21 && self.pill_day <= 21
+        send_message = true
+        
+      # 28 day cycle gets a reminder every day
+      elsif self.day_length == 28
+        send_message = true
+      end
       
+      send_message
     end
     
     def approximately_now?(current_time = DateTime.now)
       # determine how many seconds apart the delivery is from the current time
       # take the modulus to isolate time from days
-      time_difference = (current_time.to_i - self.delivery_time.to_i) % 1.day
+      time_difference = (current_time.to_i - self.pill_delivery_time.to_i) % 1.day
       #make sure that we are looking at the smallest difference ( think looping at midnight )
       if time_difference > 1.day / 2
         time_difference = time_difference - 1.day
