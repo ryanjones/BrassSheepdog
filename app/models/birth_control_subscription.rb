@@ -1,6 +1,10 @@
 class BirthControlSubscription < ServiceSubscription
   attr_accessible :pill_day, :pill_length, :pill_delivery_time
   
+  validates_presence_of :pill_day
+  validates_presence_of :pill_length
+  validates_presence_of :pill_delivery_time
+  
   #being used for method to over-ride the service
   alias_method :original_service, :service
   
@@ -18,6 +22,7 @@ class BirthControlSubscription < ServiceSubscription
   def alert_content
     message = String.new
     message = "Take your pill!" # set day here
+    # gotta set the day to take also
   end
   
   #define the subject line for alerts sent to the user
@@ -26,23 +31,30 @@ class BirthControlSubscription < ServiceSubscription
   end
   
   def next_alert_time
-    #gotta calculate the next day here (display in service sub area)
-    "CALC NEXT DAY AND PILL # TO SEND"
+    pickup_time = self.pill_delivery_time.to_time
+    pickup_day = self.pill_delivery_time.to_date
+    
+    alert_day = pickup_day + 1.day
+    alert_time = (self.pill_delivery_time.hour * 3600 + self.pill_delivery_time.min * 60 + self.pill_delivery_time.sec).seconds.since(alert_day).in_time_zone
+    
+    alert_time.strftime("%I:%M %p %a, %b, #{alert_time.to_time.day.ordinalize} %Y")
   end
   
   #method to determine whether an alert should be sent to the subscribed user
   def alert_user?
     # check the three necessary conditions
     # in order of increasing cost
-
     self.enabled? && approximately_now? && birth_control_now?
   end
   
   private 
-   def birth_control_now?
-      #date = DateTime.now.in_time_zone.to_date
-      #BirthControl.send_reminder?
-
+    def birth_control_now?
+      self.send_reminder? pill_day, pill_length, pill_delivery_time
+    end
+    
+    def send_reminder?
+      
+      
     end
     
     def approximately_now?(current_time = DateTime.now)
