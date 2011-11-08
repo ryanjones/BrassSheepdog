@@ -229,6 +229,12 @@ h1 {
 }
 
 
+.application_content_wrapper .back-to-services{
+	width:50%;
+	border-radius: 5px;
+	padding-left:200px; 
+}
+
 
 .application_content_wrapper > h1{
   text-align: center;

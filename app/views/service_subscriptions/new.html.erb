@@ -2,4 +2,6 @@
 
 <%= render :partial => 'service_subscription_form', :locals => {:service_subscription => @service_subscription, :user => current_user} %>
 
-<%= link_to 'Back to Services', services_path, :class => "sexybutton sexysimple" %>
+<div class="back-to-services">
+  <%= link_to 'Back to Services', services_path, :class => "sexybutton sexysimple" %>
+</div>
