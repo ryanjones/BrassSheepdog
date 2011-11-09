@@ -47,32 +47,64 @@ class BirthControlSubscription < ServiceSubscription
     self.enabled? && approximately_now? && birth_control_now?
   end
   
-  def alert_sent
-    # If we're at 28 we need to go back to 1
-    if self.pill_day == 28
-      self.pill_day = 1
-    else  
-    # if we're not at 28, we increment by 1  
-      self.pill_day += 1
-    end
-    # save the new pill day
-    self.save
-  end
   
   private 
     def birth_control_now?
+      # Check if the updated at date is todays date. If they don't match update the pill # and save
+      # We only send messages on the NEXT day from when they set there cycle
+      
+      # Scenarios:
+      
+      # User sets cycle before 7am (no message sent if updated today)
+      #    cycle 10     
+      #----------------7am---------------
+      
+      # User sets cycle after 7am (no message sent if updated today)
+      #                     cycle 10
+      #----------------7am---------------
+      
+      # User logs on BEFORE 7am and sees cycle 10 (she updates to cycle 11) (no message sent, updated today) 
+      # This scenario would happen if they logged on before their message was sent for that day
+      #      cycle 11
+      #----------------7am---------------
+      
+      # User sets cycle to 7, then realizes she's actually on 8 and updates
+      # (no message sent, updated today) 
+      #      cycle 7         cycle 8
+      #----------------7am---------------
       send_message = false
       
-      # if they're on the 21 day cycle and the day <= 21. send reminder
-      if self.pill_length == 21 && self.pill_day <= 21
-        send_message = true
-        
-      # 28 day cycle gets a reminder every day
-      elsif self.pill_length == 28
-        send_message = true
-      end
       
+      # We increment the pill (cycle #) if the updated date != todays date
+      unless self.updated_at.to_date == Date.today
+        # If we're at 28 we need to go back to 1
+        if self.pill_day == 28
+          self.pill_day = 1
+        else  
+        # if we're not at 28, we increment by 1  
+          self.pill_day += 1
+        end
+        
+        # save the new pill day
+        self.save
+        
+        # if they're on the 21 day cycle and the day <= 21, send reminder
+        if self.pill_length == 21 && self.pill_day <= 21
+          send_message = true
+          
+        # 28 day cycle gets a reminder every day
+        elsif self.pill_length == 28
+          send_message = true
+        end
+      end
+
       send_message
+    end
+    
+    def update_pill_number
+ 
+      
+
     end
     
     def approximately_now?(current_time = DateTime.now)
