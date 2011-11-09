@@ -64,7 +64,7 @@ def load_services
                         Service.create!(
                              :name => "BirthControl",
                              :display_name => "Birth Control Reminder",
-                             :description => "This service will remind you to take your birth control.",
+                             :description => "This service will remind you to take your birth control by sending you a reminder along with the pill number that you need to take for that day.",
                              :enabled => true)                     
   end
 end
