@@ -1,7 +1,7 @@
 <div id="birth-control-set">
 	<div class="setting-set-title">Configure the birth control options below</div>
 	<div class="setting-set-hint">21 day cycle will receive 21 texts, and then have a 7 day break.
-								  28 day cycle will message you 28 times a cycle. </div>
+								  28 day cycle will text you 28 times a cycle. </div>
 	<div class="setting-set">
 		<div class="day-box">
 			<div class="form">
@@ -10,11 +10,18 @@
 					<%= f.select("pill_length", %w[21 28]) %> day cycle.
 				</div>
 				<div class="pill-current-day">
-					Which pill # did you take TODAY (or will take today at the reminder time)? <br />
-					<%= f.select("pill_day", (1..28).to_a) %>
+					Which cycle day are you currently on? <%= f.select("pill_day", (1..28).to_a) %>
+					<i>(If on the 21 day cycle, pick the <br /> spacer (sugar pill) # you would be on).</i>
 				</div>
 				<div class="pill-reminder-time">
 					Reminder Time: <%= f.time_select :pill_delivery_time, :minute_step => 30, :twelve_hour => true, :default => Time.parse("7:00 a.m.").to_datetime%>
+				</div>
+				
+				<div class="pill-info">
+				<br/>
+				<b>You will start receiving reminders on the next cycle day if you're on the <br /> 
+				28 day cycle. If you're on the 21 day cycle you will receive reminders on the <br /> 
+				next non-spacer day. </b>
 				</div>
 			</div>
 		</div>

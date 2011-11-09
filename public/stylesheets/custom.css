@@ -673,8 +673,15 @@ h1 {
 .pill-current-day{
 	padding-top:2px;
 	padding-bottom:8px;
-	width:440px;
+	width:550px;
 }
+
+.pill-info{
+	padding-top:2px;
+	padding-bottom:8px;
+	width:550px;
+}
+
 
 .pill-reminder-time{
 	padding-top:2px;
