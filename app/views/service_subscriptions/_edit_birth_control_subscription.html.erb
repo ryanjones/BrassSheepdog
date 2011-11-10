@@ -11,7 +11,7 @@
 				</div>
 				<div class="pill-current-day">
 					Which cycle day are you currently on? <%= f.select("pill_day", (1..28).to_a) %>
-					<i>(If on the 21 day cycle, pick the <br /> spacer (sugar pill) # you would be on).</i>
+					<i>(If on the 21 day cycle, pick the <br /> spacer pill # you would be on).</i>
 				</div>
 				<div class="pill-reminder-time">
 					Reminder Time: <%= f.time_select :pill_delivery_time, :minute_step => 30, :twelve_hour => true, :default => Time.parse("7:00 a.m.").to_datetime%>
