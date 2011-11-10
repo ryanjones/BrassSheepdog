@@ -10,8 +10,8 @@
 					<%= f.select("pill_length", %w[21 28]) %> day cycle.
 				</div>
 				<div class="pill-current-day">
-					Which cycle day are you currently on? <%= f.select("pill_day", (1..28).to_a) %>
-					<i>(If on the 21 day cycle, pick the <br /> spacer pill # you would be on).</i>
+					Which cycle day are you currently on (today's cycle)? <%= f.select("pill_day", (1..28).to_a) %>
+					<i>(If you're on the<br /> 21 day cycle, pick  the  spacer pill # you would be on).</i>
 				</div>
 				<div class="pill-reminder-time">
 					Reminder Time: <%= f.time_select :pill_delivery_time, :minute_step => 30, :twelve_hour => true, :default => Time.parse("7:00 a.m.").to_datetime%>
