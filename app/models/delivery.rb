@@ -52,12 +52,10 @@ class Delivery < ActiveRecord::Base
             AlertMailer.alert_email(user, subscription.alert_content, subscription.alert_subject).deliver
           end
           
+            # any actiosn needed after the alert is sent
             subscription.alert_sent
         end 
-        
-        # testing lewp
-        # puts user.phone_number
-        # puts subscription.name
+
       end
     end
   end

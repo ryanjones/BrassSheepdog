@@ -1,5 +1,6 @@
 class BirthControlSubscription < ServiceSubscription
-  attr_accessible :pill_day, :pill_length, :pill_delivery_time
+  #updated_by_user is to ONLY be updated on the front end (through the view)
+  attr_accessible :pill_day, :pill_length, :pill_delivery_time, :updated_by_user
   
   validates_presence_of :pill_day
   validates_presence_of :pill_length
@@ -31,10 +32,7 @@ class BirthControlSubscription < ServiceSubscription
   
   def next_alert_time
     # Determine the net alert time
-    pickup_time = self.pill_delivery_time.to_time
-    pickup_day = self.pill_delivery_time.to_date
-    
-    alert_day = pickup_day + 1.day
+    alert_day = self.pill_delivery_time.to_date + 1.day
     alert_time = (self.pill_delivery_time.hour * 3600 + self.pill_delivery_time.min * 60 + self.pill_delivery_time.sec).seconds.since(alert_day).in_time_zone
     
     alert_time.strftime("%I:%M %p %a, %b, #{alert_time.to_time.day.ordinalize} %Y")
@@ -52,6 +50,7 @@ class BirthControlSubscription < ServiceSubscription
     def birth_control_now?
       # Check if the updated at date is todays date. If they don't match update the pill # and save
       # We only send messages on the NEXT day from when they set there cycle
+      # By Doing this we match the next_alert_time method
       
       # Scenarios:
       
@@ -76,7 +75,7 @@ class BirthControlSubscription < ServiceSubscription
       
       
       # We increment the pill (cycle #) if the updated date != todays date
-      unless self.updated_at.to_date == Date.today
+      unless self.updated_by_user.to_date == Date.today
         # If we're at 28 we need to go back to 1
         if self.pill_day == 28
           self.pill_day = 1
@@ -101,11 +100,6 @@ class BirthControlSubscription < ServiceSubscription
       send_message
     end
     
-    def update_pill_number
- 
-      
-
-    end
     
     def approximately_now?(current_time = DateTime.now)
       # determine how many seconds apart the delivery is from the current time

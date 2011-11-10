@@ -113,6 +113,7 @@ ActiveRecord::Schema.define(:version => 20111104223247) do
     t.integer  "pill_day",                 :default => 0
     t.datetime "pill_delivery_time"
     t.integer  "pill_length",              :default => 0
+    t.datetime "updated_by_user"
   end
 
   create_table "services", :force => true do |t|
