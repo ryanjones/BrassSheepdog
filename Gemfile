@@ -17,6 +17,7 @@ gem 'whenever'
 gem 'jquery-rails'
 gem 'tabs_on_rails'
 gem 'twilio-ruby'
+gem 'recaptcha', :require => 'recaptcha/rails'
 
 group :production do
   gem 'mysql2', '=0.2.6'

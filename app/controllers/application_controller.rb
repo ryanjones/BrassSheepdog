@@ -3,6 +3,7 @@ require File.join(Rails.root, 'lib', 'authenticated_system.rb')
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
+  
   #use the default layout unless overridden
   layout "default"
   

@@ -31,14 +31,24 @@ class PagesController < ApplicationController
   def contact_submit
     @contact  = Contact.new(params[:contact])
     
-    if @contact.valid?
-      ContactMailer.contact_form(@contact).deliver
-      flash.now[:notice] = "Thanks for contacting us! We'll respond as soon as possible."
-      @contact = Contact.new
-      render :action => 'contact'
+    if verify_recaptcha(:model => @contact, :message => "Invalid Captcha Entry")
+      #valid
+      if @contact.valid?
+        ContactMailer.contact_form(@contact).deliver
+        flash.now[:notice] = "Thanks for contacting us! We'll respond as soon as possible."
+        @contact = Contact.new
+        render :action => 'contact'
+      else  
+        # invalid captcha
+        flash.now[:error] = "Sorry we\'re unable to process the contact request. Please fix the fields below:"
+        render :action => 'contact'
+      end
     else  
-       flash.now[:error] = "Sorry we\'re unable to process the contact request. Please fix the fields below:"
-       render :action => 'contact'
+      #not valid
+      #since we display our flash array we need to remove the recaptcha error
+      flash.delete(:recaptcha_error)
+      flash.now[:error] = "Sorry we\'re unable to process the contact request. Please fix the fields below:"
+      render :action => 'contact'
     end
   end
 

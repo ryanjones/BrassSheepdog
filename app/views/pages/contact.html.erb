@@ -21,10 +21,11 @@
 			<%= form.label :message %>
 			<%= form.text_area :message, :cols => 58, :rows => 20 %>
 		</p>
-
-			<div id ="contact_btn">
-			  <%= submit_tag 'Contact!', :class => "sexybutton sexysimple"%>
-		  </div>
+		<div id ="contact_btn">
+			<p><%= recaptcha_tags %></p>
+			<p><%= submit_tag 'Contact!', :class => "sexybutton sexysimple"%></p>
+		</div>
 	<% end %>
+
 	</div>
 </div>
