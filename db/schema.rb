@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111104223247) do
+ActiveRecord::Schema.define(:version => 20111114060650) do
 
   create_table "addresses", :force => true do |t|
     t.datetime "created_at"
@@ -84,6 +84,22 @@ ActiveRecord::Schema.define(:version => 20111104223247) do
     t.datetime "updated_at"
   end
 
+  create_table "roadway_alert_subscriptions", :force => true do |t|
+    t.datetime "last_update_sent"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roadway_alerts", :force => true do |t|
+    t.string   "atom_title"
+    t.datetime "atom_modified"
+    t.string   "atom_id"
+    t.string   "atom_email"
+    t.string   "alert_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "service_subscriptions", :force => true do |t|
     t.string   "name"
     t.string   "type"
@@ -92,28 +108,32 @@ ActiveRecord::Schema.define(:version => 20111104223247) do
     t.integer  "user_id"
     t.integer  "service_id"
     t.datetime "delivery_time"
-    t.boolean  "sms_enabled",              :default => true
+    t.boolean  "sms_enabled",                  :default => true
     t.string   "zone"
     t.integer  "day"
-    t.boolean  "day_before",               :default => true
+    t.boolean  "day_before",                   :default => true
     t.boolean  "manual_zone"
     t.string   "address"
-    t.boolean  "update_about_northeast",   :default => true
-    t.boolean  "update_about_northwest",   :default => true
-    t.boolean  "update_about_southside",   :default => true
-    t.boolean  "send_only_on_change",      :default => true
+    t.boolean  "update_about_northeast",       :default => true
+    t.boolean  "update_about_northwest",       :default => true
+    t.boolean  "update_about_southside",       :default => true
+    t.boolean  "send_only_on_change",          :default => true
     t.boolean  "previous_northeast_state"
     t.boolean  "previous_northwest_state"
     t.boolean  "previous_southside_state"
     t.boolean  "current_northeast_state"
     t.boolean  "current_northwest_state"
     t.boolean  "current_southside_state"
-    t.boolean  "email_enabled",            :default => true
-    t.integer  "previous_votes_cast",      :default => 0
-    t.integer  "pill_day",                 :default => 0
+    t.boolean  "email_enabled",                :default => true
+    t.integer  "previous_votes_cast",          :default => 0
+    t.integer  "pill_day",                     :default => 0
     t.datetime "pill_delivery_time"
-    t.integer  "pill_length",              :default => 0
+    t.integer  "pill_length",                  :default => 0
     t.datetime "updated_by_user"
+    t.datetime "last_roadway_update_sent"
+    t.boolean  "winter_parking_ban",           :default => false
+    t.boolean  "residential_snow_maintenance", :default => false
+    t.boolean  "spring_street_cleaning",       :default => false
   end
 
   create_table "services", :force => true do |t|
@@ -124,6 +144,15 @@ ActiveRecord::Schema.define(:version => 20111104223247) do
     t.string   "description"
     t.boolean  "enabled",      :default => true
   end
+
+  create_table "simple_captcha_data", :force => true do |t|
+    t.string   "key",        :limit => 40
+    t.string   "value",      :limit => 6
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "simple_captcha_data", ["key"], :name => "idx_key"
 
   create_table "users", :force => true do |t|
     t.string   "login",                     :limit => 40
