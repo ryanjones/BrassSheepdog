@@ -1,6 +1,6 @@
 class RoadwayAlertSubscription < ActiveRecord::Base
-  attr_accessible :last_roadway_update_sent, 
-                  :alert_type
+  attr_accessible :last_roadway_update_sent,
+                  :time_alert_sent_by_coe
   
   HUMANIZED_ATTRIBUTES = {
     }
@@ -26,26 +26,24 @@ class RoadwayAlertSubscription < ActiveRecord::Base
   def alert_content
     message = String.new
     
-    #only send informatio for which the user is interested
-    if (self.winter_parking_ban && alert_type == 'Winter Parking Ban')
-      message += "Winter Parking Ban Alert as of " # + time sent        
+    if self.in_effect == true
+      message = "Seasonal parking ban issued as of #{self.time_alert_sent_by_coe}"
+    else
+      message = "Seasonal parking ban retracted as of #{self.time_alert_sent_by_coe}"
     end
-    if (self.residential_snow_maintenance && alert_type == 'Residential Snow Maintenace')
-      message += "Residential Snow Maintenace Alert as of " # + time sent        
-    end
-    if (self.spring_street_cleaning && alert_type == 'Spring Street Cleaning')
-      message += "Spring Street Cleaning Alert as of " # + time sent     
-    end
-    
   end
   
   #define the subject line for alerts sent to the user
   def alert_subject
-    "An Alert has been sent from the city!"
+    if self.in_effect == true
+      message = "Seasonal parking ban issued from the city!"
+    else
+      message = "Seasonal parking ban retracted from the city!"
+    end
   end
   
   def next_alert_time
-    "When COE issues an alert"
+    "When COE issues a Seasonal Parking Ban"
   end
 
   
@@ -53,31 +51,23 @@ class RoadwayAlertSubscription < ActiveRecord::Base
   def alert_user?
     # check the necessary conditions
     # in order of increasing cost
-    self.enabled? && alert_received?
+    self.enabled? && new_alert_received?
   end
   
   private 
 
-    def alert_received?
-      roadway_alerts = RoadwayAlerts.all
+    def new_alert_received?
+      send_alert = false
+      recent_roadway_alert = RoadwayAlerts.find(:first, :order =>"atom_modified DESC")
       
-      #psuedo code for now
-      if (alert_type == winter_parking_ban)
-        self.alert_type = 'Winter Parking Ban'
-      end
-      if (alert_type == residential_snow_maintenance)
-        self.alert_type = 'Residential Snow Maintenace'     
-      end
-      if (alert_type == spring_street_cleaning)
-        self.alert_type = 'Spring Street Cleaning'
+      # Check if we need to send a new alert
+      if recent_roadway_alert.atom_modified > self.last_roadway_update_sent
+        self.time_alert_sent_by_coe = recent_roadway_alert.atom_modified
+        self.in_effect = recent_roadway_alert.in_effect
+        send_alert = true
       end
       
-      # Get the most recent UNSENT Alert (if we get 2 alerts within 2 minutes
-      # we need to be send an alert for the first one, and then send another alert
-      # in 30 minutes (going to have to be some epic time logic here))
-      
-      # either that or edit the delivery routine to do a "for each" email alert
-      
+      send_alert
     end
   
   

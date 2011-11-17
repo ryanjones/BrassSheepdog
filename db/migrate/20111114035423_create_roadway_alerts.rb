@@ -6,6 +6,7 @@ class CreateRoadwayAlerts < ActiveRecord::Migration
       t.string :atom_id
       t.string :atom_email
       t.string :alert_type
+      t.boolean :in_effect
 
       t.timestamps
     end
