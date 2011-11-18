@@ -1,6 +1,8 @@
-class RoadwayAlertSubscription < ActiveRecord::Base
+class RoadwayAlertSubscription < ServiceSubscription
   attr_accessible :last_roadway_update_sent,
-                  :time_alert_sent_by_coe
+                  :time_alert_sent_by_coe,
+                  :winter_parking_ban
+                  
   
   HUMANIZED_ATTRIBUTES = {
     }
@@ -17,9 +19,9 @@ class RoadwayAlertSubscription < ActiveRecord::Base
     self[:service_id] or self.service.id
   end
   
-  #hardcode the service if not set
+  #hardcode the service if not set (must be singular like the model)
   def service
-      self.original_service or Service.find_by_name("RoadwayAlerts")
+      self.original_service or Service.find_by_name("RoadwayAlert")
   end
   
   #define the message which will get sent to the uer

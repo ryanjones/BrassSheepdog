@@ -67,7 +67,7 @@ def load_services
                         :description => "This service will remind you to take your birth control by sending you a reminder along with the pill number that you need to take for that day.",
                         :enabled => true)                     
   end
-  unless Service.find_by_name("RoadwayAlerts")
+  unless Service.find_by_name("RoadwayAlert")
                         Service.create!(
                         :name => "RoadwayAlerts",
                         :display_name => "Roadway Alerts",
