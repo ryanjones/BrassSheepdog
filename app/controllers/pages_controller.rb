@@ -8,7 +8,7 @@ class PagesController < ApplicationController
   set_tab :faq, :only => :faq
 
   def home
-    @title = "Updates and Alerts right to your phone!"
+    @title = "Edmonton's Garbage Pickup Reminders and more!"
     @description = "Alertzy provides free sms-updates for Edmonton residents from our services.  Our services include Garbage Pickup schedules, sports field closures, and many more are coming soon."
   end
   
