@@ -27,7 +27,7 @@ class RoadwayAlert < ActiveRecord::Base
                                     :atom_modified => rss.modified,
                                     :atom_id => rss.id,
                                     :atom_email => rss_email,
-                                    :alert_type => 'Seasonal Parking Ban' 
+                                    :alert_type => 'Seasonal Parking Ban',
                                     :in_effect => true})      
           else
             # Check if Alert exists in the DB (dont wanna hit the db each time, so I'll cycle through this array)
@@ -46,7 +46,7 @@ class RoadwayAlert < ActiveRecord::Base
                                       :atom_modified => rss.modified,
                                       :atom_id => rss.id,
                                       :atom_email => rss_email,
-                                      :alert_type => 'Seasonal Parking Ban'
+                                      :alert_type => 'Seasonal Parking Ban',
                                       :in_effect => true })      
               end
             end # each roadway end  

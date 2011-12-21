@@ -1,7 +1,8 @@
 class RoadwayAlertSubscription < ServiceSubscription
   attr_accessible :last_roadway_update_sent,
                   :time_alert_sent_by_coe,
-                  :winter_parking_ban
+                  :winter_parking_ban,
+                  :in_effect
                   
   
   HUMANIZED_ATTRIBUTES = {
