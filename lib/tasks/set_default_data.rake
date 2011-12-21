@@ -69,7 +69,7 @@ def load_services
   end
   unless Service.find_by_name("RoadwayAlert")
                         Service.create!(
-                        :name => "RoadwayAlerts",
+                        :name => "RoadwayAlert",
                         :display_name => "Roadway Alerts",
                         :description => "This service will send you an alert 8 hours before a seasonal parking ban is in effect. During this time you must remove your vehicle from the seasonal parking zones.",
                         :enabled => true)                     
