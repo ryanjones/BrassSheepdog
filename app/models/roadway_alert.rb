@@ -53,6 +53,50 @@ class RoadwayAlert < ActiveRecord::Base
           end # roadway count end   
         end # rss author end
       end # rss title end
+      
+      
+      if rss.title =~ /Residential Bus Route Parking Ban Ends/
+        # Regex email out of author
+        rss_email_array = rss.author.split(/\n/)
+        rss_email = rss_email_array[1]
+        
+        # Make sure it's coming from the road alerts email
+        if rss.author =~ /#{rss_email}/
+
+          # Check if we have any alerts in our db
+          if all_roadway_alerts.count == 0
+            # We'll only come into here on our first run through
+            # Add any existing parking bans
+              RoadwayAlert.create!({:atom_title => rss.title,
+                                    :atom_modified => rss.modified,
+                                    :atom_id => rss.id,
+                                    :atom_email => rss_email,
+                                    :alert_type => 'Seasonal Parking Ban',
+                                    :in_effect => false})      
+          else
+            # Check if Alert exists in the DB (dont wanna hit the db each time, so I'll cycle through this array)
+            all_roadway_alerts.each do |alert|
+              found = false
+
+              # Check to see if a pair is found
+              if alert.atom_id == rss.id 
+                # the id has been found! found is true
+                found = true
+              end
+              
+              # Add the item to the DB if it's not found
+              if found == false
+                RoadwayAlert.create!({:atom_title => rss.title,
+                                      :atom_modified => rss.modified,
+                                      :atom_id => rss.id,
+                                      :atom_email => rss_email,
+                                      :alert_type => 'Seasonal Parking Ban',
+                                      :in_effect => false })      
+              end
+            end # each roadway end  
+          end # roadway count end   
+        end # rss author end
+      end # rss title end
     end #rss do end
   end #update end  
      

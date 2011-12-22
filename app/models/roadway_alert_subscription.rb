@@ -29,10 +29,13 @@ class RoadwayAlertSubscription < ServiceSubscription
   def alert_content
     message = String.new
     
+    # add 8 hours to the alert ( min 8 hours warning via the city) and apply a sexy format
+    time_plus_8 = (self.time_alert_sent_by_coe + 8.hours).to_formatted_s(:long_ordinal)
+
     if self.in_effect == true
-      message = "Seasonal parking ban issued as of #{self.time_alert_sent_by_coe}"
+      message = "Seasonal parking ban issued. Begins as of #{time_plus_8}"
     else
-      message = "Seasonal parking ban retracted as of #{self.time_alert_sent_by_coe}"
+      message = "Seasonal parking ban retracted. You can park after #{time_plus_8}"
     end
   end
   
