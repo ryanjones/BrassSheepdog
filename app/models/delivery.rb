@@ -1,6 +1,7 @@
 class Delivery < ActiveRecord::Base
   def self.scheduled_events
     FieldStatus.update
+    RoadwayAlert.update
     # ElectionResultSet.update
     Delivery.check_subscription
   end

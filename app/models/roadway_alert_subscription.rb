@@ -30,9 +30,9 @@ class RoadwayAlertSubscription < ServiceSubscription
     message = String.new
     
     # add 8 hours to the alert ( min 8 hours warning via the city) and apply a sexy format
-    time_plus_8 = (self.time_alert_sent_by_coe + 8.hours).to_formatted_s(:long_ordinal)
+    time_plus_8 = (@time_alert_sent_by_coe + 8.hours).to_formatted_s(:long_ordinal)
 
-    if self.in_effect == true
+    if @in_effect == true
       message = "Seasonal parking ban issued. Begins as of #{time_plus_8}"
     else
       message = "Seasonal parking ban retracted. You can park after #{time_plus_8}"
@@ -41,7 +41,7 @@ class RoadwayAlertSubscription < ServiceSubscription
   
   #define the subject line for alerts sent to the user
   def alert_subject
-    if self.in_effect == true
+    if @in_effect == true
       message = "Seasonal parking ban issued from the city!"
     else
       message = "Seasonal parking ban retracted from the city!"
@@ -64,13 +64,23 @@ class RoadwayAlertSubscription < ServiceSubscription
 
     def new_alert_received?
       send_alert = false
-      recent_roadway_alert = RoadwayAlerts.find(:first, :order =>"atom_modified DESC")
-      
-      # Check if we need to send a new alert
-      if recent_roadway_alert.atom_modified > self.last_roadway_update_sent
-        self.time_alert_sent_by_coe = recent_roadway_alert.atom_modified
-        self.in_effect = recent_roadway_alert.in_effect
+      recent_roadway_alert = RoadwayAlert.find(:first, :order =>"atom_modified DESC")
+
+      # Check if an alert has been sent to us before
+      if self.last_roadway_update_sent.nil?
+        # We've never received an alert so we deff need to send one
+        @time_alert_sent_by_coe = recent_roadway_alert.atom_modified
+        @in_effect = recent_roadway_alert.in_effect
+        self.save! #save changes
         send_alert = true
+      else
+        # Check if we need to send a new alert
+        if recent_roadway_alert.atom_modified.to_datetime > self.last_roadway_update_sent
+          @time_alert_sent_by_coe = recent_roadway_alert.atom_modified
+          @in_effect = recent_roadway_alert.in_effect
+          self.save! #save changes
+          send_alert = true
+        end
       end
       
       send_alert
