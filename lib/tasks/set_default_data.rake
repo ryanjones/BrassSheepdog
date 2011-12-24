@@ -71,7 +71,7 @@ def load_services
                         Service.create!(
                         :name => "RoadwayAlert",
                         :display_name => "Roadway Alerts",
-                        :description => "This service will send you an alert 8 hours before a seasonal parking ban is in effect. During this time you must remove your vehicle from the seasonal parking zones.",
+                        :description => "This service will send you an alert 8 hours before a seasonal parking ban is in effect. During this time you must remove your vehicle from the seasonal parking zones. When the alert is retracted we'll let you know when you're allowed back on the seasonal parking routes!",
                         :enabled => true)                     
   end
   
