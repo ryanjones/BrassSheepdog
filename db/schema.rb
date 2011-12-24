@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111104223247) do
+ActiveRecord::Schema.define(:version => 20111114060650) do
 
   create_table "addresses", :force => true do |t|
     t.datetime "created_at"
@@ -84,6 +84,17 @@ ActiveRecord::Schema.define(:version => 20111104223247) do
     t.datetime "updated_at"
   end
 
+  create_table "roadway_alerts", :force => true do |t|
+    t.string   "atom_title"
+    t.datetime "atom_modified"
+    t.string   "atom_id"
+    t.string   "atom_email"
+    t.string   "alert_type"
+    t.boolean  "in_effect"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "service_subscriptions", :force => true do |t|
     t.string   "name"
     t.string   "type"
@@ -114,6 +125,8 @@ ActiveRecord::Schema.define(:version => 20111104223247) do
     t.datetime "pill_delivery_time"
     t.integer  "pill_length",              :default => 0
     t.datetime "updated_by_user"
+    t.datetime "last_roadway_update_sent"
+    t.boolean  "winter_parking_ban",       :default => false
   end
 
   create_table "services", :force => true do |t|

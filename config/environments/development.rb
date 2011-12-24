@@ -25,4 +25,6 @@ Alertzy::Application.configure do
   #  config.action_mailer.delivery_method = :sendmail
 
   SITE_URL = "localhost:3000"
+  
+  config.active_support.deprecation = :log
 end

@@ -62,9 +62,17 @@ def load_services
   end
   unless Service.find_by_name("BirthControl")
                         Service.create!(
-                             :name => "BirthControl",
-                             :display_name => "Birth Control Reminder",
-                             :description => "This service will remind you to take your birth control by sending you a reminder along with the pill number that you need to take for that day.",
-                             :enabled => true)                     
+                        :name => "BirthControl",
+                        :display_name => "Birth Control Reminder",
+                        :description => "This service will remind you to take your birth control by sending you a reminder along with the pill number that you need to take for that day.",
+                        :enabled => true)                     
   end
+  unless Service.find_by_name("RoadwayAlert")
+                        Service.create!(
+                        :name => "RoadwayAlert",
+                        :display_name => "Roadway Alerts",
+                        :description => "This service will send you an alert 8 hours before a seasonal parking ban is in effect. During this time you must remove your vehicle from the seasonal parking zones. When the alert is retracted we'll let you know when you're allowed back on the seasonal parking routes!",
+                        :enabled => true)                     
+  end
+  
 end

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  atom_title: MyString
+  atom_modified: 2011-11-13 20:54:23
+  atom_id: MyString
+  atom_email: MyString
+
+two:
+  atom_title: MyString
+  atom_modified: 2011-11-13 20:54:23
+  atom_id: MyString
+  atom_email: MyString

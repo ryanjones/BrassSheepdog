@@ -18,6 +18,7 @@ gem 'jquery-rails'
 gem 'tabs_on_rails'
 gem 'twilio-ruby'
 gem 'recaptcha', :require => 'recaptcha/rails'
+gem 'rest-client'
 
 group :production do
   gem 'mysql2', '=0.2.6'
