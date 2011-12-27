@@ -27,7 +27,7 @@ namespace :deploy do
   end
 end
 
-after "deploy:symlink" #, "deploy:update_crontab"
+after "deploy:symlink"
 
 namespace :deploy do
   desc "Update the crontab file"
