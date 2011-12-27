@@ -65,7 +65,7 @@ class RoadwayAlertSubscription < ServiceSubscription
     def new_alert_received?
       send_alert = false
       recent_roadway_alert = RoadwayAlert.find(:first, :order =>"atom_modified DESC")
-      
+
       unless recent_roadway_alert.nil?
         # Check if an alert has been sent to us before
         if self.last_roadway_update_sent.nil?
