@@ -65,24 +65,25 @@ class RoadwayAlertSubscription < ServiceSubscription
     def new_alert_received?
       send_alert = false
       recent_roadway_alert = RoadwayAlert.find(:first, :order =>"atom_modified DESC")
-
-      # Check if an alert has been sent to us before
-      if self.last_roadway_update_sent.nil?
-        puts "here"
-        # We've never received an alert so we deff need to send one
-        @time_alert_sent_by_coe = recent_roadway_alert.atom_modified
-        @in_effect = recent_roadway_alert.in_effect
-        self.last_roadway_update_sent = recent_roadway_alert.atom_modified.to_datetime
-        self.save! #save changes
-        send_alert = true
-      else
-        # Check if we need to send a new alert
-        if recent_roadway_alert.atom_modified.to_datetime > self.last_roadway_update_sent
+      
+      unless recent_roadway_alert.nil?
+        # Check if an alert has been sent to us before
+        if self.last_roadway_update_sent.nil?
+          # We've never received an alert so we deff need to send one
           @time_alert_sent_by_coe = recent_roadway_alert.atom_modified
           @in_effect = recent_roadway_alert.in_effect
           self.last_roadway_update_sent = recent_roadway_alert.atom_modified.to_datetime
           self.save! #save changes
           send_alert = true
+        else
+          # Check if we need to send a new alert
+          if recent_roadway_alert.atom_modified.to_datetime > self.last_roadway_update_sent
+            @time_alert_sent_by_coe = recent_roadway_alert.atom_modified
+            @in_effect = recent_roadway_alert.in_effect
+            self.last_roadway_update_sent = recent_roadway_alert.atom_modified.to_datetime
+            self.save! #save changes
+            send_alert = true
+          end
         end
       end
       
