@@ -31,11 +31,20 @@ class BirthControlSubscription < ServiceSubscription
   end
   
   def next_alert_time
-    # Determine the net alert time
-    alert_day = self.pill_delivery_time.to_date + 1.day
-    alert_time = (self.pill_delivery_time.hour * 3600 + self.pill_delivery_time.min * 60 + self.pill_delivery_time.sec).seconds.since(alert_day).in_time_zone
+    # Make time sexy
+    dd = DateTime.parse(self.pill_delivery_time.to_s)
+    tt = Time.parse(dd.to_s)
+    # borat hahahahaha...
+    sexy_time = tt.strftime("%I:%M%p")
     
-    alert_time.strftime("%I:%M %p %a, %b, #{alert_time.to_time.day.ordinalize} %Y")
+    # Determine the next pill
+    if self.pill_length == 28
+      "Pill # #{self.pill_day + 1} at #{sexy_time}"
+    elsif self.pill_length == 21 && self.pill_day >= 21
+      "You're currently within your 7 day break"
+    elsif self.pill_length == 21 && self.pill_day <= 21
+      "Pill # #{self.pill_day + 1} at #{sexy_time}"
+    end
   end
   
   #method to determine whether an alert should be sent to the subscribed user
