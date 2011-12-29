@@ -39,11 +39,11 @@ class BirthControlSubscription < ServiceSubscription
     
     # Determine the next pill
     if self.pill_length == 28
-      "Pill # #{self.pill_day + 1} at #{sexy_time}"
+      "Pill # #{self.pill_day + 1}"
     elsif self.pill_length == 21 && self.pill_day >= 21
       "You're currently within your 7 day break"
     elsif self.pill_length == 21 && self.pill_day <= 21
-      "Pill # #{self.pill_day + 1} at #{sexy_time}"
+      "Pill # #{self.pill_day + 1}"
     end
   end
   
