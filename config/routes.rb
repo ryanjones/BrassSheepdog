@@ -32,6 +32,11 @@ ActionController::Routing::Routes.draw do
     end
   resources :service_subscriptions
   resources :services, :only => [:index]
+  resources :advertisements, :only => [:index] do
+    collection do
+      post "post_data"
+    end
+  end
   
   # Resource
   resource :sms_message, :only => [:new, :create, :incoming] do

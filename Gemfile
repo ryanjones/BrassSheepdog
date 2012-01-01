@@ -19,6 +19,7 @@ gem 'tabs_on_rails'
 gem 'twilio-ruby'
 gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'rest-client'
+gem 'will_paginate'
 
 group :production do
   gem 'mysql2', '=0.2.6'
@@ -26,5 +27,6 @@ end
 
 group :development do
   gem 'capistrano'
-  gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'thin'
+  #gem 'ruby-debug19', :require => 'ruby-debug'
 end
