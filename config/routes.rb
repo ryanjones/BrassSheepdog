@@ -33,8 +33,10 @@ ActionController::Routing::Routes.draw do
   resources :service_subscriptions
   resources :services, :only => [:index]
   resources :advertisements, :only => [:index] do
+    
     collection do
-      post "post_data"
+      post 'post_data'
+      get 'services'
     end
   end
   

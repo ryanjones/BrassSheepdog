@@ -4,20 +4,28 @@
 <%=jqgrid_stylesheets%> 
 
 <%=raw jqgrid("Listing advertisements", "advertisements", "/advertisements", 
-[ 
-   
-  { :field => "id", :label => "id" }, 
-   
-  { :field => "name", :label => "name", :editable => true }, 
-   
-  { :field => "company", :label => "company", :editable => true }, 
-   
-  { :field => "enabled", :label => "enabled", :editable => true, 
-    :edittype => "checkbox", :editoptions=> { :value => {true:'true',false:'false'}} }, 
-   
-  { :field => "credits", :label => "credits", :editable => true }, 
-   
-  { :field => "content", :label => "content", :editable => true } 
-   
-  ] , {:autowidth=>true,:add => true,:edit => true,:delete => true,:view => true,:edit_url => post_data_advertisements_url,:sortable_rows => 'true'}
-  ) %>
+  [ 
+    { :field => "id", :label => "id" }, 
+    { :field => "name", :label => "name", :editable => true }, 
+    { :field => "company", :label => "company", :editable => true }, 
+    { :field => "enabled", :label => "enabled", :editable => true, 
+      :edittype => "checkbox", :editoptions => { :value => {true:'true',false:'false'}} }, 
+    { :field => "credits", :label => "credits", :editable => true }, 
+    { :field => "content", :label => "content", :editable => true } 
+  ] , 
+  {
+    :subgrid => { :url => "/advertisements/services",
+            :columns => [
+                          { :field => "id", :label => "id",},
+                          { :field => "name", :label => "service"}
+                        ]
+                }
+    # :autowidth=> true, :add => true,
+    # :edit => true, :delete => true,
+    # :view => true, :edit_url => post_data_advertisements_url,
+    # :sortable_rows => 'true'
+   }
+) %>
+  
+<!--   {:autowidth=>true,:add => true,:edit => true,:delete => true,
+   :view => true,:edit_url => post_data_advertisements_url,:sortable_rows => 'true', -->

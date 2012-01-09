@@ -2,6 +2,30 @@ class AdvertisementsController < ApplicationController
   respond_to :html,:json
   
   protect_from_forgery :except => [:post_data]
+  
+  def services
+    if params[:id].present?
+      services = Service.all 
+      services.to_json
+      # all the shit below me commented out is broken. Not sure why.
+      
+      #Service.select('*').joins(:advertisements).where('advertisements.id = ?', params[:id])
+
+       
+       # services do # this is really broken infinite loop
+      
+         # paginate :page => params[:page], :per_page => params[:rows]      
+         # order_by "#{params[:sidx]} #{params[:sord]}"        
+       # end
+       total_entries = services.count
+    else
+      services = []
+      total_entries = 0
+    end
+    if request.xhr?
+      render :json => services.to_jqgrid_json([:id,:name], 1, 1, total_entries) and return
+    end
+  end
 
   def post_data
     message=""
