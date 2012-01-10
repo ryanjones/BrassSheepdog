@@ -6,7 +6,7 @@ class Service < ActiveRecord::Base
   has_many :city_election_subscriptions, :dependent => :destroy
   has_many :birth_control_subscriptions, :dependent => :destroy
   has_many :roadway_alert_subscriptions, :dependent => :destroy
-  has_many :advertisements
+  has_and_belongs_to_many :advertisements
   
   validates_presence_of :name
   validates_presence_of :display_name

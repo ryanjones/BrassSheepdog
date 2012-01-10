@@ -1,5 +1,5 @@
 class Advertisement < ActiveRecord::Base
-  belongs_to :service
+  has_and_belongs_to_many :services
   
   # date run length attr? from date a to date b?
   # need validations

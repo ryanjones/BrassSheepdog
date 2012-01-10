@@ -28,5 +28,6 @@ end
 group :development do
   gem 'capistrano'
   gem 'thin'
+  #bundle exec rails server thin , thin start fucks up (no logging)
   #gem 'ruby-debug19', :require => 'ruby-debug'
 end

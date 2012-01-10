@@ -14,11 +14,15 @@
     { :field => "content", :label => "content", :editable => true } 
   ] , 
   {
+    :autowidth => true,:add => true,:edit => true,:delete => true,
+    :view => true,:edit_url => post_data_advertisements_url,:sortable_rows => 'true',
     :subgrid => { :url => "/advertisements/services",
-            :columns => [
-                          { :field => "id", :label => "id",},
-                          { :field => "name", :label => "service"}
-                        ]
+                  :columns => [
+                                { :field => "id", :label => "id", :editable =>true},
+                                { :field => "name", :label => "service"}
+                              ],
+                  :autowidth => true,:add => true, :delete => true,
+                  :view => true, :edit_url => services_post_advertisements_url,
                 }
     # :autowidth=> true, :add => true,
     # :edit => true, :delete => true,
@@ -27,5 +31,4 @@
    }
 ) %>
   
-<!--   {:autowidth=>true,:add => true,:edit => true,:delete => true,
-   :view => true,:edit_url => post_data_advertisements_url,:sortable_rows => 'true', -->
+<!--   { -->

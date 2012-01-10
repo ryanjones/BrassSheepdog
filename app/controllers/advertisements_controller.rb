@@ -3,34 +3,50 @@ class AdvertisementsController < ApplicationController
   
   protect_from_forgery :except => [:post_data]
   
+  def services_post
+    #this needs to be cleaned up. Add and delete. Check if it exists, then add if it doesnt
+    message=""
+
+    case params[:oper]
+    when 'add'
+      service = Service.find_by_id(params[:id])
+      ad = Advertisement.find_by_id(params[:parent_id])
+      ad.services << service
+  
+      advertisement = Advertisement.create(advertisement_params)
+      message << ('add ok') if advertisement.errors.empty?
+    when 'del'
+      ad = Advertisement.find_by_id(params[:parent_id])
+      message <<  ('del ok') if advertisement.errors.empty?
+    else
+      message <<  ('unknown action')
+    end
+    
+    if request.xhr?
+      render :json => ad.services.to_jqgrid_json([:service_id, :display_name], 1, 1, total_entries) and return
+    end
+  end
+  
+  
   def services
     if params[:id].present?
-      services = Service.all 
-      services.to_json
-      # all the shit below me commented out is broken. Not sure why.
-      
-      #Service.select('*').joins(:advertisements).where('advertisements.id = ?', params[:id])
+      ad = Advertisement.find_by_id(params[:id])
+      services = ad.services
 
-       
-       # services do # this is really broken infinite loop
-      
-         # paginate :page => params[:page], :per_page => params[:rows]      
-         # order_by "#{params[:sidx]} #{params[:sord]}"        
-       # end
-       total_entries = services.count
+      total_entries = services.count
     else
       services = []
       total_entries = 0
     end
     if request.xhr?
-      render :json => services.to_jqgrid_json([:id,:name], 1, 1, total_entries) and return
+      render :json => services.to_jqgrid_json([:service_id, :display_name], 1, 1, total_entries) and return
     end
   end
 
   def post_data
     message=""
     advertisement_params = { :id => params[:id],:name => params[:name],:company => params[:company],:enabled => params[:enabled],:credits => params[:credits],:content => params[:content] }
-    Rails.logger.debug advertisement_params.to_s
+
     case params[:oper]
     when 'add'
       if params["id"] == "_empty"
@@ -87,3 +103,8 @@ class AdvertisementsController < ApplicationController
   end
 
 end
+
+
+
+
+# services = Service.select('*').joins(:advertisements).where('advertisements.id = 6', params[:id])
