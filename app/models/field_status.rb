@@ -4,7 +4,7 @@ class FieldStatus < ActiveRecord::Base
     southside_rss = SimpleRSS.parse open('http://coewebapps.edmonton.ca/external/facilitynotifications/rss/SouthsideSportsFields.rss')
     northeast_rss = SimpleRSS.parse open('http://coewebapps.edmonton.ca/external/facilitynotifications/rss/NortheastSportsFields.rss')
     northwest_rss = SimpleRSS.parse open('http://coewebapps.edmonton.ca/external/facilitynotifications/rss/NorthwestSportsFields.rss')
-    update_times = [southside_rss.items.first.pubDate.to_datetime, northeast_rss.items.first.pubDate.to_datetime, northwest_rss.items.first.pubDate.to_datetime]
+    update_times = [southside_rss.items.last.pubDate.to_datetime, northeast_rss.items.last.pubDate.to_datetime, northwest_rss.items.last.pubDate.to_datetime]
     latest_update_time = update_times.max
     if (latest_update_time != self.last_update_time) 
       newupdate = Hash.new
