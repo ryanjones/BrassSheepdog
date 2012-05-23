@@ -8,9 +8,9 @@ class FieldStatus < ActiveRecord::Base
     latest_update_time = update_times.max
     if (latest_update_time != self.last_update_time) 
       newupdate = Hash.new
-      newupdate[:northeast_open] = (northeast_rss.items.first.description.gsub(/^.*Status: (Open|Closed).*$/im, '\\1')  == 'Open')
-      newupdate[:northwest_open] = (northwest_rss.items.first.description.gsub(/^.*Status: (Open|Closed).*$/im, '\\1')  == 'Open')
-      newupdate[:south_open] = (southside_rss.items.first.description.gsub(/^.*Status: (Open|Closed).*$/im, '\\1')  == 'Open')
+      newupdate[:northeast_open] = (northeast_rss.items.last.description.gsub(/^.*Status: (Open|Closed).*$/im, '\\1')  == 'Open')
+      newupdate[:northwest_open] = (northwest_rss.items.last.description.gsub(/^.*Status: (Open|Closed).*$/im, '\\1')  == 'Open')
+      newupdate[:south_open] = (southside_rss.items.last.description.gsub(/^.*Status: (Open|Closed).*$/im, '\\1')  == 'Open')
       newupdate[:update_time] = latest_update_time
     
       FieldStatus.create!(newupdate)
