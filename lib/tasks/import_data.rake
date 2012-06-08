@@ -28,27 +28,34 @@ end
 #will fetch the garabe pickup data from the city data catalogue api
 def load_pickup_data_from_city
   #use ruby odata to feth the data from the api
-  puts "Creating OData connection"
-  svc = OData::Service.new "http://datafeed.edmonton.ca/v1/coe/"
+  puts "Creating API connection"
+  uri = URI.parse("http://data.edmonton.ca/api/views/uqbx-yqac/rows.json")
   #get the garbage schedule collection
-  svc.GarbageCollectionSchedule2011s
   puts "Fetching data from api"
-  pickup_events = svc.execute
+  response = Net::HTTP.get_response(uri)
+  data = ActiveSupport::JSON.decode(response.body)["data"]
   
   puts "Adding data to database"
-  pickup_events.each do |pickup_event|
-    params = Hash.new
-    params[:entity_id] = pickup_event.entityid
-    params[:zone] = pickup_event.zone.gsub(/Zone (\w)/i, '\\1')
-    params[:day] = pickup_event.day.gsub(/Day (\d)/i, '\\1')
-    params[:pickup_date] = pickup_event.pickup_date
-    
-    #create the entry
-    GarbagePickup.create!(params)
+  data.each do |pickup_event|
+    begin
+      params = Hash.new
+      params[:entity_id] = pickup_event[1]
+      params[:zone] = pickup_event[8].gsub(/Zone (\w)/i, '\\1')
+      params[:day] = pickup_event[9].gsub(/Day (\d)/i, '\\1')
+      params[:pickup_date] = Date.strptime(pickup_event[10], '%m/%d/%Y').to_datetime
+      
+      #create the entry
+      GarbagePickup.create!(params)
+    rescue
+      debugger
+      p nil
+    end
   end
 end
 
 #will fetch the garabe pickup data from the city data catalogue api
+
+=begin
 def load_zone_data_from_city
   #use ruby odata to feth the data from the api
   puts "Fetch KML file"
@@ -102,4 +109,5 @@ end
 #   # return the correct zone
 #   map_array[mismapped_zone]
 # end
+=end
         
