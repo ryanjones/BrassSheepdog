@@ -43,6 +43,9 @@ def load_pickup_data_from_city
       params[:zone] = pickup_event[8].gsub(/Zone (\w)/i, '\\1')
       params[:day] = pickup_event[9].gsub(/Day (\d)/i, '\\1')
       params[:pickup_date] = Date.strptime(pickup_event[10], '%m/%d/%Y').to_datetime
+
+      #shim the time to noon to avoid weird date shifting effects
+      params[:pickup_date] = 12.hours.since(params[:pickup_date])
       
       #create the entry
       GarbagePickup.create!(params)
