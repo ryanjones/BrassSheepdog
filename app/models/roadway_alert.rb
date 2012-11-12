@@ -11,7 +11,7 @@ class RoadwayAlert < ActiveRecord::Base
     gmail_rss.items.each do |rss|
       # TODO add parking ban over subject check, set in_effect to false. Need a full cycle before we can release
 
-      if rss.title =~ /Parking Ban Declared/ || rss.title =~ /Parking Ban Ended/ || rss.title =~ /Seasonal Parking Ban Declared/
+      if rss.title =~ /Parking Ban Declared/ || rss.title =~ /Parking Ban Ended/ || rss.title =~ /Seasonal Parking Ban Declared/ || rss.title =~ /Seasonal Parking Ban Has Ended/
         # Regex email out of author
         rss_email_array = rss.author.split(/\n/)
         rss_email = rss_email_array[1]
