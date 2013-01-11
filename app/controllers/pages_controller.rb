@@ -8,7 +8,7 @@ class PagesController < ApplicationController
   set_tab :faq, :only => :faq
 
   def home
-    @title = "Edmonton's Garbage Pickup Reminders and more!"
+    @title = "Edmonton\'s Garbage Pickup Reminders and more!".html_safe
     @description = "Alertzy provides free sms-updates for Edmonton residents from our services.  Our services include Garbage Pickup schedules, sports field closures, and many more are coming soon."
   end
   
@@ -40,14 +40,14 @@ class PagesController < ApplicationController
         render :action => 'contact'
       else  
         # invalid model fields entered
-        flash.now[:error] = "Sorry we\'re unable to process the contact request. Please fix the fields below:"
+        flash.now[:error] = "Sorry we\'re unable to process the contact request. Please fix the fields below:".html_safe
         render :action => 'contact'
       end
     else  
       # invalid captcha
       #since we display our flash array we need to remove the recaptcha error (it adds it to the flash by default)
       flash.delete(:recaptcha_error)
-      flash.now[:error] = "Sorry we\'re unable to process the contact request. Please fix the fields below:"
+      flash.now[:error] = "Sorry we\'re unable to process the contact request. Please fix the fields below:".html_safe
       render :action => 'contact'
     end
   end
