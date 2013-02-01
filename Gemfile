@@ -2,7 +2,7 @@
 # This preamble is the current preamble for Rails 3 apps; edit as needed.
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.19'
+gem 'rails', '3.0.20'
 gem 'rake', '>=0.9.2'
 
 gem 'validatable'
