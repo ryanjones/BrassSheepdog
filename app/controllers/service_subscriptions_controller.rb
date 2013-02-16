@@ -102,7 +102,7 @@ class ServiceSubscriptionsController < ApplicationController
     def correct_user
       if params.has_key?(:id)
         sub = ServiceSubscription.find(params[:id])
-        redirect_to(root_path) unless current_user == sub.user_id
+        redirect_to(root_path) unless current_user.id == sub.user_id
       end
     end
 end
