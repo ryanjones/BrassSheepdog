@@ -25,6 +25,7 @@ group :production do
 end
 
 group :development do
+  gem 'pry'
   gem 'capistrano'
-  gem 'ruby-debug19', :require => 'ruby-debug'
+  #gem 'ruby-debug19', :require => 'ruby-debug'
 end

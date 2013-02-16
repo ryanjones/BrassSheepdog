@@ -1,6 +1,7 @@
 class ServiceSubscriptionsController < ApplicationController
   before_filter :login_required
   before_filter :set_header_link_class
+  before_filter :correct_user, :except => [:index]
 
   set_tab :application
   
@@ -96,5 +97,12 @@ class ServiceSubscriptionsController < ApplicationController
   private
     def set_header_link_class 
       @header_link_class = "subscriptions"
+    end
+
+    def correct_user
+      if params.has_key?(:id)
+        sub = ServiceSubscription.find(params[:id])
+        redirect_to(root_path) unless current_user == sub.first.user_id
+      end
     end
 end
