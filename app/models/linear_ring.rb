@@ -5,10 +5,9 @@ LinearRing.class_eval do
     return false if outside_bounding_box?(point)
     contains_point = false
     i = -1
-    j = self.size - 1
     while (i += 1) < self.size
       a_point_on_polygon = self[i]
-      trailing_point_on_polygon = self[j]
+      trailing_point_on_polygon = self[i-1]
       if point_is_between_the_ys_of_the_line_segment?(point, a_point_on_polygon, trailing_point_on_polygon)
         if ray_crosses_through_line_segment?(point, a_point_on_polygon, trailing_point_on_polygon)
           contains_point = !contains_point

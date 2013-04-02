@@ -7,19 +7,19 @@ class Address < ActiveRecord::Base
   attr_accessible :address_string
 
   def res
-    @res or @res = MultiGeocoder.geocode(self.address_string)
+    @res or @res = Geocoder.coordinates(self.address_string)
   end
   
   def valid?
-    self.res.success
+    !self.res.nil?
   end
   
   def x
-    self.res.lng if self.valid?
+    self.res[1] if self.valid?
   end
   
   def y
-    self.res.lat if self.valid?
+    self.res[0] if self.valid?
   end
   
   def point
@@ -28,8 +28,6 @@ class Address < ActiveRecord::Base
   
   def formatted_zone
     zone = GarbageZone.find_address_zone(self)
-    
-    zone.zone + zone.day.to_s unless zone.nil?
+    zone.day
   end
-  
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111114060650) do
+ActiveRecord::Schema.define(:version => 20130402020355) do
 
   create_table "addresses", :force => true do |t|
     t.datetime "created_at"
@@ -79,10 +79,9 @@ ActiveRecord::Schema.define(:version => 20111114060650) do
   end
 
   create_table "garbage_zones", :force => true do |t|
-    t.string   "zone"
-    t.integer  "day"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "day"
   end
 
   create_table "roadway_alerts", :force => true do |t|

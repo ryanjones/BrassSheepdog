@@ -1,4 +1,5 @@
 require 'ruby_odata'
+require 'pry'
 
 namespace :db do
   desc "Fetch garbage delivery times"
@@ -58,38 +59,26 @@ end
 
 #will fetch the garabe pickup data from the city data catalogue api
 
-=begin
 def load_zone_data_from_city
   #use ruby odata to feth the data from the api
   puts "Fetch KML file"
-  url = "http://datafeed.edmonton.ca/v1/coe/GarbageCollectionZones/?$filter=&format=kml"
+  url = "http://data.edmonton.ca/api/geospatial/edex-dz5d?method=export&format=KML"
   data = Net::HTTP.get URI.parse(url)
   
   puts "Creating xml_object from data"
   xml_object = REXML::Document.new data
   
-  regions = xml_object.elements.to_a('//Placemark')
+  zones = xml_object.elements.to_a('//Placemark')
   
   puts "Adding zones to database"
-  regions.each do |region|
-    params = Hash.new
-    params[:zone] = region.elements[".//SimpleData[@name='ZONE']"].text.gsub(/Zone (\w)/i, '\\1')
-    params[:id] = region.elements[".//SimpleData[@name='ID']"].text.gsub(/ID (\d+)/i, '\\1')
-    params[:day] = region.elements[".//SimpleData[@name='DAY']"].text.gsub(/Day (\d)/i, '\\1')
+  zones.each do |zone|
+    day = zone.elements["description"].text.match(/atr-value">(\w*)</)[1]
     
-    garbage_zone = GarbageZone.find_by_day_and_zone(params[:day], params[:zone])
+    garbage_zone = GarbageZone.find_or_create_by_day(day)
     
-    if garbage_zone.nil?
-      garbage_zone = GarbageZone.create!(:day => params[:day], :zone => params[:zone])
-    end
-    
-    garbage_region = garbage_zone.garbage_regions.create!(:id => params[:id])
-    
-    coordinates_element = region.elements[".//coordinates"]
-
-    puts "Adding coordinates to region"
-    if coordinates_element
-      coordinates = coordinates_element.text.split(" ")
+    zone.get_elements(".//LinearRing/coordinates").each do |region|
+      garbage_region = garbage_zone.garbage_regions.create!
+      coordinates = region.text.split(" ")
       coordinates.each do |coordinate|
         coordinate_array = coordinate.split(",")
         x_coordinate = coordinate_array[0]
@@ -100,7 +89,6 @@ def load_zone_data_from_city
         garbage_region.garbage_coordinates.create!(coord)
       end
     end
-    
   end
 end
 
@@ -112,5 +100,4 @@ end
 #   # return the correct zone
 #   map_array[mismapped_zone]
 # end
-=end
         
