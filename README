@@ -1,15 +1,1 @@
-== Welcome to Rails
-
-Edit nginx config with this:
-  if (-f $document_root/error503.html) {
-    return 503;
-  }
-  error_page 503 @maintenance;
-  location @maintenance {
-    rewrite ^(.*)$ /error503.html break;
-  }
-  
-Make sure file named "error503.html" is in the public directory.
-
-Then run:
-  /opt/nginx/sbin/nginx -s reload
+Alertzy's Repo
